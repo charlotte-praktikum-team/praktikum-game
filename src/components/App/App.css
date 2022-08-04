@@ -2,8 +2,7 @@
   background-color: lightyellow;
 
   &__title {
-   color: orangered;
-   text-align: center;
+    color: orangered;
+    text-align: center;
   }
 }
-
