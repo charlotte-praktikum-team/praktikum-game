@@ -1,17 +1,17 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
   output: {
-    path: path.join(__dirname, "/build"),
+    path: path.join(__dirname, '/build'),
   },
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               configFile: path.resolve(__dirname, 'tsconfig.json'),
-              transpileOnly: true
+              transpileOnly: true,
             },
           },
         ],
@@ -32,13 +32,13 @@ module.exports = {
         test: /\.(?:svg|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
-    ]
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
-  ]
+      template: './src/index.html',
+    }),
+  ],
 };

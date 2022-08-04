@@ -1,14 +1,15 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import App from "./components/App/App";
+import ReactDOM from 'react-dom';
+
+import App from './components/App/App';
 
 const devMode = process.env.NODE_ENV === 'development';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 if (devMode && module && module.hot) {
