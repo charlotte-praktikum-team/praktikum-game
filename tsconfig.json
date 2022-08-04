@@ -12,6 +12,7 @@
     "strictNullChecks": true,
     "sourceMap": true,
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "typeRoots": ["node_modules/@types", "typings"],
