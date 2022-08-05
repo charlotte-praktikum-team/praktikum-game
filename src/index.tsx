@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import App from "./components/App/App";
+import { configureAxios } from './utils/configureAxios';
 
 const devMode = process.env.NODE_ENV === 'development';
+
+configureAxios();
 
 ReactDOM.render(
   <React.StrictMode>
