@@ -1,0 +1,9 @@
+.main {
+  background-color: lightyellow;
+
+  &__title {
+   color: orangered;
+   text-align: center;
+  }
+}
+
