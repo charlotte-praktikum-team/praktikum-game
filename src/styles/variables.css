@@ -6,4 +6,14 @@
   --divider: #999999;
   --ui-primary: #3369F3;
   --ui-secondary: #F1F1F1;
+
+  --font-size-xl: 32px;
+  --font-size-l: 24px;
+  --font-size-m: 18px;
+  --font-size-s: 12px;
+
+  --line-height-xl: 1.12;
+  --line-height-l: 1.16;
+  --line-height-m: 1.33;
+  --line-height-s: 1.16;
 }
