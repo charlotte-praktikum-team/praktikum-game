@@ -1,8 +1,8 @@
 .main {
-  background-color: lightyellow;
+  background-color: var(--dark-primary);
 
   &__title {
-   color: orangered;
+   color: var(--danger);
    text-align: center;
   }
 }
