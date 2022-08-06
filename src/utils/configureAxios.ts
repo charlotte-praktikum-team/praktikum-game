@@ -4,7 +4,5 @@ import { PRACTICUM_ORIGIN } from './constants';
 export const configureAxios = () => {
   axios.defaults.baseURL = PRACTICUM_ORIGIN;
 
-  axios.interceptors.response.use((response: AxiosResponse) => {
-    return response.data;
-  })
+  axios.interceptors.response.use((response: AxiosResponse) => response.data);
 };

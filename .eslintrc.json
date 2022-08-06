@@ -5,6 +5,7 @@
   "rules": {
     "indent": ["error", 2],
     "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
     "max-len": [1, 140],
     "semi": ["error", "always"],
     "padding-line-between-statements": [
@@ -29,7 +30,8 @@
     "react/jsx-filename-extension": [2, {"extensions": [".ts", ".tsx"]}],
     "import/no-import-module-exports": 0,
     "import/no-unresolved": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "import/prefer-default-export": 0
   },
   "parserOptions": {
     "ecmaVersion": 2017,
