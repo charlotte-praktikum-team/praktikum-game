@@ -1,0 +1,7 @@
+.h1 {
+  font-weight: 700;
+  color: var(--dark-primary);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+  text-align: center;
+}

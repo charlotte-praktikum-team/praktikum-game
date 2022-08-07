@@ -1,0 +1,18 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+
+  background: var(--background-secondary);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+
+  &_width-s {
+    width: 364px;
+  }
+
+  &_width-m {
+    width: 720px;
+  }
+}
