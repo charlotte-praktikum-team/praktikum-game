@@ -29,7 +29,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(?:svg|png|jpg|jpeg)$/i,
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(?:png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
     ],
