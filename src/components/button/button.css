@@ -1,12 +1,10 @@
 .button {
   padding: 11px;
   height: 46px;
-
   cursor: pointer;
   border: none;
   border-radius: 16px;
   text-align: center;
-
   font-size: var(--font-size-m);
   line-height: var(--line-height-m);
   font-weight: 600;

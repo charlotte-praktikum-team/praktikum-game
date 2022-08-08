@@ -17,7 +17,6 @@
     left: 0;
     padding-top: 20px;
     color: var(--divider-primary);
-
     transition: 0.5s;
 
     &_disabled {
@@ -33,7 +32,6 @@
     outline: none;
     border: none;
     border-bottom: 1px solid var(--divider-primary);
-    
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
     color: var(--dark-primary);
@@ -41,7 +39,6 @@
     &:disabled {
       background-color: var(--background-secondary);
       border-color: var(--divider-primary);
-
       color: var(--divider-primary);
       text-align: right;
     }
@@ -69,7 +66,6 @@
   &__error {
     height: 14px;
     margin-top: 7px;
-
     color: var(--danger);
     font-size: var(--font-size-s);
     font-weight: 400;
@@ -94,12 +90,11 @@
     height: 48px;
     background: var(--ui-secondary);
     border-radius: 16px;
-
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
     font-weight: 400;
     color: var(--dark-primary);
-    
+
     ::placeholder {
       color: var(--divider-primary);
     }

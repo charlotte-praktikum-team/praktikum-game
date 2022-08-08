@@ -1,19 +1,17 @@
 :root {
-  --background-primary: #FCFCFC;
-  --background-secondary: #FFFFFF;
-  --danger: #FF4E4E;
+  --background-primary: #fcfcfc;
+  --background-secondary: #fff;
+  --danger: #ff4e4e;
   --dark-primary: #212329;
-  --divider-primary: #999999;
-  --divider-secondary: #D9D9D9;
-  --ui-primary: #3369F3;
+  --divider-primary: #999;
+  --divider-secondary: #d9d9d9;
+  --ui-primary: #3369f3;
   --ui-dark-primary: #2047aa;
-  --ui-secondary: #F1F1F1;
-
+  --ui-secondary: #f1f1f1;
   --font-size-xl: 32px;
   --font-size-l: 24px;
   --font-size-m: 18px;
   --font-size-s: 12px;
-
   --line-height-xl: 1.12;
   --line-height-l: 1.16;
   --line-height-m: 1.33;

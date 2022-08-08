@@ -29,14 +29,17 @@ export const Input: FC<InputProps> = memo(({ name, value, label, placeholder, de
   return (
     <div className='field__wrapper'>
       <input
+        id={name}
         name={name}
         value={value}
         placeholder={placeholder}
-        className={cn('field__input', { 'field__input_invalid': invalid })}
+        className={cn('field__input', { field__input_invalid: invalid })}
         onChange={handleChange}
       />
 
-      <label className='field__label'>{label}</label>
+      <label htmlFor={name} className='field__label'>
+        {label}
+      </label>
       <span className='field__error'>{errorMessage}</span>
     </div>
   );

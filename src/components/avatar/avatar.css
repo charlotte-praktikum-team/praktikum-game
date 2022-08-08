@@ -2,7 +2,6 @@
   &__wrapper {
     border-radius: 50%;
     background-color: var(--divider-secondary);
-  
     display: flex;
     justify-content: center;
     align-items: center;

@@ -3,10 +3,4 @@ import { PProps } from './types';
 
 import './p.css';
 
-export const P: FC<PProps> = memo(({ children }) => {
-  return (
-    <p className='p'>
-      {children}
-    </p>
-  );
-});
+export const P: FC<PProps> = memo(({ children }) => <p className='p'>{children}</p>);

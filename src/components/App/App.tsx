@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 import './App.css';
 
-function App () {
+function App() {
   return (
-    <div className="main">
-      <h1 className="main__title">Мой апп.</h1>
+    <div className='main'>
+      <h1 className='main__title'>Мой апп.</h1>
     </div>
   );
 }
