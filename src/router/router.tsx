@@ -2,12 +2,13 @@ import { Route, Routes } from 'react-router-dom';
 import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
 import { RequireAuth } from '@/router/requireAuth';
+import { Login } from '@/pages/login/login';
 import { routes } from '@/router/routes';
 
 export const Router = () => (
   <Routes>
     <Route element={<CenteredLayout />}>
-      <Route path={routes.login.path} element={<h1>Вход</h1>} />
+      <Route path={routes.login.path} element={<Login />} />
       <Route path={routes.register.path} element={<h1>Регистрация</h1>} />
       <Route path={routes.notFound.path} element={<h1>404</h1>} />
       <Route path={routes.error.path} element={<h1>500</h1>} />
