@@ -2,17 +2,17 @@
   font-weight: 700;
   color: var(--dark-primary);
 
-  &_type-h1 {
+  &_size-xl {
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xl);
   }
 
-  &_type-h2 {
+  &_size-l {
     font-size: var(--font-size-l);
     line-height: var(--line-height-l);
   }
 
-  &_type-h3 {
+  &_size-m {
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
   }
