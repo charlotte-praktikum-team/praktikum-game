@@ -8,6 +8,7 @@
     "build": "NODE_ENV=production webpack --config webpack.prod.js",
     "lint:stylelint": "stylelint \"**/*.css\" --fix",
     "lint:eslint": "eslint . --fix",
+    "lint:ci": "eslint . && stylelint \"**/*.css\"",
     "prepare": "husky install"
   },
   "repository": {
