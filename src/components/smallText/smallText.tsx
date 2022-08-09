@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { SmallTextProps } from './types';
 
 import './smallText.css';
