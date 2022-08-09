@@ -32,7 +32,7 @@ export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children })
         </Heading>
 
         <span className='modal__close-icon' role='button' tabIndex={0} onClick={onClose} onKeyDown={handleCloseIconKeyDown}>
-          <Icon name='cross' />
+          <Icon name='cross' size='large' />
         </span>
 
         {children}

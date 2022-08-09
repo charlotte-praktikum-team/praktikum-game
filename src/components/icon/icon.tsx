@@ -1,5 +1,8 @@
 import { FC, memo } from 'react';
+import cn from 'classnames';
 import { IconProps } from './types';
+
+import './icon.css';
 
 import ArrowLeft from '../../../assets/icons/arrowLeft.svg';
 import Balls from '../../../assets/icons/balls.svg';
@@ -12,46 +15,53 @@ import Plus from '../../../assets/icons/plus.svg';
 import Refresh from '../../../assets/icons/refresh.svg';
 import User from '../../../assets/icons/user.svg';
 
-export const Icon: FC<IconProps> = memo(({ name }) => {
+const defaultAttributes = {
+  preserveAspectRatio: 'xMidYMid meet',
+  fill: 'currentColor',
+};
+
+export const Icon: FC<IconProps> = memo(({ name, size = 'medium' }) => {
+  const classNames = cn('icon', `icon_size-${size}`);
+
   switch (name) {
     case 'arrow-left': {
-      return <ArrowLeft />;
+      return <ArrowLeft className={classNames} {...defaultAttributes} />;
     }
 
     case 'balls': {
-      return <Balls />;
+      return <Balls className={classNames} {...defaultAttributes} fill='none' />;
     }
 
     case 'cross': {
-      return <Cross />;
+      return <Cross className={classNames} {...defaultAttributes} />;
     }
 
     case 'flask': {
-      return <Flask />;
+      return <Flask className={classNames} {...defaultAttributes} />;
     }
 
     case 'forum': {
-      return <Forum />;
+      return <Forum className={classNames} {...defaultAttributes} />;
     }
 
     case 'leaderboard': {
-      return <Leaderboard />;
+      return <Leaderboard className={classNames} {...defaultAttributes} />;
     }
 
     case 'logout': {
-      return <Logout />;
+      return <Logout className={classNames} {...defaultAttributes} />;
     }
 
     case 'plus': {
-      return <Plus />;
+      return <Plus className={classNames} {...defaultAttributes} />;
     }
 
     case 'refresh': {
-      return <Refresh />;
+      return <Refresh className={classNames} {...defaultAttributes} />;
     }
 
     case 'user': {
-      return <User />;
+      return <User className={classNames} {...defaultAttributes} />;
     }
 
     default: {

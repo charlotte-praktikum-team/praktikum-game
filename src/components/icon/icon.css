@@ -1,0 +1,18 @@
+.icon {
+  width: 100%;
+
+  &_size-large {
+    max-width: 32px;
+    height: 32px;
+  }
+
+  &_size-medium {
+    max-width: 24px;
+    height: 24px;
+  }
+
+  &_size-small {
+    max-width: 18px;
+    height: 18px;
+  }
+}
