@@ -7,6 +7,7 @@ import { Card } from '../card/card';
 import { H2 } from '../h2/h2';
 
 import './modal.css';
+import { Icon } from '../icon/icon';
 
 export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children }) => {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,7 @@ export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children })
         <H2 align='left'>{title}</H2>
 
         <span className='modal__close-icon' role='button' tabIndex={0} onClick={onClose} onKeyDown={handleCloseIconKeyDown}>
-          sdf
+          <Icon design='cross' />
         </span>
 
         {children}
