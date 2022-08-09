@@ -1,0 +1,21 @@
+.page-header-main-link {
+  display: flex;
+  margin: 0 1vw;
+
+  &--active,
+  &--active svg {
+    color: var(--ui-primary);
+  }
+
+  &__icon {
+    width: 18px;
+    height: 20px;
+    margin-right: 0.6vw;
+    background-color: black;
+  }
+
+  &__name {
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+  }
+}
