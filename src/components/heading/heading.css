@@ -1,0 +1,27 @@
+.heading {
+  font-weight: 700;
+  color: var(--dark-primary);
+
+  &_size-xl {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+  }
+
+  &_size-l {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-l);
+  }
+
+  &_size-m {
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+  }
+
+  &_align-center {
+    text-align: center;
+  }
+
+  &_align-start {
+    text-align: left;
+  }
+}
