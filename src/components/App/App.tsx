@@ -1,9 +1,6 @@
-import React from 'react';
+import { Router } from '@/router/router';
+import { withRouter } from '@/components/App/providers/withRouter';
 
-import './App.css';
+const App = () => <Router />;
 
-import PageHeaderMain from '@/pages/components/pageHeaderMain';
-
-const App = () => <PageHeaderMain />;
-
-export default App;
+export default withRouter(App, 'Прогреваемся...');

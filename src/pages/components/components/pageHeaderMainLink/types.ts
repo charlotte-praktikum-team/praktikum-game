@@ -1,7 +1,7 @@
-import { LinkName } from '../../types';
+import { LinkName, RouteData } from '../../types';
 
 export type PageHeaderMainLinkProps = {
-  name: LinkName;
+  routeData: RouteData;
   isActive: boolean;
   onItemClick: (linkName: LinkName) => void;
 };

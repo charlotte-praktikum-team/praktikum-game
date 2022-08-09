@@ -11,10 +11,4 @@
     display: flex;
     margin-right: 10vw;
   }
-
-  &__exit-button {
-    width: 18px;
-    height: 20px;
-    background-color: black;
-  }
 }

@@ -42,6 +42,7 @@
         "unnamedComponents": "arrow-function"
       }
     ],
+    "react/react-in-jsx-scope": "off",
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
     "react/button-has-type": 0,

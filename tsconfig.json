@@ -23,11 +23,12 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "strictPropertyInitialization": false,
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
   "exclude": [
     "node_modules",
     "./src/**/*.spec.ts",
     "./src/**/*.test.ts"
-  ]
+  ],
+  "include": ["src", "custom.d.ts"]
 }

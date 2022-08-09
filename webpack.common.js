@@ -1,12 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '/build'),
+    publicPath: '/',
   },
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
@@ -28,7 +29,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(?:svg|png|jpg|jpeg)$/i,
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(?:png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
     ],

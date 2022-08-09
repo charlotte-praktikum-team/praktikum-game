@@ -1,11 +1,14 @@
-import React, { memo, useState } from 'react';
+import { memo, useState } from 'react';
 
 import './pageHeaderMain.css';
-import { LinkName } from './types';
+import { LinkName, RouteData } from './types';
+import { routes } from '@/router/routes';
 
 import PageHeaderMainLink from './components/pageHeaderMainLink/pageHeaderMainLink';
+import { Heading, Icon } from '@/components';
 
 const PageHeaderMain = memo(() => {
+  const headerRoutes = [routes.game, routes.leaderboard, routes.forum, routes.profile];
   const [currentIcon, setCurrentIcon] = useState<LinkName>('Профиль');
 
   const isActiveLinkCheck = (linkName: LinkName) => linkName === currentIcon;
@@ -13,14 +16,22 @@ const PageHeaderMain = memo(() => {
 
   return (
     <div className='page-header-main'>
-      <h1>Ball Sort Puzzle</h1>
+      <Heading type='h1' size='l'>
+        Ball Sort Puzzle
+      </Heading>
       <div className='page-header-main__link-wrapper'>
-        <PageHeaderMainLink name='Игра' isActive={isActiveLinkCheck('Игра')} onItemClick={onItemClick} />
-        <PageHeaderMainLink name='Лидеры' isActive={isActiveLinkCheck('Лидеры')} onItemClick={onItemClick} />
-        <PageHeaderMainLink name='Форум' isActive={isActiveLinkCheck('Форум')} onItemClick={onItemClick} />
-        <PageHeaderMainLink name='Профиль' isActive={isActiveLinkCheck('Профиль')} onItemClick={onItemClick} />
+        {headerRoutes.map((route, index) => (
+          <PageHeaderMainLink
+            key={index}
+            routeData={route as RouteData}
+            isActive={isActiveLinkCheck(route.title as LinkName)}
+            onItemClick={onItemClick}
+          />
+        ))}
       </div>
-      <span className='page-header-main__exit-button' />
+      <div>
+        <Icon name='logout' />
+      </div>
     </div>
   );
 });
