@@ -1,0 +1,6 @@
+.p {
+  font-weight: 400;
+  color: var(--dark-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+}
