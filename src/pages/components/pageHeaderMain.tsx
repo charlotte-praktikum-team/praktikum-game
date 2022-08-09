@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useState, Children } from 'react';
 
 import './pageHeaderMain.css';
 import { LinkName, RouteData } from './types';
@@ -20,14 +20,15 @@ const PageHeaderMain = memo(() => {
         Ball Sort Puzzle
       </Heading>
       <div className='page-header-main__link-wrapper'>
-        {headerRoutes.map((route, index) => (
-          <PageHeaderMainLink
-            key={index}
-            routeData={route as RouteData}
-            isActive={isActiveLinkCheck(route.title as LinkName)}
-            onItemClick={onItemClick}
-          />
-        ))}
+        {Children.toArray(
+          headerRoutes.map((route) => (
+            <PageHeaderMainLink
+              routeData={route as RouteData}
+              isActive={isActiveLinkCheck(route.title as LinkName)}
+              onItemClick={onItemClick}
+            />
+          ))
+        )}
       </div>
       <div>
         <Icon name='logout' />

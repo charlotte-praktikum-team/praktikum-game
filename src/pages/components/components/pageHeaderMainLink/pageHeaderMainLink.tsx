@@ -21,6 +21,8 @@ const PageHeaderMainLink: React.FC<PageHeaderMainLinkProps> = ({ routeData, isAc
         return 'forum';
       case 'Профиль':
         return 'user';
+      default:
+        return 'balls';
     }
   };
 
