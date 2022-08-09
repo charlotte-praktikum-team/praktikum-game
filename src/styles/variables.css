@@ -3,8 +3,10 @@
   --background-secondary: #fff;
   --danger: #ff4e4e;
   --dark-primary: #212329;
-  --divider: #999;
+  --divider-primary: #999;
+  --divider-secondary: #d9d9d9;
   --ui-primary: #3369f3;
+  --ui-dark-primary: #2047aa;
   --ui-secondary: #f1f1f1;
   --font-size-xl: 32px;
   --font-size-l: 24px;

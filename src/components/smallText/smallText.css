@@ -1,0 +1,6 @@
+.small-text {
+  font-weight: 400;
+  color: var(--dark-primary);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+}
