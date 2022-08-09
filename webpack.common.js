@@ -1,13 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '/build'),
+    publicPath: '/',
   },
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
