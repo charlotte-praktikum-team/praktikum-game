@@ -1,9 +1,7 @@
 export { Input } from './input/input';
 export { Button } from './button/button';
 export { Link } from './link/link';
-export { H1 } from './h1/h1';
-export { H2 } from './h2/h2';
-export { H3 } from './h3/h3';
+export { Heading } from './heading/heading';
 export { P } from './p/p';
 export { SmallText } from './smallText/smallText';
 export { Avatar } from './avatar/avatar';
