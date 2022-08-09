@@ -6,7 +6,7 @@ import './heading.css';
 
 export const Heading: FC<HeadingProps> = memo(({ children, type, size, align = 'center' }) =>
   createElement(
-    `${type}`,
+    type,
     {
       className: cn('heading', `heading_align-${align}`, `heading_size-${size}`),
     },
