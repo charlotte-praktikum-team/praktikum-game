@@ -6,9 +6,7 @@ import './input.css';
 
 export const Input: FC<InputProps> = memo(({ name, value, label, placeholder, design, errorMessage, invalid, disabled, onChange }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(e.target.value);
-    }
+    onChange?.(e.target.value);
   };
 
   if (design === 'rounded') {

@@ -12,8 +12,8 @@ import Plus from '../../../assets/icons/plus.svg';
 import Refresh from '../../../assets/icons/refresh.svg';
 import User from '../../../assets/icons/user.svg';
 
-export const Icon: FC<IconProps> = memo(({ design }) => {
-  switch (design) {
+export const Icon: FC<IconProps> = memo(({ name }) => {
+  switch (name) {
     case 'arrow-left': {
       return <ArrowLeft />;
     }

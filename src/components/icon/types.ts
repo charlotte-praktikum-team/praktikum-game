@@ -1,5 +1,5 @@
-type Design = 'arrow-left' | 'balls' | 'cross' | 'flask' | 'forum' | 'leaderboard' | 'logout' | 'plus' | 'refresh' | 'user';
+type Name = 'arrow-left' | 'balls' | 'cross' | 'flask' | 'forum' | 'leaderboard' | 'logout' | 'plus' | 'refresh' | 'user';
 
 export type IconProps = {
-  design: Design;
+  name: Name;
 };

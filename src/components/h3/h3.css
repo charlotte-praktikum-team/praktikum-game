@@ -3,5 +3,12 @@
   color: var(--dark-primary);
   font-size: var(--font-size-m);
   line-height: var(--line-height-m);
-  text-align: center;
+
+  &_align-center {
+    text-align: center;
+  }
+
+  &_align-start {
+    text-align: left;
+  }
 }
