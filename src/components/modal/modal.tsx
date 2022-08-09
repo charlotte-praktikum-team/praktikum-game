@@ -1,10 +1,10 @@
-import React, { FC, KeyboardEvent, memo, MouseEvent, useRef } from 'react';
+import { FC, KeyboardEvent, memo, MouseEvent, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
 import { APP_ROOT_ID } from 'utils/constants';
 import { ModalProps } from './types';
 import { Card } from '../card/card';
-import { H2 } from '../h2/h2';
+import { Heading } from '../heading/heading';
 
 import './modal.css';
 import { Icon } from '../icon/icon';
@@ -27,7 +27,9 @@ export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children })
   return createPortal(
     <div ref={modalRef} className={cn('modal__overflow', { modal__overflow_open: isOpen })} onClick={handleOverflowClick}>
       <Card classes='modal__wrapper'>
-        <H2 align='left'>{title}</H2>
+        <Heading type='h2' size='l' align='left'>
+          {title}
+        </Heading>
 
         <span className='modal__close-icon' role='button' tabIndex={0} onClick={onClose} onKeyDown={handleCloseIconKeyDown}>
           <Icon name='cross' />

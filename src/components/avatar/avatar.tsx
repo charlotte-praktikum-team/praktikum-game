@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import cn from 'classnames';
 import { PRACTICUM_ORIGIN } from 'utils/constants';
 import { AvatarProps } from './types';

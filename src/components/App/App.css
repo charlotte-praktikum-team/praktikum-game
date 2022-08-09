@@ -1,8 +1,0 @@
-.main {
-  background-color: var(--background-primary);
-
-  &__title {
-    color: var(--danger);
-    text-align: center;
-  }
-}

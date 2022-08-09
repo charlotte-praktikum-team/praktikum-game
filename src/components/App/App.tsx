@@ -1,11 +1,6 @@
-import React from 'react';
+import { Router } from '@/router/router';
+import { withRouter } from '@/components/App/providers/withRouter';
 
-import './App.css';
+const App = () => <Router />;
 
-const App = () => (
-  <div className='main'>
-    <h1 className='main__title'>Мой апп.</h1>
-  </div>
-);
-
-export default App;
+export default withRouter(App, 'Прогреваемся...');
