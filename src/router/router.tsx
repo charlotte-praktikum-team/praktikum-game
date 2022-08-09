@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
-import { routes } from '@/router/routes';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
 import { RequireAuth } from '@/router/requireAuth';
+import { routes } from '@/router/routes';
 
 export const Router = () => (
   <Routes>

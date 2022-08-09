@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 /**
- * Основной лейаут для сайта из шапки и основного контента, который меняется в зависимости от роута
+ * Main layout for page with header.
  * */
 
 export const BaseLayout = () => (

@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import './centeredLayout.css';
 
 /**
- * Лейаут для центрирования контента, который меняется в зависимости от роута. Без шапки и футера.
+ * Layout for page without header and footer. All contents centered on a page.
  * */
 
 export const CenteredLayout = () => (
