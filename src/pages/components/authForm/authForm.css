@@ -11,6 +11,10 @@
     flex-direction: column;
   }
 
+  &__link {
+    margin-top: 10px;
+  }
+
   &__submit-zone {
     margin-top: 60px;
     flex-grow: 1;

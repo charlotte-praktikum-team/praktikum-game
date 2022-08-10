@@ -40,7 +40,9 @@ export const AuthForm = <T extends Record<string, string>>({
           ))
         )}
 
-        <Link href={link.href}>{link.children}</Link>
+        <Link href={link.href} classes='auth-form__link'>
+          {link.children}
+        </Link>
 
         <div className='auth-form__submit-zone'>
           <Button type='submit'>{submitButtonText}</Button>
