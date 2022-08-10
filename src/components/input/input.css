@@ -57,8 +57,8 @@
     }
   }
 
-  &__input:focus + &__label,
-  &__input:not(:placeholder-shown) + & __label {
+  &__input:focus + .field__label,
+  &__input:not(:placeholder-shown) + .field__label {
     transform: translateY(-21px);
     font-size: var(--font-size-s);
   }

@@ -1,9 +1,11 @@
+import { ChangeEventHandler, FocusEventHandler } from 'react';
+
 type Design = 'default' | 'rounded';
 
 type InputTypes = 'text' | 'password' | 'tel';
 
 export type InputProps = {
-  name?: string;
+  name: string;
   value?: string;
   type?: InputTypes;
   errorMessage?: string;
@@ -12,5 +14,6 @@ export type InputProps = {
   placeholder?: string;
   disabled?: boolean;
   design?: Design;
-  onChange?: (value: string) => void;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
 };

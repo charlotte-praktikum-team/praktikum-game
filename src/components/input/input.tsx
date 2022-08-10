@@ -1,15 +1,11 @@
-import { ChangeEvent, FC, memo } from 'react';
+import { FC, memo } from 'react';
 import cn from 'classnames';
 import { InputProps } from './types';
 
 import './input.css';
 
 export const Input: FC<InputProps> = memo(
-  ({ name, value, type = 'text', label, placeholder = ' ', design, errorMessage, invalid, disabled, onChange }) => {
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      onChange?.(e.target.value);
-    };
-
+  ({ name, value = '', type = 'text', label, placeholder = ' ', design, errorMessage, invalid, disabled, onChange, onBlur }) => {
     if (design === 'rounded') {
       return (
         <div className='rounded-field__wrapper'>
@@ -20,7 +16,8 @@ export const Input: FC<InputProps> = memo(
             placeholder={placeholder}
             disabled={disabled}
             className={cn('rounded-field__input', { 'rounded-field__input_invalid': invalid })}
-            onChange={handleChange}
+            onChange={onChange}
+            onBlur={onBlur}
           />
         </div>
       );
@@ -35,7 +32,8 @@ export const Input: FC<InputProps> = memo(
           value={value}
           placeholder={placeholder}
           className={cn('field__input', { field__input_invalid: invalid })}
-          onChange={handleChange}
+          onChange={onChange}
+          onBlur={onBlur}
         />
 
         <label htmlFor={name} className='field__label'>
