@@ -2,7 +2,7 @@ import { FC } from 'react';
 import cn from 'classnames';
 import { Heading } from '@/components';
 import { routes } from '@/router/routes';
-import { AuthTemplateProps } from '@/pages/components/authPageTemplate/types';
+import { AuthTemplateProps } from './types';
 
 import './authPageTemplate.css';
 

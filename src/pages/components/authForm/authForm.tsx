@@ -1,7 +1,7 @@
 import { Children } from 'react';
 import { useFormik } from 'formik';
 import { Button, Card, Heading, Input, Link } from '@/components';
-import { AuthFormProps } from '@/pages/components/authForm/types';
+import { AuthFormProps } from './types';
 
 import './authForm.css';
 

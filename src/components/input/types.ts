@@ -1,8 +1,7 @@
 import { ChangeEventHandler, FocusEventHandler } from 'react';
 
 type Design = 'default' | 'rounded';
-
-type InputTypes = 'text' | 'password' | 'tel';
+type InputTypes = 'text' | 'password' | 'tel' | 'email';
 
 export type InputProps = {
   name: string;
