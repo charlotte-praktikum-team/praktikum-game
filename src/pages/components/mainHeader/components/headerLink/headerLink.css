@@ -10,7 +10,7 @@
     align-items: center;
     column-gap: 0.5vw;
 
-    &--active {
+    &_active {
       color: var(--ui-primary);
     }
   }

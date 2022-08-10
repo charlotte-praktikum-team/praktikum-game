@@ -1,4 +1,6 @@
-export const routes = {
+import { RouterType } from './types';
+
+export const routes: RouterType = {
   landing: {
     path: '/',
     title: 'Ball Sort Puzzle',

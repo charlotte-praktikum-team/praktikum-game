@@ -13,7 +13,7 @@ const HeaderLink: React.FC<PageHeaderMainLinkProps> = ({ routeData }) => {
   return (
     <NavLink end to={path} className='header-link'>
       {({ isActive }) => (
-        <div className={cn('header-link__wrapper', { 'header-link__wrapper--active': isActive })}>
+        <div className={cn('header-link__wrapper', { 'header-link__wrapper_active': isActive })}>
           <Icon name={headerIcon} />
           <span className='header-link__title'>{title}</span>
         </div>
