@@ -1,9 +1,11 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
 import { RequireAuth } from '@/router/requireAuth';
-import Login from '@/pages/login/login';
 import { routes } from '@/router/routes';
+
+const Login = lazy(() => import('@/pages/login/login'));
 
 export const Router = () => (
   <Routes>
