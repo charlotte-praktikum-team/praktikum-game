@@ -6,7 +6,7 @@
   max-width: 1002px;
   width: 100%;
   min-height: calc(100vh - 38px * 2);
-  padding: 0 6.8vw;
+  padding: 0 90px;
   overflow: hidden;
   z-index: 0;
 
@@ -34,6 +34,12 @@
   &__heading {
     max-width: 249px;
     text-transform: uppercase;
-    color: var(--background-secondary);
+    color: var(--text-secondary);
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .auth-page-template {
+    padding: 0 6.1vw;
   }
 }

@@ -27,7 +27,7 @@ export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children })
   return createPortal(
     <div ref={modalRef} className={cn('modal__overflow', { modal__overflow_open: isOpen })} onClick={handleOverflowClick}>
       <Card classes='modal__wrapper'>
-        <Heading type='h2' size='l' align='left'>
+        <Heading type='h2' size='l' align='start'>
           {title}
         </Heading>
 

@@ -1,8 +1,11 @@
 type Design = 'default' | 'rounded';
 
+type InputTypes = 'text' | 'password' | 'tel';
+
 export type InputProps = {
   name?: string;
   value?: string;
+  type?: InputTypes;
   errorMessage?: string;
   invalid?: boolean;
   label?: string;

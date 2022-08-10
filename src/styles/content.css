@@ -1,7 +1,6 @@
 .content {
   width: 100%;
   flex-grow: 1;
-  background-color: var(--background-primary);
 
   &_centered {
     display: flex;

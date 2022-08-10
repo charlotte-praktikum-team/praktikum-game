@@ -7,5 +7,5 @@ export type HeadingProps = {
   align?: Align;
   type: Type;
   size: Size;
-  className?: string;
+  classes?: string;
 };

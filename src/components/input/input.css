@@ -6,7 +6,7 @@
     padding-top: 10px;
 
     & + & {
-      margin-top: 15px;
+      margin-top: 10px;
     }
   }
 
@@ -58,7 +58,7 @@
   }
 
   &__input:focus + &__label,
-  &__input:not(:placeholder-shown) + &__label {
+  &__input:not(:placeholder-shown) + & __label {
     transform: translateY(-21px);
     font-size: var(--font-size-s);
   }
