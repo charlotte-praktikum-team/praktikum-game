@@ -7,3 +7,4 @@ export { SmallText } from './smallText/smallText';
 export { Avatar } from './avatar/avatar';
 export { Card } from './card/card';
 export { Modal } from './modal/modal';
+export { ErrorBoundary } from './errorBoundary/errorBoundary';
