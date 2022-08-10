@@ -7,10 +7,8 @@ import MainHeader from '@/pages/components/mainHeader/mainHeader';
  * */
 
 export const BaseLayout = () => (
-  <>
-    <main className='content'>
-      <MainHeader />
-      <Outlet />
-    </main>
-  </>
+  <main className='content'>
+    <MainHeader />
+    <Outlet />
+  </main>
 );

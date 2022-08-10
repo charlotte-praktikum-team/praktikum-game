@@ -1,4 +1,4 @@
-type RouteData = {
+export type RouteData = {
   path: string;
   title: string;
   headerIcon: string | null;

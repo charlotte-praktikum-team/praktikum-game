@@ -1,0 +1,31 @@
+.forum-section {
+  width: 28.8vw;
+  min-height: 14.9vh;
+  padding: 3.6vh 2vw;
+  margin-bottom: 3.6vh;
+  display: flex;
+  border-radius: 16px;
+  list-style-type: none;
+  background-color: var(--ui-secondary);
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__left-part {
+    width: 74%;
+    padding-right: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--divider-primary);
+  }
+
+  &__right-part {
+    width: 26%;
+    padding-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
