@@ -1,6 +1,6 @@
 export { Input } from './input/input';
 export { Button } from './button/button';
-export { Link } from './link/link';
+export { StyledLink as Link } from './link/link';
 export { Heading } from './heading/heading';
 export { Icon } from './icon/icon';
 export { P } from './p/p';
@@ -9,3 +9,6 @@ export { Avatar } from './avatar/avatar';
 export { Card } from './card/card';
 export { Modal } from './modal/modal';
 export { ErrorBoundary } from './errorBoundary/errorBoundary';
+
+export type { InputProps } from './input/types';
+export type { LinkProps } from './link/types';
