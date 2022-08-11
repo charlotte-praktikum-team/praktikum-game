@@ -13,10 +13,12 @@ export const inputs: InputProps[] = [
   {
     name: 'email',
     label: 'Email',
+    type: 'email',
   },
   {
     name: 'phone',
     label: 'Телефон',
+    type: 'tel',
   },
   {
     name: 'login',
