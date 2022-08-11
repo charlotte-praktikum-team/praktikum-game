@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
-import { SmallTextProps } from './types';
+import cn from 'classnames';
 
+import { SmallTextProps } from './types';
 import './smallText.css';
 
-export const SmallText: FC<SmallTextProps> = memo(({ children }) => <span className='small-text'>{children}</span>);
+export const SmallText: FC<SmallTextProps> = memo(({ children, classes }) => <span className={cn('small-text', classes)}>{children}</span>);

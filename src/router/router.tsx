@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { routes } from '@/router/routes';
@@ -7,7 +7,8 @@ import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
 import { RequireAuth } from '@/router/requireAuth';
 
-const Forum = React.lazy(() => import('@/pages/forum/forum'));
+const Forum = lazy(() => import('@/pages/forum/forum'));
+const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsList'));
 
 export const Router = () => (
   <Routes>
@@ -25,15 +26,8 @@ export const Router = () => (
       </Route>
 
       <Route path={routes.forum.path} element={<BaseLayout />}>
-        <Route
-          index
-          element={
-            <Suspense>
-              <Forum />
-            </Suspense>
-          }
-        />
-        <Route path=':sectionId' element={<h1>Раздел форума</h1>} />
+        <Route index element={<Forum />} />
+        <Route path=':sectionId' element={<ForumTopicsList />} />
         <Route path=':sectionId/:topicId' element={<h1>Тема форума</h1>} />
       </Route>
 

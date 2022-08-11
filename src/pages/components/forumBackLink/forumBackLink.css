@@ -1,0 +1,9 @@
+.forum-back-link {
+  display: flex;
+  column-gap: 0.5vw;
+  color: var(--dark-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: 500;
+  cursor: pointer;
+}

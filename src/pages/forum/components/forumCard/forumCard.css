@@ -1,16 +1,12 @@
-.forum-section {
+.forum-card {
   width: 28.8vw;
   min-height: 14.9vh;
   padding: 3.6vh 2vw;
   margin-bottom: 3.6vh;
   display: flex;
   border-radius: 16px;
-  list-style-type: none;
   background-color: var(--ui-secondary);
-
-  &__wrapper {
-    display: flex;
-  }
+  cursor: pointer;
 
   &__left-part {
     width: 74%;
