@@ -48,7 +48,8 @@
     "@typescript-eslint/indent": ["error", 2],
     "react/button-has-type": 0,
     "eol-last": ["error", "always"],
-    "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ]
+    "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ],
+    "@typescript-eslint/no-empty-function": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2017,

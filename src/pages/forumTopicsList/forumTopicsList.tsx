@@ -26,6 +26,11 @@ const ForumTopicsList = () => {
             <ForumTopicItem />
             <ForumTopicItem />
             <ForumTopicItem />
+            <ForumTopicItem />
+            <ForumTopicItem />
+            <ForumTopicItem />
+            <ForumTopicItem />
+            <ForumTopicItem />
           </section>
         </div>
       </ForumPageWrapper>

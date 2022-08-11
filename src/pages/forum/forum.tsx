@@ -9,6 +9,11 @@ const Forum = () => (
       <ForumCard />
       <ForumCard />
       <ForumCard />
+      <ForumCard />
+      <ForumCard />
+      <ForumCard />
+      <ForumCard />
+      <ForumCard />
     </section>
   </ForumPageWrapper>
 );
