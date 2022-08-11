@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { ObjectShape } from 'yup/lib/object';
 
 const regExps = {
   hasNoSpecialCharsExHyphen: /^[а-яА-ЯёЁa-zA-Z-]+$/g,
@@ -23,7 +22,7 @@ const messages = {
   phone: 'Телефон должен состоять только из цифр, в начале допускается "+"',
 };
 
-export const validationSchema: ObjectShape = {
+export const validationSchema: Record<string, Yup.AnySchema> = {
   login: Yup.string()
     .trim()
     .min(3, messages.min('логина', 3))
@@ -57,7 +56,7 @@ export const validationSchema: ObjectShape = {
 };
 
 export const createValidationSchema = (...fields: string[]) => {
-  const schema: ObjectShape = {};
+  const schema: Record<string, Yup.AnySchema> = {};
 
   fields.forEach((field) => {
     schema[field] = validationSchema[field];

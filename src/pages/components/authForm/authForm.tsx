@@ -1,4 +1,5 @@
 import { Children } from 'react';
+import cn from 'classnames';
 import { useFormik } from 'formik';
 import { Button, Card, Heading, Input, Link } from '@/components';
 import { AuthFormProps } from './types';
@@ -15,6 +16,7 @@ export const AuthForm = <T extends Record<string, string>>({
   validationSchema,
   link,
   children = null,
+  classes,
 }: AuthFormProps<T>) => {
   const { errors, touched, handleSubmit, getFieldProps } = useFormik<T>({
     initialValues,
@@ -23,7 +25,7 @@ export const AuthForm = <T extends Record<string, string>>({
   });
 
   return (
-    <Card width='s' classes='auth-form'>
+    <Card width='s' classes={cn('auth-form', classes)}>
       <Heading type='h2' size='xl'>
         {formTitle}
       </Heading>

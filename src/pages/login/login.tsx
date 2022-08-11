@@ -24,6 +24,7 @@ const Login = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         link={{ href: routes.register.path, children: 'Нет аккаунта?' }}
+        classes='slide-in-from-left'
       />
     </AuthPageTemplate>
   );
