@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './forumTopic.css';
 
 import ForumPageWrapper from '../components/forumPageWrapper/forumPageWrapper';
-import { Button, Modal, Textarea, Heading, Input } from '@/components';
+import { Button, Modal, Textarea, Heading } from '@/components';
 import ForumBackLink from '../components/forumBackLink/forumBackLink';
 import ForumPost from './components/forumPost/forumPost';
 
