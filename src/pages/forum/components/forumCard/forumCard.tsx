@@ -12,7 +12,7 @@ const ForumCard = () => {
   return (
     <article className='forum-card' onClick={() => onCardClick()}>
       <div className='forum-card__left-part'>
-        <Heading type='h2' size='m' align='left'>
+        <Heading type='h2' size='m' align='start'>
           Заголовок раздела
         </Heading>
         <SmallText>Описание раздела в две строки в две строки в две строки в две строки в две строки</SmallText>

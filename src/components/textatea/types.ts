@@ -1,5 +1,5 @@
-export type InputProps = {
-  name?: string;
+export type TextareaProps = {
+  name: string;
   value?: string;
   errorMessage?: string;
   invalid?: boolean;

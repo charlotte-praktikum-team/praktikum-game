@@ -5,7 +5,7 @@ import './forumTopicsList.css';
 import ForumPageWrapper from '../components/forumPageWrapper/forumPageWrapper';
 import { Button, Modal, Input, Textarea } from '@/components';
 import ForumBackLink from '../components/forumBackLink/forumBackLink';
-import ForumTopic from './components/forumTopic/forumTopic';
+import ForumTopicItem from './components/forumTopicItem/forumTopicItem';
 
 const ForumTopicsList = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -23,17 +23,17 @@ const ForumTopicsList = () => {
             </Button>
           </div>
           <section className='forum-topics-list__list'>
-            <ForumTopic />
-            <ForumTopic />
-            <ForumTopic />
+            <ForumTopicItem />
+            <ForumTopicItem />
+            <ForumTopicItem />
           </section>
         </div>
       </ForumPageWrapper>
       <Modal isOpen={openModal} title='Новая тема' onClose={() => onToggleModal()}>
         <div className='forum-topics-list__modal'>
-          <Input design='rounded' placeholder='Название темы' />
-          <Textarea placeholder='Введите текст сообщения' />
-          <Button>Создать</Button>
+          <Input name='topicName' design='rounded' placeholder='Название темы' onChange={() => {}} />
+          <Textarea name='topicMessage' placeholder='Введите текст сообщения' onChange={() => {}} />
+          <Button onClick={() => onToggleModal()}>Создать</Button>
         </div>
       </Modal>
     </>

@@ -1,0 +1,29 @@
+.forum-topic {
+  width: 43.8vw;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3.6vh;
+
+  &__back-button,
+  &__header {
+    align-self: flex-start;
+  }
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__new-message-button {
+    align-self: flex-end;
+  }
+
+  &__modal {
+    height: 43vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3.6vh;
+    row-gap: 3.6vh;
+  }
+}

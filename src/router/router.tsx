@@ -9,11 +9,14 @@ import { RequireAuth } from '@/router/requireAuth';
 
 const Forum = lazy(() => import('@/pages/forum/forum'));
 const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsList'));
+const ForumTopic = lazy(() => import('@/pages/forumTopic/forumTopic'));
+
+const Login = lazy(() => import('@/pages/login/login'));
 
 export const Router = () => (
   <Routes>
     <Route element={<CenteredLayout />}>
-      <Route path={routes.login.path} element={<h1>Вход</h1>} />
+      <Route path={routes.login.path} element={<Login />} />
       <Route path={routes.register.path} element={<h1>Регистрация</h1>} />
       <Route path={routes.notFound.path} element={<h1>404</h1>} />
       <Route path={routes.error.path} element={<h1>500</h1>} />
@@ -28,7 +31,7 @@ export const Router = () => (
       <Route path={routes.forum.path} element={<BaseLayout />}>
         <Route index element={<Forum />} />
         <Route path=':sectionId' element={<ForumTopicsList />} />
-        <Route path=':sectionId/:topicId' element={<h1>Тема форума</h1>} />
+        <Route path=':sectionId/:topicId' element={<ForumTopic />} />
       </Route>
 
       <Route path={routes.game.path} element={<BaseLayout />}>
