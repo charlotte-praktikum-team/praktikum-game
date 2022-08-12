@@ -6,6 +6,7 @@ import { RequireAuth } from '@/router/requireAuth';
 import { routes } from '@/router/routes';
 
 const Login = lazy(() => import('@/pages/login/login'));
+const Dashboard = lazy(() => import('@/pages/dashboard/dashboard'));
 
 export const Router = () => (
   <Routes>
@@ -29,7 +30,7 @@ export const Router = () => (
       </Route>
 
       <Route path={routes.game.path} element={<BaseLayout />}>
-        <Route index element={<h1>Стартовый экран игры</h1>} />
+        <Route index element={<Dashboard />} />
         <Route path='run' element={<h1>Игра на canvas</h1>} />
       </Route>
     </Route>
