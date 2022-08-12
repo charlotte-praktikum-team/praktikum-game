@@ -12,4 +12,5 @@ export type AuthFormProps<T> = {
   initialValues: T;
   onSubmit: (formData: T, helpers: FormikHelpers<T>) => void;
   validationSchema: unknown;
+  classes?: string;
 };
