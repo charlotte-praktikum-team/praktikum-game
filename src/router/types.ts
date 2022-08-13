@@ -12,6 +12,7 @@ export type RouterType = {
   forum: RouteData;
   leaderboard: RouteData;
   game: RouteData;
+  gameRun: RouteData;
   notFound: RouteData;
   error: RouteData;
 };
