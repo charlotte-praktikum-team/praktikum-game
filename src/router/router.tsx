@@ -33,8 +33,9 @@ export const Router = () => (
 
       <Route path={routes.game.path} element={<BaseLayout />}>
         <Route index element={<Dashboard />} />
-        <Route path={routes.gameRun.path} element={<Game />} />
       </Route>
+
+      <Route path={routes.gameRun.path} element={<Game />} />
     </Route>
   </Routes>
 );
