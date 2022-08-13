@@ -23,5 +23,5 @@ export const useGameLoop = (cb: (deltaTime: number) => void) => {
         cancelAnimationFrame(requestId.current);
       }
     };
-  }, []);
+  }, [cb]);
 };
