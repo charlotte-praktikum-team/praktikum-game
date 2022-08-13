@@ -11,6 +11,7 @@ type FlaskConfig = {
 type BallConfig = {
   radius: number;
   borderColor: string;
+  borderWidth: number;
 };
 
 type GridConfig = {

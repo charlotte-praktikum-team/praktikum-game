@@ -16,6 +16,7 @@ export class Ball {
   render(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = this.color;
     ctx.strokeStyle = gameConfig.ball.borderColor;
+    ctx.lineWidth = gameConfig.ball.borderWidth;
 
     ctx.beginPath();
     ctx.arc(this.x, this.y, gameConfig.ball.radius, 0, 2 * Math.PI);

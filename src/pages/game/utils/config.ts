@@ -26,16 +26,17 @@ export const gameConfig: GameConfig = {
   },
   flask: {
     width: 62,
-    height: 246,
-    lineWidth: 1,
-    color: colors.black,
+    height: 230,
+    lineWidth: 2,
+    color: colors.grey,
     ballsGap: 1,
     maxBalls: 4,
     padding: 2,
   },
   ball: {
-    radius: 28,
-    borderColor: colors.black,
+    radius: 26,
+    borderColor: colors.grey,
+    borderWidth: 1,
   },
   levels: {
     1: [
