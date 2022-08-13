@@ -1,30 +1,40 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { useNavigate } from 'react-router-dom';
 import { GameHeader } from './components/gameHeader/gameHeader';
 import { useGameLoop } from './hooks/useGameLoop';
 import { Flask } from './gameEntities/flask';
-import { initFlaskList } from './utils/initFlaskList';
+import { initLevel } from './utils/initFlaskList';
 
 import './game.css';
-import { GameConfig } from './utils/config';
+import { gameConfig } from './utils/config';
+import { routes } from '@/router/routes';
+import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
 
 const Game = () => {
   const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [flaskList, setFlaskList] = useState<Flask[]>(initFlaskList());
+  const level = localStorage.getItem(ACTIVE_LEVEL_NUMBER);
+
+  const [flaskList, setFlaskList] = useState<Flask[]>(initLevel(level));
   const [isNewFlaskAdded, setIsNewFlaskAdded] = useState<boolean>(false);
 
   const { minutes, seconds, reset } = useStopwatch({ autoStart: true });
   const timer = `${minutes < 10 ? 0 : ''}${minutes}:${seconds < 10 ? 0 : ''}${seconds}`;
 
+  useEffect(() => {
+    if (!level) {
+      navigate(routes.game.path);
+    }
+  }, [level]);
+
   const handleRefresh = () => {
     reset();
-    setFlaskList(initFlaskList());
+    setFlaskList(initLevel(level));
   };
 
   const handleBack = () => {
-    navigate(-1);
+    navigate(routes.game.path);
   };
 
   const handleAddFlask = () => {
@@ -33,7 +43,7 @@ const Game = () => {
     }
 
     const lastFlask = flaskList[flaskList.length - 1];
-    const emptyFlask = new Flask(lastFlask.x + GameConfig.flask.width + GameConfig.flasksGap, lastFlask.y);
+    const emptyFlask = new Flask(lastFlask.x + gameConfig.flask.width + gameConfig.grid.flasksGap, lastFlask.y);
 
     setIsNewFlaskAdded(true);
     setFlaskList([...flaskList, emptyFlask]);
