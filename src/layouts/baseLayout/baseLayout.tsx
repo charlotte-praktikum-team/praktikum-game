@@ -8,7 +8,6 @@ import MainHeader from '@/pages/components/mainHeader/mainHeader';
 export const BaseLayout = () => (
   <>
     <MainHeader />
-
     <main className='content'>
       <Outlet />
     </main>
