@@ -7,6 +7,7 @@ import { routes } from '@/router/routes';
 
 const Login = lazy(() => import('@/pages/login/login'));
 const Register = lazy(() => import('@/pages/register/register'));
+const Leaderboard = lazy(() => import('@/pages/leaderboard/leaderboard'));
 
 export const Router = () => (
   <Routes>
@@ -20,7 +21,7 @@ export const Router = () => (
     <Route element={<RequireAuth />}>
       <Route element={<BaseLayout />}>
         <Route path={routes.profile.path} element={<h1>Профиль</h1>} />
-        <Route path={routes.leaderboard.path} element={<h1>Лидерборд</h1>} />
+        <Route path={routes.leaderboard.path} element={<Leaderboard />} />
       </Route>
 
       <Route path={routes.forum.path} element={<BaseLayout />}>
