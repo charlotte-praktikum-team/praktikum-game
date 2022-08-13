@@ -1,22 +1,18 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router';
 
+import { Icon } from '@/components';
+
 import { ForumBackLinkProps } from '@/pages/components/forumBackLink/types';
 import './forumBackLink.css';
 
-import { Icon } from '@/components';
-
-const ForumBackLink: FC<ForumBackLinkProps> = ({ title }) => {
+export const ForumBackLink: FC<ForumBackLinkProps> = ({ title }) => {
   const navigate = useNavigate();
 
-  const onGoBack = () => navigate(-1);
-
   return (
-    <span className='forum-back-link' onClick={() => onGoBack()}>
+    <span className='forum-back-link' onClick={() => navigate(-1)}>
       <Icon name='arrow-left' />
       {title}
     </span>
   );
 };
-
-export default ForumBackLink;

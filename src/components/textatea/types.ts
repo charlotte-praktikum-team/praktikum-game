@@ -4,5 +4,5 @@ export type TextareaProps = {
   errorMessage?: string;
   invalid?: boolean;
   placeholder?: string;
-  onChange?: (value: string) => void;
+  onChange?: (e: React.ChangeEvent<any>) => void;
 };

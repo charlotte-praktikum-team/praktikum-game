@@ -2,12 +2,12 @@ import { FC } from 'react';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
+import { Icon } from '@/components';
+
 import { PageHeaderMainLinkProps, LinkIconName } from './types';
 import './headerLink.css';
 
-import { Icon } from '@/components';
-
-const HeaderLink: FC<PageHeaderMainLinkProps> = ({ routeData }) => {
+export const HeaderLink: FC<PageHeaderMainLinkProps> = ({ routeData }) => {
   const { path, title, headerIcon } = routeData;
 
   return (
@@ -21,5 +21,3 @@ const HeaderLink: FC<PageHeaderMainLinkProps> = ({ routeData }) => {
     </NavLink>
   );
 };
-
-export default HeaderLink;

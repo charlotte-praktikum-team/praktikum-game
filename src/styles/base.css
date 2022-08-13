@@ -8,8 +8,3 @@
   font-style: normal;
   font-weight: 500;
 }
-
-#root {
-  min-height: 100vh;
-  display: flex;
-}

@@ -5,7 +5,7 @@
   border: none;
   border-radius: 16px;
   text-align: center;
-  background-color: var(--background-secondary);
+  background-color: transparent;
   font-size: var(--font-size-m);
   line-height: var(--line-height-m);
   font-weight: 600;

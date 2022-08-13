@@ -1,6 +1,6 @@
 .forum-card-list {
-  width: 61%;
+  width: 60.3%;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 2vw;
+  gap: 32px;
 }

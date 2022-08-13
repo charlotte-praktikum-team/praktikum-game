@@ -1,30 +1,26 @@
+import React from 'react';
+
+import { ForumPostProps } from './types';
 import './forumPost.css';
 
 import { SmallText, Avatar, Heading, P, Button } from '@/components';
 
-const ForumPost = () => (
+export const ForumPost: React.FC<ForumPostProps> = ({ postData }) => (
   <article className='forum-post'>
     <div className='forum-post__header'>
-      <Avatar />
+      <Avatar src={postData.avatar} />
       <div className='forum-post__user'>
         <Heading type='h3' size='m'>
-          Username
+          {postData.username}
         </Heading>
-        <SmallText classes='forum-post__user-date'>01.01.2023</SmallText>
+        <SmallText classes='forum-post__user-date'>{postData.date}</SmallText>
       </div>
     </div>
     <div className='forum-post__message'>
-      <P>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum.
-      </P>
+      <P>{postData.message}</P>
       <Button design='secondary' onClick={() => {}}>
         Ответить
       </Button>
     </div>
   </article>
 );
-
-export default ForumPost;
