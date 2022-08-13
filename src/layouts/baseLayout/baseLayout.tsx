@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import MainHeader from '@/pages/components/mainHeader/mainHeader';
 
 /**
  * Main layout for page with header.
@@ -6,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 
 export const BaseLayout = () => (
   <>
-    {/* <Header /> */}
+    <MainHeader />
     <main className='content'>
       <Outlet />
     </main>
