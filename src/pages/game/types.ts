@@ -12,6 +12,8 @@ type BallConfig = {
   radius: number;
   borderColor: string;
   borderWidth: number;
+  vel: number;
+  velRatio: number;
 };
 
 type GridConfig = {
@@ -28,4 +30,9 @@ export type GameConfig = {
   flask: FlaskConfig;
   ball: BallConfig;
   levels: Record<string, string[][]>;
+};
+
+export type Position = {
+  x: number;
+  y: number;
 };

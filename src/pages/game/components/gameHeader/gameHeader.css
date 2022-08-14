@@ -4,6 +4,10 @@
     gap: 30px;
   }
 
+  &__timer {
+    user-select: none;
+  }
+
   &__button {
     border: none;
     background: transparent;
