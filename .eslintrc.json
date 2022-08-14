@@ -50,7 +50,8 @@
     "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ],
     "no-plusplus": "off",
     "no-useless-constructor": "off",
-    "no-empty-function": ["error", { "allow": ["constructors"] }]
+    "no-empty-function": ["error", { "allow": ["constructors"] }],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }]
   },
   "parserOptions": {
     "ecmaVersion": 2017,
