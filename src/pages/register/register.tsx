@@ -1,24 +1,20 @@
-import { FormikHelpers } from 'formik';
 import { AuthPageTemplate } from '@/pages/components/authPageTemplate/authPageTemplate';
 import { AuthForm } from '@/pages/components/authForm/authForm';
+import { useAuth } from '@/hooks/useAuth';
 import { routes } from '@/router/routes';
 import { RegisterFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
 
 const Register = () => {
-  const onFormSubmit = (data: RegisterFormData, helpers: FormikHelpers<RegisterFormData>) => {
-    // Временно до подключения api
-    console.log({ data });
-    helpers.setSubmitting(false);
-    helpers.resetForm();
-  };
+  const { isLoading, handleRegister } = useAuth();
 
   return (
     <AuthPageTemplate isReversed>
       <AuthForm<RegisterFormData>
+        isLoading={isLoading}
         formTitle='Регистрация'
         formName='registerForm'
-        onSubmit={onFormSubmit}
+        onSubmit={handleRegister}
         submitButtonText='Зарегистрироваться'
         inputs={inputs}
         initialValues={initialValues}
