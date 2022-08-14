@@ -1,17 +1,7 @@
 import { gameConfig } from '../utils/config';
 
 export class Ball {
-  x: number;
-
-  y: number;
-
-  private color: string;
-
-  constructor(x: number, y: number, color: string) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-  }
+  constructor(public x: number, public y: number, private color: string) {}
 
   render(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = this.color;

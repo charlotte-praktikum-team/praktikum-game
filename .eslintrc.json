@@ -48,7 +48,9 @@
     "react/button-has-type": 0,
     "eol-last": ["error", "always"],
     "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ],
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": ["error", { "allow": ["constructors"] }]
   },
   "parserOptions": {
     "ecmaVersion": 2017,

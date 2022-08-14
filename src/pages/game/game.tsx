@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GameHeader } from './components/gameHeader/gameHeader';
 import { useGameLoop } from './hooks/useGameLoop';
 import { Flask } from './gameEntities/flask';
-import { initLevel } from './utils/initFlaskList';
+import { initLevel } from './utils/initLevel';
 import { gameConfig } from './utils/config';
 import { routes } from '@/router/routes';
 import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
