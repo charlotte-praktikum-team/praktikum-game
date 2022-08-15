@@ -16,6 +16,7 @@ export const AuthForm = <T extends Record<string, string>>({
   validationSchema,
   link,
   children = null,
+  isLoading,
   classes,
 }: AuthFormProps<T>) => {
   const { errors, touched, handleSubmit, getFieldProps } = useFormik<T>({
@@ -47,7 +48,9 @@ export const AuthForm = <T extends Record<string, string>>({
         </Link>
 
         <div className='auth-form__submit-zone'>
-          <Button type='submit'>{submitButtonText}</Button>
+          <Button type='submit' disabled={isLoading}>
+            {isLoading ? 'Подождите...' : submitButtonText}
+          </Button>
           {children}
         </div>
       </form>
