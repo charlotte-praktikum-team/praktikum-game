@@ -4,4 +4,15 @@ export type RouteData = {
   headerIcon: string | null;
 };
 
-export type RouterType = Record<string, RouteData>;
+export type RouterType = {
+  landing: RouteData;
+  login: RouteData;
+  register: RouteData;
+  profile: RouteData;
+  forum: RouteData;
+  leaderboard: RouteData;
+  game: RouteData;
+  gameRun: RouteData;
+  notFound: RouteData;
+  error: RouteData;
+};

@@ -8,7 +8,8 @@
   &__wrapper {
     display: flex;
     align-items: center;
-    column-gap: 0.5vw;
+    column-gap: 8px;
+    color: var(--dark-primary);
 
     &_active {
       color: var(--ui-primary);

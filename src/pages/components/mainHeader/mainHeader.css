@@ -1,20 +1,21 @@
 .header-main {
   width: 100%;
-  min-height: 8.9vh;
-  padding: 0 2vw;
+  padding: 30px 32px;
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgb(231 232 235 / 60%), 0 4px 8px rgb(231 232 235 / 60%);
 
   &__link-wrapper {
     display: flex;
-    margin-right: 8vw;
-    column-gap: 2vw;
+    margin-right: 128px;
+    column-gap: 32px;
   }
 
   &__exit-button {
     border: 0;
     background-color: transparent;
+    cursor: pointer;
   }
 }
