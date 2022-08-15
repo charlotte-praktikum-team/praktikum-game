@@ -12,12 +12,15 @@ const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsLi
 const ForumTopic = lazy(() => import('@/pages/forumTopic/forumTopic'));
 
 const Login = lazy(() => import('@/pages/login/login'));
+const Register = lazy(() => import('@/pages/register/register'));
+const Dashboard = lazy(() => import('@/pages/dashboard/dashboard'));
+const Game = lazy(() => import('@/pages/game/game'));
 
 export const Router = () => (
   <Routes>
     <Route element={<CenteredLayout />}>
       <Route path={routes.login.path} element={<Login />} />
-      <Route path={routes.register.path} element={<h1>Регистрация</h1>} />
+      <Route path={routes.register.path} element={<Register />} />
       <Route path={routes.notFound.path} element={<h1>404</h1>} />
       <Route path={routes.error.path} element={<h1>500</h1>} />
     </Route>
@@ -35,9 +38,10 @@ export const Router = () => (
       </Route>
 
       <Route path={routes.game.path} element={<BaseLayout />}>
-        <Route index element={<h1>Стартовый экран игры</h1>} />
-        <Route path='run' element={<h1>Игра на canvas</h1>} />
+        <Route index element={<Dashboard />} />
       </Route>
+
+      <Route path={routes.gameRun.path} element={<Game />} />
     </Route>
   </Routes>
 );

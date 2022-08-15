@@ -2,11 +2,11 @@ import { FormikHelpers } from 'formik';
 import { AuthPageTemplate } from '@/pages/components/authPageTemplate/authPageTemplate';
 import { AuthForm } from '@/pages/components/authForm/authForm';
 import { routes } from '@/router/routes';
-import { LoginFormData } from './types';
+import { RegisterFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
 
-const Login = () => {
-  const onFormSubmit = (data: LoginFormData, helpers: FormikHelpers<LoginFormData>) => {
+const Register = () => {
+  const onFormSubmit = (data: RegisterFormData, helpers: FormikHelpers<RegisterFormData>) => {
     // Временно до подключения api
     console.log({ data });
     helpers.setSubmitting(false);
@@ -14,20 +14,20 @@ const Login = () => {
   };
 
   return (
-    <AuthPageTemplate>
-      <AuthForm<LoginFormData>
-        formTitle='Вход'
-        formName='loginForm'
+    <AuthPageTemplate isReversed>
+      <AuthForm<RegisterFormData>
+        formTitle='Регистрация'
+        formName='registerForm'
         onSubmit={onFormSubmit}
-        submitButtonText='Войти'
+        submitButtonText='Зарегистрироваться'
         inputs={inputs}
         initialValues={initialValues}
         validationSchema={validationSchema}
-        link={{ href: routes.register.path, children: 'Нет аккаунта?' }}
-        classes='slide-in-from-left'
+        link={{ href: routes.login.path, children: 'Уже зарегистрированы?' }}
+        classes='slide-in-from-right'
       />
     </AuthPageTemplate>
   );
 };
 
-export default Login;
+export default Register;

@@ -1,4 +1,6 @@
+type Size = 'xs' | 's';
+
 export type SmallTextProps = {
   children: React.ReactNode;
-  classes?: string;
+  size?: Size;
 };
