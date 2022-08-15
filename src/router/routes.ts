@@ -36,6 +36,11 @@ export const routes: RouterType = {
     title: 'Игра',
     headerIcon: 'balls',
   },
+  gameRun: {
+    path: '/game/run',
+    title: 'Игра',
+    headerIcon: null,
+  },
   notFound: {
     path: '/*',
     title: 'Страница не найдена',

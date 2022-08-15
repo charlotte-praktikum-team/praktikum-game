@@ -31,5 +31,7 @@
     "./src/**/*.spec.ts",
     "./src/**/*.test.ts"
   ],
-  "include": ["src", "custom.d.ts"]
+  "include": ["src",
+    "declarations/*"
+  ]
 }

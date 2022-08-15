@@ -20,7 +20,7 @@ const defaultAttributes = {
   fill: 'currentColor',
 };
 
-export const Icon: FC<IconProps> = memo(({ name, size = 'medium' }) => {
+export const Icon: FC<IconProps> = memo(({ name, size = 'm' }) => {
   const classNames = cn('icon', `icon_size-${size}`);
 
   switch (name) {
