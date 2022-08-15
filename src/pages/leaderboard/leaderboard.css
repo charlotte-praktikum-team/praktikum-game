@@ -20,11 +20,11 @@
   }
 
   &__table {
-    width: 62.5vw;
+    width: 1000px;
     display: table-header-group;
 
     &-header {
-      width: 62.5vw;
+      width: 1000px;
       display: table-header-group;
       background-color: var(--dark-primary);
 
@@ -43,11 +43,11 @@
         }
 
         &_aside {
-          width: 14.8vw;
+          width: 236px;
         }
 
         &_center {
-          width: 70.4vw;
+          width: 535px;
         }
       }
     }

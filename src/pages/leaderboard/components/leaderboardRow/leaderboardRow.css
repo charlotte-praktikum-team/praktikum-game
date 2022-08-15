@@ -19,15 +19,17 @@
     }
 
     &_aside {
-      width: 14.8vw;
+      width: 236px;
       text-align: center;
     }
 
     &_center {
-      width: 70.4vw;
+      width: 535px;
       padding-left: 32px;
       position: relative;
+    }
 
+    & + & {
       &::before,
       &::after {
         content: '';
