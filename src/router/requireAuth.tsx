@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 import { routes } from '@/router/routes';
 
 /**
@@ -6,11 +7,9 @@ import { routes } from '@/router/routes';
  * */
 
 export const RequireAuth = () => {
-  // TODO get variable from store
-  const isAuthorized = true;
+  const { isAuth } = useAuth();
 
-  if (!isAuthorized) {
-    // Redirect to login page
+  if (!isAuth()) {
     return <Navigate to={routes.login.path} />;
   }
 

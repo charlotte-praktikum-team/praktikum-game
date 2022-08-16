@@ -43,7 +43,7 @@ export const AuthForm = <T extends Record<string, string>>({
           ))
         )}
 
-        <Link href={link.href} classes='auth-form__link'>
+        <Link href={link.href} replace classes='auth-form__link'>
           {link.children}
         </Link>
 
