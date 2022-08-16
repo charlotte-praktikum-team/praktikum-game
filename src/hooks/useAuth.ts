@@ -21,7 +21,7 @@ export const useAuth = () => {
     setIsLoading(false);
   };
 
-  const isAuth = useCallback(() => useSelector(selectIsAuth), []);
+  const checkAuth = useCallback(() => useSelector(selectIsAuth), []);
 
   // eslint-disable-next-line consistent-return
   const getUser = useCallback(async () => {
@@ -73,7 +73,7 @@ export const useAuth = () => {
     handleLogin,
     handleRegister,
     handleLogout,
-    isAuth,
+    checkAuth,
     getUser,
   };
 };

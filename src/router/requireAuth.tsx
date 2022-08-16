@@ -7,9 +7,9 @@ import { routes } from '@/router/routes';
  * */
 
 export const RequireAuth = () => {
-  const { isAuth } = useAuth();
+  const { checkAuth } = useAuth();
 
-  if (!isAuth()) {
+  if (!checkAuth()) {
     return <Navigate to={routes.login.path} />;
   }
 
