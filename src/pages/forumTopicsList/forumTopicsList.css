@@ -1,0 +1,24 @@
+.forum-topics-list {
+  width: 62.5vw;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__modal {
+    height: 43vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    row-gap: 32px;
+  }
+}

@@ -1,9 +1,15 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+import { routes } from '@/router/routes';
+
 import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
 import { RequireAuth } from '@/router/requireAuth';
-import { routes } from '@/router/routes';
+
+const Forum = lazy(() => import('@/pages/forum/forum'));
+const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsList'));
+const ForumTopic = lazy(() => import('@/pages/forumTopic/forumTopic'));
 
 const Login = lazy(() => import('@/pages/login/login'));
 const Register = lazy(() => import('@/pages/register/register'));
@@ -26,9 +32,9 @@ export const Router = () => (
       </Route>
 
       <Route path={routes.forum.path} element={<BaseLayout />}>
-        <Route index element={<h1>Форум</h1>} />
-        <Route path=':sectionId' element={<h1>Раздел форума</h1>} />
-        <Route path=':sectionId/:topicId' element={<h1>Тема форума</h1>} />
+        <Route index element={<Forum />} />
+        <Route path=':sectionId' element={<ForumTopicsList />} />
+        <Route path=':sectionId/:topicId' element={<ForumTopic />} />
       </Route>
 
       <Route path={routes.game.path} element={<BaseLayout />}>

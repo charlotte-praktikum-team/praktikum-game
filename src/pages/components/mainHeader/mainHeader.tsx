@@ -1,13 +1,13 @@
 import { memo, Children } from 'react';
 
-import './mainHeader.css';
-import { routes } from '@/router/routes';
-
-import HeaderLink from './components/headerLink/headerLink';
+import { HeaderLink } from './components/headerLink/headerLink';
 import { Heading, Icon } from '@/components';
 import { Header } from '../header/header';
 
-const MainHeader = memo(() => {
+import './mainHeader.css';
+import { routes } from '@/router/routes';
+
+export const MainHeader = memo(() => {
   const headerRoutes = [routes.game, routes.leaderboard, routes.forum, routes.profile];
 
   return (
@@ -22,5 +22,3 @@ const MainHeader = memo(() => {
     </Header>
   );
 });
-
-export default MainHeader;

@@ -1,0 +1,35 @@
+.forum-card {
+  width: 28.8vw;
+  padding: 20px 32px;
+  display: flex;
+  flex: auto;
+  border-radius: 16px;
+  background-color: var(--ui-secondary);
+  cursor: pointer;
+
+  &__left-part {
+    width: 74%;
+    padding: 5px 16px 5px 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    border-right: 1px solid var(--divider-primary);
+
+    & * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* stylelint-disable value-no-vendor-prefix */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__right-part {
+    width: 26%;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
