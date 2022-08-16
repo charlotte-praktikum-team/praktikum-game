@@ -13,6 +13,7 @@ const ForumTopic = lazy(() => import('@/pages/forumTopic/forumTopic'));
 
 const Login = lazy(() => import('@/pages/login/login'));
 const Register = lazy(() => import('@/pages/register/register'));
+const Profile = lazy(() => import('@/pages/profile/profile'));
 const Dashboard = lazy(() => import('@/pages/dashboard/dashboard'));
 const Game = lazy(() => import('@/pages/game/game'));
 
@@ -27,7 +28,7 @@ export const Router = () => (
 
     <Route element={<RequireAuth />}>
       <Route element={<BaseLayout />}>
-        <Route path={routes.profile.path} element={<h1>Профиль</h1>} />
+        <Route path={routes.profile.path} element={<Profile />} />
         <Route path={routes.leaderboard.path} element={<h1>Лидерборд</h1>} />
       </Route>
 
