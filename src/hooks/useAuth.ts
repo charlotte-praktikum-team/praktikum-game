@@ -31,7 +31,7 @@ export const useAuth = () => {
       setIsLoading(false);
 
       if (pathname === routes.login.path || pathname === routes.register.path) {
-        navigate(routes.game.path, { state: { from: pathname }, replace: true });
+        navigate(routes.game.path, { replace: true });
       }
     } catch (err) {
       return Promise.reject(err);

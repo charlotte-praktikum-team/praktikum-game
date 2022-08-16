@@ -1,6 +1,6 @@
 import { Router } from '@/router/router';
-import { withProviders } from '@/components/App/providers';
 import { ErrorBoundary } from '@/components/errorBoundary/errorBoundary';
+import { withProviders } from './providers';
 
 const App = () => (
   <ErrorBoundary>

@@ -1,44 +1,17 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb",
-    "prettier"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "airbnb", "prettier"],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
-    "max-len": [
-      1,
-      140
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "max-len": [1, 140],
+    "semi": ["error", "always"],
     "padding-line-between-statements": [
       "error",
       {
         "blankLine": "always",
-        "prev": [
-          "multiline-let",
-          "multiline-const",
-          "if",
-          "while",
-          "switch",
-          "for",
-          "do"
-        ],
+        "prev": ["multiline-let", "multiline-const", "if", "while", "switch", "for", "do"],
         "next": "return"
       }
     ],
@@ -54,15 +27,7 @@
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-this-alias": "off",
     "@typescript-eslint/no-unnecessary-type-constraint": "off",
-    "react/jsx-filename-extension": [
-      2,
-      {
-        "extensions": [
-          ".ts",
-          ".tsx"
-        ]
-      }
-    ],
+    "react/jsx-filename-extension": [2, {"extensions": [".ts", ".tsx"]}],
     "import/no-import-module-exports": 0,
     "import/no-unresolved": 0,
     "import/extensions": 0,
@@ -80,42 +45,15 @@
     ],
     "react/react-in-jsx-scope": "off",
     "indent": "off",
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ],
+    "@typescript-eslint/indent": ["error", 2],
     "react/button-has-type": 0,
-    "eol-last": [
-      "error",
-      "always"
-    ],
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "custom": "ignore"
-      }
-    ],
+    "eol-last": ["error", "always"],
+    "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ],
     "@typescript-eslint/no-empty-function": "off",
     "no-plusplus": "off",
     "no-useless-constructor": "off",
-    "no-empty-function": [
-      "warn",
-      {
-        "allow": [
-          "constructors"
-        ]
-      }
-    ],
-    "no-param-reassign": [
-      "error",
-      {
-        "props": true,
-        "ignorePropertyModificationsFor": [
-          "state",
-          "ctx"
-        ]
-      }
-    ]
+    "no-empty-function": ["warn", { "allow": ["constructors"] }],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }]
   },
   "parserOptions": {
     "ecmaVersion": 2017,

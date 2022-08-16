@@ -2,7 +2,7 @@ type ComposeFunction = (...arg: any[]) => void;
 
 export const compose = (...functions: ComposeFunction[]) => {
   if (functions.length === 0) {
-    return undefined;
+    return (arg: unknown) => arg;
   }
 
   if (functions.length === 1) {
