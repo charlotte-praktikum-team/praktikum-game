@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react';
 import { AxiosError } from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { AuthService, SignInPayload, SignUpPayload } from '@/services/auth';
 import { clearUserData, setUserData } from '@/store/user/slice';
+import { useAppSelector } from '@/store';
 import { selectIsAuth } from '@/store/user/selectors';
 import { ServerError } from '@/types';
 import { routes } from '@/router/routes';
@@ -21,7 +22,7 @@ export const useAuth = () => {
     setIsLoading(false);
   };
 
-  const checkAuth = useCallback(() => useSelector(selectIsAuth), []);
+  const checkAuth = useCallback(() => useAppSelector(selectIsAuth), []);
 
   // eslint-disable-next-line consistent-return
   const getUser = useCallback(async () => {

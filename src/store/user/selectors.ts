@@ -1,4 +1,4 @@
-import { UserState } from './types';
+import { AppState } from '../types';
 
-export const selectUser = (state: UserState) => state.user.user;
-export const selectIsAuth = (state: UserState) => state.user.isAuth;
+export const selectUser = (state: AppState) => state.user.user;
+export const selectIsAuth = (state: AppState) => state.user.isAuth;
