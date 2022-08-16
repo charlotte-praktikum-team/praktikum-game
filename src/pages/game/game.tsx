@@ -71,7 +71,7 @@ const Game = () => {
     if (activeFlaskId === clickedFlask.id) {
       clickedFlask.dropBall();
       setActiveFlaskId(undefined);
-    } else if (activeFlaskId && activeFlaskId !== clickedFlask.id) {
+    } else if (activeFlaskId) {
       const activeFlask = flaskList.find((flask) => flask.id === activeFlaskId);
 
       if (
