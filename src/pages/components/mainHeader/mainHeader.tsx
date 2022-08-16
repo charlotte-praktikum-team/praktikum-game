@@ -19,7 +19,7 @@ export const MainHeader = memo(() => {
         {routes.landing.title}
       </Heading>
       <nav className='header-main__link-wrapper'>{Children.toArray(headerRoutes.map((route) => <HeaderLink routeData={route} />))}</nav>
-      <button className='header-main__exit-button' onClick={handleLogout}>
+      <button className='header-main__exit-button' onClick={handleLogout} title='Выйти'>
         <Icon name='logout' />
       </button>
     </Header>
