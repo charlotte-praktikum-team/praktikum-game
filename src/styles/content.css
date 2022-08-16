@@ -1,6 +1,6 @@
 .content {
   width: 100%;
-  flex-grow: 1;
+  flex: 1;
 
   &_centered {
     display: flex;

@@ -1,0 +1,21 @@
+.dashboard {
+  &__wrapper {
+    padding: 60px 270px;
+  }
+
+  &__description {
+    margin: 0 auto 140px;
+    max-width: 1058px;
+  }
+
+  &__levels-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 1250px;
+    column-gap: 46px;
+    row-gap: 30px;
+    padding: 0 62px;
+    margin: 0 auto;
+  }
+}

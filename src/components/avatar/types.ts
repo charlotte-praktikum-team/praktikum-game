@@ -1,6 +1,6 @@
 type Size = 's' | 'm';
 
 export type AvatarProps = {
-  src?: string;
+  src?: string | null;
   size?: Size;
 };

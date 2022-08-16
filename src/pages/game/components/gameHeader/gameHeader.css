@@ -1,0 +1,17 @@
+.game-header {
+  &__actions-wrapper {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    &_add-flask {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
