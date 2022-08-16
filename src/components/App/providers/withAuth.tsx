@@ -11,7 +11,7 @@ export const withAuth = (Component: () => ReactElement) => () => {
   }, []);
 
   if (isCheckingAuth) {
-    return 'Загрузка...';
+    return <p>Загрузка...</p>;
   }
 
   return <Component />;

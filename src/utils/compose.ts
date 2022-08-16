@@ -1,8 +1,8 @@
-type ComposeFunction = (...arg: any[]) => void;
+type ComposeFunction<T> = (...arg: any[]) => T;
 
-export const compose = (...functions: ComposeFunction[]) => {
+export const compose = <T>(...functions: ComposeFunction<T>[]): ComposeFunction<T> => {
   if (functions.length === 0) {
-    return (arg: unknown) => arg;
+    return (arg: T) => arg;
   }
 
   if (functions.length === 1) {

@@ -1,6 +1,6 @@
 import { User } from '@/types';
 
 export type UserState = {
-  user: User;
+  user: Partial<User>;
   isAuth: boolean;
 };
