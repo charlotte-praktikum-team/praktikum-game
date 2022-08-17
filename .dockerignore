@@ -1,0 +1,14 @@
+.git
+.github
+.vscode
+.idea
+.husky
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitignore
+.prettierignore
+.prettierrc.json
+.stylelintrc.json
+node_modules
+build
