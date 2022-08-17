@@ -52,7 +52,8 @@
     "@typescript-eslint/no-empty-function": "off",
     "no-plusplus": "off",
     "no-useless-constructor": "off",
-    "no-empty-function": ["warn", { "allow": ["constructors"] }]
+    "no-empty-function": ["warn", { "allow": ["constructors"] }],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }]
   },
   "parserOptions": {
     "ecmaVersion": 2017,

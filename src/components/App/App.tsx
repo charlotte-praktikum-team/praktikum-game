@@ -1,6 +1,6 @@
 import { Router } from '@/router/router';
-import { withRouter } from '@/components/App/providers/withRouter';
 import { ErrorBoundary } from '@/components/errorBoundary/errorBoundary';
+import { withProviders } from './providers';
 
 const App = () => (
   <ErrorBoundary>
@@ -8,4 +8,4 @@ const App = () => (
   </ErrorBoundary>
 );
 
-export default withRouter(App, 'Прогреваемся...');
+export default withProviders(App);

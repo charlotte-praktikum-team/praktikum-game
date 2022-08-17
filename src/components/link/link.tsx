@@ -5,8 +5,8 @@ import { LinkProps } from './types';
 
 import './link.css';
 
-export const StyledLink: FC<LinkProps> = memo(({ children, href, classes }) => (
-  <Link to={href} className={cn('link', classes)}>
+export const StyledLink: FC<LinkProps> = memo(({ children, href, replace, classes }) => (
+  <Link to={href} replace={replace} className={cn('link', classes)}>
     {children}
   </Link>
 ));

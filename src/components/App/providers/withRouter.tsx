@@ -1,10 +1,10 @@
-import { ReactElement, ReactNode, Suspense } from 'react';
+import { ReactElement, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-export const withRouter = (Component: () => ReactElement, fallback: ReactNode) => () =>
+export const withRouter = (Component: () => ReactElement) => () =>
   (
     <BrowserRouter>
-      <Suspense fallback={fallback}>
+      <Suspense fallback='Загрузка...'>
         <Component />
       </Suspense>
     </BrowserRouter>

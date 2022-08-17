@@ -1,14 +1,19 @@
 import { useCallback, useState } from 'react';
 import { AxiosError } from 'axios';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { AuthService, SignInPayload, SignUpPayload } from '@/services/auth';
+import { clearUserData, setUserData } from '@/store/user/slice';
+import { useAppSelector } from '@/store';
+import { selectIsAuth } from '@/store/user/selectors';
 import { ServerError } from '@/types';
 import { routes } from '@/router/routes';
 
 export const useAuth = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,18 +22,20 @@ export const useAuth = () => {
     setIsLoading(false);
   };
 
+  const checkAuth = useCallback(() => useAppSelector(selectIsAuth), []);
+
+  // eslint-disable-next-line consistent-return
   const getUser = useCallback(async () => {
     try {
       const userData = await AuthService.getUser();
-      // TODO задиспатчить в стор
-      console.log(userData);
+      dispatch(setUserData(userData));
       setIsLoading(false);
 
       if (pathname === routes.login.path || pathname === routes.register.path) {
-        navigate(routes.game.path);
+        navigate(routes.game.path, { replace: true });
       }
     } catch (err) {
-      handleError(err as AxiosError<ServerError>);
+      return Promise.reject(err);
     }
   }, []);
 
@@ -55,7 +62,7 @@ export const useAuth = () => {
   const handleLogout = useCallback(async () => {
     try {
       await AuthService.logout();
-      // TODO очистить стор юзера
+      dispatch(clearUserData());
       navigate(routes.login.path);
     } catch (err) {
       handleError(err as AxiosError<ServerError>);
@@ -67,7 +74,7 @@ export const useAuth = () => {
     handleLogin,
     handleRegister,
     handleLogout,
-    handleError,
+    checkAuth,
     getUser,
   };
 };

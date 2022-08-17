@@ -1,11 +1,11 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { routes } from '@/router/routes';
+import { routes } from './routes';
+import { RequireAuth } from './requireAuth';
 
 import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
-import { RequireAuth } from '@/router/requireAuth';
 
 const Forum = lazy(() => import('@/pages/forum/forum'));
 const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsList'));
