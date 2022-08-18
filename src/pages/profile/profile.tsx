@@ -1,21 +1,12 @@
 import { useState } from 'react';
 
-import { ProfilePageWrapper } from '../components/profilePageWrapper/profilePageWrapper';
-import { ProfileAvatar } from '../components/profileAvatar/profileAvatar';
-import { ProfileModal } from '../components/profileModal/profileModal';
+import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePageTemplate';
 
 const Profile = () => {
-  const [openModal, setOpenModal] = useState(false);
-
-  const onToggleModal = () => setOpenModal(!openModal);
-
   return (
-    <>
-      <ProfilePageWrapper>
-        <ProfileAvatar onClick={onToggleModal} />
-      </ProfilePageWrapper>
-      <ProfileModal isOpen={openModal} onClose={onToggleModal} />
-    </>
+    <ProfilePageTemplate>
+      <div>biba</div>
+    </ProfilePageTemplate>
   );
 };
 

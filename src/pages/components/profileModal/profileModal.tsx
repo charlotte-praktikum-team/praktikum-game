@@ -13,8 +13,8 @@ export const ProfileModal: FC<ProfileModalProps> = ({ isOpen, onClose }) => {
   const { errors, handleSubmit, setFieldValue, values } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
-      console.log('values', values);
+    onSubmit: (formValues) => {
+      console.log('values', formValues);
       onClose();
     },
   });
