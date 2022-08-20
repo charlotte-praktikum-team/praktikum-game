@@ -53,7 +53,8 @@
     "no-plusplus": "off",
     "no-useless-constructor": "off",
     "no-empty-function": ["warn", { "allow": ["constructors"] }],
-    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }]
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }],
+    "import/order": "error"
   },
   "parserOptions": {
     "ecmaVersion": 2017,
