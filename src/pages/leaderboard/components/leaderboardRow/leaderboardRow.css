@@ -1,0 +1,51 @@
+.leaderboard-row {
+  display: table-row;
+
+  &:nth-child(odd) {
+    background-color: var(--background-primary);
+  }
+
+  &:nth-child(even) {
+    background-color: var(--ui-secondary);
+  }
+
+  &-cell {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+
+    & * {
+      color: var(--dark-primary);
+      cursor: pointer;
+    }
+
+    &_aside {
+      width: 236px;
+      text-align: center;
+    }
+
+    &_center {
+      width: 535px;
+      padding-left: 32px;
+    }
+
+    & + & {
+      &::before {
+        content: '';
+        background: var(--divider-primary);
+        position: absolute;
+        top: 10px;
+        left: 0;
+        height: 30px;
+        width: 1px;
+      }
+    }
+
+    &__block {
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+}

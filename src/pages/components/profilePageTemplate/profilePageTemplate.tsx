@@ -1,12 +1,13 @@
 import { FC, useState } from 'react';
 
-import { ProfileAvatar } from '../profileAvatar/profileAvatar';
-import { ProfileModal } from '../profileModal/profileModal';
-
 import './profilePageTemplate.css';
 import { ProfilePageTemplateProps } from './types';
 
-export const ProfilePageTemplate: FC<ProfilePageTemplateProps> = ({ children }) => {
+import { ProfileAvatar } from '../profileAvatar/profileAvatar';
+import { ProfileModal } from '../profileModal/profileModal';
+import { Heading } from '@/components';
+
+export const ProfilePageTemplate: FC<ProfilePageTemplateProps> = ({ children, title }) => {
   const [openModal, setOpenModal] = useState(false);
 
   const onToggleModal = () => setOpenModal(!openModal);
@@ -14,7 +15,14 @@ export const ProfilePageTemplate: FC<ProfilePageTemplateProps> = ({ children }) 
   return (
     <>
       <div className='profile-page-template'>
-        <ProfileAvatar onClick={onToggleModal} />
+        <div className='profile-page-template__top'>
+          <ProfileAvatar onClick={onToggleModal} />
+          {title && (
+            <Heading type='h1' size='m'>
+              {title}
+            </Heading>
+          )}
+        </div>
         {children}
       </div>
       <ProfileModal isOpen={openModal} onClose={onToggleModal} />

@@ -2,11 +2,11 @@ import { ChangeEvent, FC, useState } from 'react';
 import { useFormik } from 'formik';
 import cn from 'classnames';
 
-import { Modal, Button, SmallText } from '@/components';
-
 import { ProfileModalProps } from './types';
 import './profileModal.css';
 import { initialValues, validationSchema } from './constants';
+
+import { Modal, Button, SmallText } from '@/components';
 
 export const ProfileModal: FC<ProfileModalProps> = ({ isOpen, onClose }) => {
   const [inputText, setInputText] = useState('Выбрать файл на компьютере');

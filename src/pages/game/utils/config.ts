@@ -37,6 +37,8 @@ export const gameConfig: GameConfig = {
     radius: 26,
     borderColor: colors.grey,
     borderWidth: 1,
+    velRatio: 0.05,
+    vel: 15,
   },
   levels: {
     1: [

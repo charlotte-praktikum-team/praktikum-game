@@ -1,3 +1,14 @@
 .profile {
-  margin: 0;
+  &__data-item {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #1e1e1e;
+
+    &-info {
+      color: var(--divider-primary);
+    }
+  }
 }
