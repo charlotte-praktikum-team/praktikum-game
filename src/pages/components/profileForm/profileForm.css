@@ -9,6 +9,6 @@
   row-gap: 25px;
 
   &__success-text {
-    color: #2b3;
+    color: var(--text-success);
   }
 }

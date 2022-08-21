@@ -19,7 +19,7 @@
       text-decoration: underline;
 
       &_file {
-        color: #8d8d8d;
+        color: var(--text-placeholder);
         text-decoration: none;
       }
     }

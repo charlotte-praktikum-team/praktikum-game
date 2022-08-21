@@ -3,7 +3,7 @@
   height: 130px;
   position: relative;
   border-radius: 50%;
-  background-color: #efefef;
+  background-color: var(--background-avatar);
   background-image: url('../../../../assets/icons/picturePlaceholder.png');
   background-position: center;
   background-repeat: no-repeat;

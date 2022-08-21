@@ -10,14 +10,20 @@ import { Modal, Button, SmallText } from '@/components';
 
 export const ProfileModal: FC<ProfileModalProps> = ({ isOpen, onClose }) => {
   const [inputText, setInputText] = useState('Выбрать файл на компьютере');
-  const { errors, handleSubmit, setFieldValue, values } = useFormik({
+  const { errors, handleSubmit, setFieldValue, values, resetForm } = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (formValues) => {
       console.log('values', formValues);
-      onClose();
+      onCloseModal();
     },
   });
+
+  const onCloseModal = () => {
+    onClose();
+    setInputText('Выбрать файл на компьютере');
+    resetForm();
+  };
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.currentTarget.files![0];
@@ -27,7 +33,7 @@ export const ProfileModal: FC<ProfileModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title='Загрузите файл'>
+    <Modal isOpen={isOpen} onClose={onCloseModal} title='Загрузите файл'>
       <form encType='multipart/form-data' className='profile-modal' onSubmit={handleSubmit}>
         <label htmlFor='avatar' className='profile-modal__label'>
           <SmallText classes={cn('profile-modal__input-text', { 'profile-modal__input-text_file': values.avatar })}>{inputText}</SmallText>

@@ -3,9 +3,9 @@
     display: flex;
     justify-content: space-between;
     font-weight: 500;
-    font-size: 13px;
-    line-height: 13px;
-    color: #1e1e1e;
+    font-size: var(--font-size-profile);
+    line-height: var(--line-height-profile);
+    color: var(--text-dark-secondary);
 
     &-info {
       color: var(--divider-primary);
