@@ -1,7 +1,7 @@
 .content {
   width: 100%;
-  min-height: 100vh;
-  background-color: var(--background-primary);
+  display: flex;
+  flex: 1;
 
   &_centered {
     display: flex;

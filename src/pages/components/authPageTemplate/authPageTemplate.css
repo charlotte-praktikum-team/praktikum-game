@@ -1,0 +1,42 @@
+.auth-page-template {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 40px;
+  min-height: calc(100vh - 38px * 2);
+  max-width: 1002px;
+  width: 100%;
+  padding: 0 108px;
+  margin: 38px auto;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    height: calc(100vh - 38px * 2);
+    max-height: 823px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--dark-primary);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &_reversed {
+    flex-direction: row-reverse;
+
+    &.auth-page-template::after {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  &__heading {
+    max-width: 249px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+}

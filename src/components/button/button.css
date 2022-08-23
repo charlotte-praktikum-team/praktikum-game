@@ -5,9 +5,11 @@
   border: none;
   border-radius: 16px;
   text-align: center;
+  background-color: transparent;
   font-size: var(--font-size-m);
   line-height: var(--line-height-m);
   font-weight: 600;
+  transition: opacity var(--trans-300);
 
   &:hover {
     opacity: 0.9;

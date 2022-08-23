@@ -1,0 +1,47 @@
+.profile-page-template {
+  width: 510px;
+  margin: 0 auto;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+  }
+}
+
+.profile-modal {
+  height: 157px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  &__label {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__input {
+    display: none;
+
+    &-text {
+      color: var(--ui-primary);
+      text-decoration: underline;
+
+      &_file {
+        color: var(--text-placeholder);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__error {
+    color: var(--danger);
+  }
+}

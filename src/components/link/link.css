@@ -1,4 +1,5 @@
 .link {
+  width: fit-content;
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
   color: var(--ui-primary);
