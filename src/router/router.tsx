@@ -11,6 +11,10 @@ const Forum = lazy(() => import('@/pages/forum/forum'));
 const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsList'));
 const ForumTopic = lazy(() => import('@/pages/forumTopic/forumTopic'));
 
+const Profile = lazy(() => import('@/pages/profile/profile'));
+const ProfileUser = lazy(() => import('@/pages/profileUser/profileUser'));
+const ProfilePassword = lazy(() => import('@/pages/profilePassword/profilePassword'));
+
 const Login = lazy(() => import('@/pages/login/login'));
 const Register = lazy(() => import('@/pages/register/register'));
 const Leaderboard = lazy(() => import('@/pages/leaderboard/leaderboard'));
@@ -27,8 +31,13 @@ export const Router = () => (
     </Route>
 
     <Route element={<RequireAuth />}>
+      <Route path={routes.profile.path} element={<BaseLayout />}>
+        <Route index element={<Profile />} />
+        <Route path='user' element={<ProfileUser />} />
+        <Route path='password' element={<ProfilePassword />} />
+      </Route>
+
       <Route element={<BaseLayout />}>
-        <Route path={routes.profile.path} element={<h1>Профиль</h1>} />
         <Route path={routes.leaderboard.path} element={<Leaderboard />} />
       </Route>
 

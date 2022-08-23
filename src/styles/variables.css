@@ -1,25 +1,32 @@
 :root {
   --background-primary: #fcfcfc;
   --background-secondary: #fff;
+  --background-avatar: #efefef;
   --danger: #ff4e4e;
   --dark-primary: #212329;
   --divider-primary: #999;
   --divider-secondary: #d9d9d9;
+  --divider-profile: #eaeaea;
   --ui-primary: #3369f3;
   --ui-dark-primary: #2047aa;
   --ui-secondary: #f1f1f1;
   --text-secondary: #fff;
+  --text-dark-secondary: #1e1e1e;
+  --text-placeholder: #8d8d8d;
+  --text-success: #2b3;
   --font-size-xxl: 64px;
   --font-size-xl: 32px;
   --font-size-l: 24px;
   --font-size-m: 18px;
   --font-size-s: 12px;
   --font-size-xs: 8px;
+  --font-size-profile: 13px;
   --line-height-xxl: 1.12;
   --line-height-xl: 1.12;
   --line-height-l: 1.16;
   --line-height-m: 1.33;
   --line-height-s: 1.16;
   --line-height-xs: 1.16;
+  --line-height-profile: 13px;
   --trans-300: 0.3s;
 }
