@@ -55,7 +55,8 @@
     "no-useless-constructor": "off",
     "no-empty-function": ["warn", { "allow": ["constructors"] }],
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }],
-    "import/order": "error"
+    "import/order": "error",
+    "consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }]
   },
   "parserOptions": {
     "ecmaVersion": 2017,
