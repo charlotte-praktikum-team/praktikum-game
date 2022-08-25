@@ -56,7 +56,9 @@
     "no-empty-function": ["warn", { "allow": ["constructors"] }],
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }],
     "import/order": "error",
-    "consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }]
+    "consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }],
+    "camelcase": "off",
+    "no-shadow": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2017,
