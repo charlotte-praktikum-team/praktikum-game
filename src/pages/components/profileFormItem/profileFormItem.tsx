@@ -13,7 +13,7 @@ export const ProfileFormItem: FC<ProfileFormItemProps> = memo(
 
     return (
       <ProfileListItem>
-        <SmallText classes='profile-form-item__error'>{errorMessage}</SmallText>
+        <SmallText danger>{errorMessage}</SmallText>
         <label htmlFor={name} className='profile-form-item' onClick={() => inputRef.current?.focus()}>
           <span>{label}</span>
           <input

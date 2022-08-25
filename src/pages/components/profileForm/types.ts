@@ -8,5 +8,4 @@ export type ProfileFormProps<T> = {
   onSubmit: (formData: T, helpers: FormikHelpers<T>) => void;
   validationSchema: unknown;
   isLoading?: boolean;
-  successText?: string;
 };

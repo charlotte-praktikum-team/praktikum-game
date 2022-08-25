@@ -1,0 +1,12 @@
+.profile-data-item {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: var(--font-size-profile);
+  line-height: var(--line-height-profile);
+  color: var(--text-dark-secondary);
+
+  &__info {
+    color: var(--divider-primary);
+  }
+}
