@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {InjectManifest} = require('workbox-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -30,6 +31,9 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
+    }),
+    new InjectManifest({
+      swSrc: './src/sw.ts',
     }),
   ],
 });

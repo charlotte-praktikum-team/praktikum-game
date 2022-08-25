@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import { APP_ROOT_ID } from '@/utils/constants';
 import { configureAxios } from '@/utils/configureAxios';
+import registerServiceWorker from './serviceWorkerRegistration';
 import 'styles/index.css';
 
 configureAxios();
@@ -19,3 +20,5 @@ ReactDOM.render(
 if (devMode && module && module.hot) {
   module.hot.accept();
 }
+
+registerServiceWorker();
