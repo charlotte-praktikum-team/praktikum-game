@@ -57,21 +57,13 @@ export const userSlice = createSlice({
     builder.addCase(changePassword.fulfilled, (state) => {
       state.isLoading = false;
     });
-    builder.addCase(changeUser.rejected, (state, action) => {
-      state.errorMessage = (action.payload as ServerError).reason;
-    });
-    builder.addCase(changeAvatar.rejected, (state, action) => {
-      state.errorMessage = (action.payload as ServerError).reason;
-    });
-    builder.addCase(changePassword.rejected, (state, action) => {
-      state.errorMessage = (action.payload as ServerError).reason;
-    });
     builder.addMatcher(isPending(changeUser, changePassword, changeAvatar), (state) => {
       state.isLoading = true;
       state.errorMessage = '';
     });
-    builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar), (state) => {
+    builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar), (state, action) => {
       state.isLoading = false;
+      state.errorMessage = (action.payload as ServerError).reason;
     });
   },
 });

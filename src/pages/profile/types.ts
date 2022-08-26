@@ -1,4 +1,4 @@
-export enum label {
+export enum Label {
   EMAIL = 'Почта',
   LOGIN = 'Логин',
   FIRST_NAME = 'Имя',
