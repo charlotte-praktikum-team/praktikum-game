@@ -15,12 +15,12 @@ const Profile = () => {
   return (
     <ProfilePageTemplate title={`${first_name} ${second_name}`}>
       <ProfileList>
-        <ProfileDataItem title={LABELS.EMAIL} text={email!} />
-        <ProfileDataItem title={LABELS.LOGIN} text={login!} />
-        <ProfileDataItem title={LABELS.FIRST_NAME} text={first_name!} />
-        <ProfileDataItem title={LABELS.SECOND_NAME} text={second_name!} />
+        <ProfileDataItem title={LABELS.EMAIL} text={email} />
+        <ProfileDataItem title={LABELS.LOGIN} text={login} />
+        <ProfileDataItem title={LABELS.FIRST_NAME} text={first_name} />
+        <ProfileDataItem title={LABELS.SECOND_NAME} text={second_name} />
         <ProfileDataItem title={LABELS.DISPLAY_NAME} text={display_name!} />
-        <ProfileDataItem title={LABELS.PHONE} text={phone!} />
+        <ProfileDataItem title={LABELS.PHONE} text={phone} />
       </ProfileList>
 
       <ProfileList>

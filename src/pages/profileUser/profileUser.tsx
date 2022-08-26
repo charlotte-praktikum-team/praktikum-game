@@ -10,7 +10,7 @@ import { selectIsLoading, selectUser } from '@/store/user/selectors';
 const ProfileUser = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(selectIsLoading);
-  const { email, login, display_name, first_name, second_name, phone } = useAppSelector(selectUser);
+  const { id, display_name, ...initialValues } = useAppSelector(selectUser);
 
   return (
     <ProfilePageTemplate>
@@ -19,14 +19,7 @@ const ProfileUser = () => {
         formName='profileUserForm'
         onSubmit={(values) => dispatch(changeUser(values))}
         inputs={inputs}
-        initialValues={{
-          email: email!,
-          login: login!,
-          display_name: display_name!,
-          first_name: first_name!,
-          second_name: second_name!,
-          phone: phone!,
-        }}
+        initialValues={{ ...initialValues, display_name: display_name! }}
         validationSchema={validationSchema}
       />
     </ProfilePageTemplate>

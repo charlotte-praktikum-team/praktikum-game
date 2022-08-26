@@ -5,6 +5,7 @@ import { ProfilePayload, ProfileService, PasswordPayload } from '@/services/prof
 
 const initialState: UserState = {
   user: {
+    id: null,
     first_name: '',
     second_name: '',
     display_name: null,
@@ -66,7 +67,7 @@ export const userSlice = createSlice({
       state.isAuth = true;
     },
     clearUserData: (state) => {
-      state.user = {};
+      state.user = initialState.user;
       state.isAuth = false;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
