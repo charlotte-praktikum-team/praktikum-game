@@ -57,8 +57,8 @@
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }],
     "import/order": "error",
     "consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }],
-    "camelcase": "off",
-    "no-shadow": "off"
+    "camelcase": "warn",
+    "no-shadow": "warn"
   },
   "parserOptions": {
     "ecmaVersion": 2017,

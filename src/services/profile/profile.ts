@@ -9,8 +9,10 @@ export const ProfileService = {
   changePassword(data: PasswordPayload) {
     return axios.put<PasswordPayload, ProfileResponse>('user/password', data);
   },
-  changeAvatar(data: FormData) {
-    return axios.put<FormData, ProfileResponse>('user/profile/avatar', data, {
+  changeAvatar(data: HTMLInputElement) {
+    const formData: any = new FormData();
+    formData.append('avatar', data);
+    return axios.put<FormData, ProfileResponse>('user/profile/avatar', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState } from '@/store/user/types';
 import { ProfilePayload, ProfileService, PasswordPayload } from '@/services/profile';
+import { ServerError } from '@/types';
 
 const initialState: UserState = {
   user: {
@@ -19,44 +20,11 @@ const initialState: UserState = {
   errorMessage: '',
 };
 
-export const changeUser = createAsyncThunk('profile/changeUser', async (payload: ProfilePayload, thunkAPI) => {
-  try {
-    thunkAPI.dispatch(setLoading(true));
-    thunkAPI.dispatch(setErrorMessage(''));
-    const profile = await ProfileService.changeProfile(payload);
-    return profile;
-  } catch (e) {
-    thunkAPI.dispatch(setErrorMessage(e as string));
-  } finally {
-    thunkAPI.dispatch(setLoading(false));
-  }
-});
-
-export const changePassword = createAsyncThunk('profile/changePassword', async (payload: PasswordPayload, thunkAPI) => {
-  try {
-    thunkAPI.dispatch(setLoading(true));
-    thunkAPI.dispatch(setErrorMessage(''));
-    const profile = await ProfileService.changePassword(payload);
-    return profile;
-  } catch (e) {
-    thunkAPI.dispatch(setErrorMessage(e as string));
-  } finally {
-    thunkAPI.dispatch(setLoading(false));
-  }
-});
-
-export const changeAvatar = createAsyncThunk('profile/changeAvatar', async (payload: FormData, thunkAPI) => {
-  try {
-    thunkAPI.dispatch(setLoading(true));
-    thunkAPI.dispatch(setErrorMessage(''));
-    const profile = await ProfileService.changeAvatar(payload);
-    return profile;
-  } catch (e) {
-    thunkAPI.dispatch(setErrorMessage(e as string));
-  } finally {
-    thunkAPI.dispatch(setLoading(false));
-  }
-});
+export const changeUser = createAsyncThunk('profile/changeUser', (payload: ProfilePayload) => ProfileService.changeProfile(payload));
+export const changePassword = createAsyncThunk('profile/changePassword', (payload: PasswordPayload) =>
+  ProfileService.changePassword(payload)
+);
+export const changeAvatar = createAsyncThunk('profile/changeAvatar', (payload: HTMLInputElement) => ProfileService.changeAvatar(payload));
 
 export const userSlice = createSlice({
   name: 'user',
@@ -80,13 +48,34 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(changeUser.fulfilled, (state, action) => {
       state.user = action.payload!;
+      state.isLoading = false;
     });
     builder.addCase(changeAvatar.fulfilled, (state, action) => {
       state.user = action.payload!;
+      state.isLoading = false;
+    });
+    builder.addCase(changePassword.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(changeUser.rejected, (state, action) => {
+      state.errorMessage = (action.payload as ServerError).reason;
+    });
+    builder.addCase(changeAvatar.rejected, (state, action) => {
+      state.errorMessage = (action.payload as ServerError).reason;
+    });
+    builder.addCase(changePassword.rejected, (state, action) => {
+      state.errorMessage = (action.payload as ServerError).reason;
+    });
+    builder.addMatcher(isPending(changeUser, changePassword, changeAvatar), (state) => {
+      state.isLoading = true;
+      state.errorMessage = '';
+    });
+    builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar), (state) => {
+      state.isLoading = false;
     });
   },
 });
 
-export const { setUserData, clearUserData, setLoading, setErrorMessage } = userSlice.actions;
+export const { setUserData, clearUserData } = userSlice.actions;
 
 export default userSlice.reducer;

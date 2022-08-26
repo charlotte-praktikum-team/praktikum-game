@@ -23,9 +23,7 @@ export const ProfilePageTemplate: FC<ProfilePageTemplateProps> = ({ children, ti
     initialValues,
     validationSchema,
     onSubmit: (formValues) => {
-      const formData: any = new FormData();
-      formData.append('avatar', formValues!.avatar);
-      dispatch(changeAvatar(formData));
+      dispatch(changeAvatar(formValues.avatar!));
       onCloseModal();
       handleSubmit();
     },
