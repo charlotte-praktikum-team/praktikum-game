@@ -7,6 +7,6 @@ export const configureAxios = () => {
 
   axios.interceptors.response.use(
     (response: AxiosResponse) => response.data,
-    (error: AxiosError) => error.response?.data
+    (error: AxiosError) => Promise.reject(error)
   );
 };

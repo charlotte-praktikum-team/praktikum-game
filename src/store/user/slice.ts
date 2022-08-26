@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice, isPending, isRejected, PayloadAction } f
 
 import { UserState } from '@/store/user/types';
 import { ProfilePayload, ProfileService, PasswordPayload } from '@/services/profile';
-import { ServerError } from '@/types';
 
 const initialState: UserState = {
   user: {
@@ -63,7 +62,7 @@ export const userSlice = createSlice({
     });
     builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar), (state, action) => {
       state.isLoading = false;
-      state.errorMessage = (action.payload as ServerError).reason;
+      state.errorMessage = action.error.message!;
     });
   },
 });
