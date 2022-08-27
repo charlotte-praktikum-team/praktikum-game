@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { SignInPayload, SignUpPayload } from '@/services/auth';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { selectIsAuth, selectIsLoading } from '@/store/user/selectors';
-import { routes } from '@/router/routes';
+import { selectErrorMessage, selectIsAuth, selectIsLoading } from '@/store/user/selectors';
 import { getUserData, logout, signIn, signUp } from '@/store/user/thunk';
+import { routes } from '@/router/routes';
 
 export const useAuth = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ export const useAuth = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(selectIsLoading);
   const isAuth = useAppSelector(selectIsAuth);
+  const errorMessage = useAppSelector(selectErrorMessage);
 
   const getUser = useCallback(async () => {
     await dispatch(getUserData());
@@ -41,6 +42,7 @@ export const useAuth = () => {
   return {
     isLoading,
     isAuth,
+    errorMessage,
     handleLogin,
     handleRegister,
     handleLogout,

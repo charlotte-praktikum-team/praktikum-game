@@ -32,11 +32,11 @@ export const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(changeUser.fulfilled, (state, action) => {
-      state.user = action.payload!;
+      state.user = action.payload;
       state.isLoading = false;
     });
     builder.addCase(changeAvatar.fulfilled, (state, action) => {
-      state.user = action.payload!;
+      state.user = action.payload;
       state.isLoading = false;
     });
     builder.addCase(changePassword.fulfilled, (state) => {
@@ -58,8 +58,7 @@ export const userSlice = createSlice({
     });
     builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar, signIn, signUp, logout, getUserData), (state, action) => {
       state.isLoading = false;
-      //! Приходит не тот текст ошибки. Должен быть серверный с причиной. Сейчас приходит только "Request failed with status code ..."
-      state.errorMessage = action.error.message!;
+      state.errorMessage = action.error.message ?? 'Что-то пошло не так';
     });
   },
 });
