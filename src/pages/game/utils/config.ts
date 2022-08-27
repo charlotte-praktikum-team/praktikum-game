@@ -15,6 +15,20 @@ const colors = {
   grey: '#636461',
 };
 
+export const mapColorToGradientTone = {
+  [colors.red]: '#62160f',
+  [colors.green]: '#06401f',
+  [colors.lightGreen]: '#103e1b',
+  [colors.blue]: '#161248',
+  [colors.lightBlue]: '#155288',
+  [colors.orange]: '#a95412',
+  [colors.purple]: '#441c59',
+  [colors.yellow]: '#bfa210',
+  [colors.pink]: '#ad1f3b',
+  [colors.khaki]: '#4a5e04',
+  [colors.grey]: '#252624',
+};
+
 export const gameConfig: GameConfig = {
   grid: {
     baseGap: 6,
@@ -27,6 +41,13 @@ export const gameConfig: GameConfig = {
   flask: {
     width: 62,
     height: 230,
+    radius: {
+      topLeft: 10,
+      topRight: 10,
+      bottomLeft: 25,
+      bottomRight: 25,
+    },
+    neckSize: 15,
     lineWidth: 2,
     color: colors.grey,
     ballsGap: 1,

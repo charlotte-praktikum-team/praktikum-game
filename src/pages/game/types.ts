@@ -1,6 +1,15 @@
+type FlaskRadius = {
+  topLeft: number;
+  topRight: number;
+  bottomRight: number;
+  bottomLeft: number;
+};
+
 type FlaskConfig = {
   width: number;
   height: number;
+  radius: FlaskRadius;
+  neckSize: number;
   lineWidth: number;
   color: string;
   padding: number;

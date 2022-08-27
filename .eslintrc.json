@@ -58,7 +58,8 @@
     "import/no-extraneous-dependencies": "off",
     "consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }],
     "camelcase": "warn",
-    "no-shadow": "warn"
+    "no-shadow": "warn",
+    "jsx-a11y/media-has-caption": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2017,

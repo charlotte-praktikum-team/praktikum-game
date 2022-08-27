@@ -8,14 +8,16 @@ import { initLevel } from './utils/initLevel';
 import { gameConfig } from './utils/config';
 import { routes } from '@/router/routes';
 import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
-
-import './game.css';
 import { getCursorPosition } from './utils/getCursorPosition';
 import { Ball } from './gameEntities/ball';
+import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
+
+import './game.css';
 
 const Game = () => {
   const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const clickSoundRef = useRef<HTMLAudioElement>(null);
   const level = localStorage.getItem(ACTIVE_LEVEL_NUMBER);
 
   const [flaskList, setFlaskList] = useState<Flask[]>(initLevel(level));
@@ -52,6 +54,16 @@ const Game = () => {
     setFlaskList([...flaskList, emptyFlask]);
   };
 
+  const playClickSound = () => {
+    const clickSound = clickSoundRef.current;
+
+    if (clickSound) {
+      clickSound.pause();
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+  };
+
   const handleCanvasClick = (e: MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current as HTMLCanvasElement;
     const cursorPosition = getCursorPosition(canvas, e);
@@ -78,14 +90,17 @@ const Game = () => {
         (activeFlask?.getUpperBall()?.color === clickedFlask.getUpperBall()?.color && clickedFlask.hasSpace) ||
         !clickedFlask.getUpperBall()
       ) {
+        playClickSound();
         clickedFlask.addBall(activeFlask?.popBall() as Ball);
         setActiveFlaskId(undefined);
       } else {
+        playClickSound();
         activeFlask?.dropBall();
         clickedFlask.select();
         setActiveFlaskId(clickedFlask.id);
       }
     } else if (clickedFlask.getUpperBall()) {
+      playClickSound();
       clickedFlask.select();
       setActiveFlaskId(clickedFlask.id);
     }
@@ -113,6 +128,7 @@ const Game = () => {
 
       <main className='game__wrapper'>
         <canvas width='800' height='700' ref={canvasRef} onClick={handleCanvasClick} />
+        <audio ref={clickSoundRef} src={clickSoundSrc} />
       </main>
     </>
   );
