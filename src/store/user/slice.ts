@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState } from '@/store/user/types';
-import { ProfilePayload, ProfileService, PasswordPayload } from '@/services/profile';
+import { changeAvatar, changePassword, changeUser, getUserData, logout, signIn, signUp } from '@/store/user/thunk';
 
 const initialState: UserState = {
   user: {
@@ -19,24 +19,10 @@ const initialState: UserState = {
   errorMessage: '',
 };
 
-export const changeUser = createAsyncThunk('profile/changeUser', (payload: ProfilePayload) => ProfileService.changeProfile(payload));
-export const changePassword = createAsyncThunk('profile/changePassword', (payload: PasswordPayload) =>
-  ProfileService.changePassword(payload)
-);
-export const changeAvatar = createAsyncThunk('profile/changeAvatar', (payload: HTMLInputElement) => ProfileService.changeAvatar(payload));
-
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUserData: (state, action) => {
-      state.user = action.payload;
-      state.isAuth = true;
-    },
-    clearUserData: (state) => {
-      state.user = initialState.user;
-      state.isAuth = false;
-    },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
@@ -56,17 +42,26 @@ export const userSlice = createSlice({
     builder.addCase(changePassword.fulfilled, (state) => {
       state.isLoading = false;
     });
-    builder.addMatcher(isPending(changeUser, changePassword, changeAvatar), (state) => {
+    builder.addCase(getUserData.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.isAuth = true;
+      state.isLoading = false;
+    });
+    builder.addCase(logout.fulfilled, (state) => {
+      state.user = initialState.user;
+      state.isAuth = false;
+      state.isLoading = false;
+    });
+    builder.addMatcher(isPending(changeUser, changePassword, changeAvatar, signIn, signUp, logout, getUserData), (state) => {
       state.isLoading = true;
       state.errorMessage = '';
     });
-    builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar), (state, action) => {
+    builder.addMatcher(isRejected(changeUser, changePassword, changeAvatar, signIn, signUp, logout, getUserData), (state, action) => {
       state.isLoading = false;
+      //! Приходит не тот текст ошибки. Должен быть серверный с причиной. Сейчас приходит только "Request failed with status code ..."
       state.errorMessage = action.error.message!;
     });
   },
 });
-
-export const { setUserData, clearUserData } = userSlice.actions;
 
 export default userSlice.reducer;

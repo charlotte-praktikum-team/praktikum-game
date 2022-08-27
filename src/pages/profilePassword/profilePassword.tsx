@@ -5,7 +5,7 @@ import { ProfilePasswordFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { selectIsLoading } from '@/store/user/selectors';
-import { changePassword } from '@/store/user/slice';
+import { changePassword } from '@/store/user/thunk';
 
 const ProfilePassword = () => {
   const dispatch = useAppDispatch();

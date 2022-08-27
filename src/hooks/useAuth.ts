@@ -1,80 +1,49 @@
-import { useCallback, useState } from 'react';
-import { AxiosError } from 'axios';
-import { useDispatch } from 'react-redux';
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
-import { AuthService, SignInPayload, SignUpPayload } from '@/services/auth';
-import { clearUserData, setUserData } from '@/store/user/slice';
-import { useAppSelector } from '@/store';
-import { selectIsAuth } from '@/store/user/selectors';
-import { ServerError } from '@/types';
+import { SignInPayload, SignUpPayload } from '@/services/auth';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { selectIsAuth, selectIsLoading } from '@/store/user/selectors';
 import { routes } from '@/router/routes';
+import { getUserData, logout, signIn, signUp } from '@/store/user/thunk';
 
 export const useAuth = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
 
-  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsLoading);
+  const isAuth = useAppSelector(selectIsAuth);
 
-  const handleError = (err: AxiosError<ServerError>) => {
-    alert(err.response?.data.reason ?? err.message);
-    setIsLoading(false);
-  };
-
-  const checkAuth = useCallback(() => useAppSelector(selectIsAuth), []);
-
-  // eslint-disable-next-line consistent-return
   const getUser = useCallback(async () => {
-    try {
-      const userData = await AuthService.getUser();
-      dispatch(setUserData(userData));
-      setIsLoading(false);
+    await dispatch(getUserData());
 
-      if (pathname === routes.login.path || pathname === routes.register.path) {
-        navigate(routes.game.path, { replace: true });
-      }
-    } catch (err) {
-      return Promise.reject(err);
+    if (pathname === routes.login.path || pathname === routes.register.path) {
+      navigate(routes.game.path, { replace: true });
     }
   }, []);
 
   const handleLogin = useCallback(async (data: SignInPayload) => {
-    try {
-      setIsLoading(true);
-      await AuthService.signIn(data);
-      await getUser();
-    } catch (err) {
-      handleError(err as AxiosError<ServerError>);
-    }
+    await dispatch(signIn(data));
+    await getUser();
   }, []);
 
   const handleRegister = useCallback(async (data: SignUpPayload) => {
-    try {
-      setIsLoading(true);
-      await AuthService.signUp(data);
-      await getUser();
-    } catch (err) {
-      handleError(err as AxiosError<ServerError>);
-    }
+    await dispatch(signUp(data));
+    await getUser();
   }, []);
 
   const handleLogout = useCallback(async () => {
-    try {
-      await AuthService.logout();
-      dispatch(clearUserData());
-      navigate(routes.login.path);
-    } catch (err) {
-      handleError(err as AxiosError<ServerError>);
-    }
+    await dispatch(logout());
+    navigate(routes.login.path);
   }, []);
 
   return {
     isLoading,
+    isAuth,
     handleLogin,
     handleRegister,
     handleLogout,
-    checkAuth,
     getUser,
   };
 };
