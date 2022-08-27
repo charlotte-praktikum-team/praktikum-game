@@ -1,0 +1,29 @@
+.error-page {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--dark-primary);
+  border-radius: 50%;
+
+  &__button {
+    margin-top: 40px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-secondary);
+    transition: var(--trans-300);
+
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+
+  &__text {
+    color: var(--text-secondary);
+  }
+}
