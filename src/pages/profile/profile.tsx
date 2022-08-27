@@ -1,60 +1,38 @@
-import './profile.css';
-
 import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePageTemplate';
 import { Link } from '@/components';
 import { ProfileList } from '../components/profileList/profileList';
 import { ProfileListItem } from '../components/profileListItem/profileListItem';
+import { ProfileDataItem } from './components/profileDataItem/profileDataItem';
 
-const Profile = () => (
-  <ProfilePageTemplate title='Иван Иванов'>
-    <ProfileList>
-      <ProfileListItem>
-        <div className='profile__data-item'>
-          <span>Почта</span>
-          <span className='profile__data-item-info'>pochta@yandex.ru</span>
-        </div>
-      </ProfileListItem>
-      <ProfileListItem>
-        <div className='profile__data-item'>
-          <span>Логин</span>
-          <span className='profile__data-item-info'>ivanivanov</span>
-        </div>
-      </ProfileListItem>
-      <ProfileListItem>
-        <div className='profile__data-item'>
-          <span>Имя</span>
-          <span className='profile__data-item-info'>Иван</span>
-        </div>
-      </ProfileListItem>
-      <ProfileListItem>
-        <div className='profile__data-item'>
-          <span>Фамилия</span>
-          <span className='profile__data-item-info'>Иванов</span>
-        </div>
-      </ProfileListItem>
-      <ProfileListItem>
-        <div className='profile__data-item'>
-          <span>Имя в чате</span>
-          <span className='profile__data-item-info'>Иван</span>
-        </div>
-      </ProfileListItem>
-      <ProfileListItem>
-        <div className='profile__data-item'>
-          <span>Телефон</span>
-          <span className='profile__data-item-info'>+7 (909) 967 30 30</span>
-        </div>
-      </ProfileListItem>
-    </ProfileList>
+import './profile.css';
+import { useAppSelector } from '@/store';
+import { selectUser } from '@/store/user/selectors';
+import { Label } from './types';
 
-    <ProfileList>
-      <ProfileListItem>
-        <Link href='/profile/user'>Изменить данные</Link>
-      </ProfileListItem>
-      <ProfileListItem>
-        <Link href='/profile/password'>Изменить пароль</Link>
-      </ProfileListItem>
-    </ProfileList>
-  </ProfilePageTemplate>
-);
+const Profile = () => {
+  const { email, login, display_name, first_name, second_name, phone } = useAppSelector(selectUser);
+
+  return (
+    <ProfilePageTemplate title={`${first_name} ${second_name}`}>
+      <ProfileList>
+        <ProfileDataItem title={Label.EMAIL} text={email} />
+        <ProfileDataItem title={Label.LOGIN} text={login} />
+        <ProfileDataItem title={Label.FIRST_NAME} text={first_name} />
+        <ProfileDataItem title={Label.SECOND_NAME} text={second_name} />
+        <ProfileDataItem title={Label.DISPLAY_NAME} text={display_name!} />
+        <ProfileDataItem title={Label.PHONE} text={phone} />
+      </ProfileList>
+
+      <ProfileList>
+        <ProfileListItem>
+          <Link href='/profile/user'>Изменить данные</Link>
+        </ProfileListItem>
+        <ProfileListItem>
+          <Link href='/profile/password'>Изменить пароль</Link>
+        </ProfileListItem>
+      </ProfileList>
+    </ProfilePageTemplate>
+  );
+};
 
 export default Profile;

@@ -16,10 +16,6 @@
     &:focus {
       outline: none;
     }
-
-    &_error {
-      color: var(--danger);
-    }
   }
 
   &__error {

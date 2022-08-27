@@ -1,7 +1,7 @@
 import { object, mixed } from 'yup';
 
 export const initialValues = {
-  avatar: null,
+  avatar: null as HTMLInputElement | null,
 };
 
 export const validationSchema = object().shape({
