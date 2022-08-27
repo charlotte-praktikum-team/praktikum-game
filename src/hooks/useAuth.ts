@@ -26,12 +26,18 @@ export const useAuth = () => {
 
   const handleLogin = useCallback(async (data: SignInPayload) => {
     await dispatch(signIn(data));
-    await getUser();
+
+    if (!errorMessage) {
+      await getUser();
+    }
   }, []);
 
   const handleRegister = useCallback(async (data: SignUpPayload) => {
     await dispatch(signUp(data));
-    await getUser();
+
+    if (!errorMessage) {
+      await getUser();
+    }
   }, []);
 
   const handleLogout = useCallback(async () => {
@@ -42,7 +48,6 @@ export const useAuth = () => {
   return {
     isLoading,
     isAuth,
-    errorMessage,
     handleLogin,
     handleRegister,
     handleLogout,
