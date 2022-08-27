@@ -30,13 +30,4 @@ export const inputs: InputProps[] = [
   },
 ];
 
-export const initialValues = {
-  email: '',
-  login: '',
-  first_name: '',
-  second_name: '',
-  display_name: '',
-  phone: '',
-};
-
 export const validationSchema = createValidationSchema('email', 'login', 'first_name', 'second_name', 'display_name', 'phone');

@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 
 import { ProfileFormItem } from '../profileFormItem/profileFormItem';
 import { ProfileList } from '../profileList/profileList';
-import { Button, SmallText } from '@/components';
+import { Button } from '@/components';
 
 import { ProfileFormProps } from './types';
 import './profileForm.css';
@@ -15,7 +15,6 @@ export const ProfileForm = <T extends Record<string, string>>({
   onSubmit,
   validationSchema,
   isLoading,
-  successText,
 }: ProfileFormProps<T>) => {
   const { errors, touched, handleSubmit, getFieldProps } = useFormik<T>({
     initialValues,
@@ -37,7 +36,6 @@ export const ProfileForm = <T extends Record<string, string>>({
           ))
         )}
       </ProfileList>
-      <SmallText classes='profile-form__success-text'>{successText}</SmallText>
       <Button type='submit' disabled={isLoading}>
         {isLoading ? 'Подождите...' : 'Сохранить'}
       </Button>

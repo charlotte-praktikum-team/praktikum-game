@@ -2,20 +2,28 @@ import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePa
 import { ProfileForm } from '../components/profileForm/profileForm';
 
 import { ProfileUserFormData } from './types';
-import { initialValues, inputs, validationSchema } from './constants';
+import { inputs, validationSchema } from './constants';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { changeUser } from '@/store/user/slice';
+import { selectIsLoading, selectUser } from '@/store/user/selectors';
 
-const ProfileUser = () => (
-  <ProfilePageTemplate>
-    <ProfileForm<ProfileUserFormData>
-      isLoading={false}
-      formName='profileUserForm'
-      onSubmit={(values) => console.log(values)}
-      inputs={inputs}
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      successText=''
-    />
-  </ProfilePageTemplate>
-);
+const ProfileUser = () => {
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsLoading);
+  const { id, display_name, ...initialValues } = useAppSelector(selectUser);
+
+  return (
+    <ProfilePageTemplate>
+      <ProfileForm<ProfileUserFormData>
+        isLoading={isLoading}
+        formName='profileUserForm'
+        onSubmit={(values) => dispatch(changeUser(values))}
+        inputs={inputs}
+        initialValues={{ ...initialValues, display_name: display_name! }}
+        validationSchema={validationSchema}
+      />
+    </ProfilePageTemplate>
+  );
+};
 
 export default ProfileUser;
