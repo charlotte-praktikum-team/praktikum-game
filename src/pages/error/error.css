@@ -27,3 +27,12 @@
     color: var(--text-secondary);
   }
 }
+
+.shadow {
+  width: 350px;
+  height: 40px;
+  background: radial-gradient(var(--dark-primary), rgb(0 0 0 / 0%));
+  border-radius: 70%;
+  filter: blur(7px);
+  transform: translateY(-20px);
+}

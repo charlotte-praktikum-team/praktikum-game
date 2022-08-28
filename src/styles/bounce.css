@@ -1,8 +1,8 @@
 @keyframes bounce-top {
   0% {
-    transform: translateY(-45px);
+    transform: translateY(-100px);
     animation-timing-function: ease-in;
-    opacity: 1;
+    opacity: 0;
   }
 
   24% {
@@ -10,22 +10,22 @@
   }
 
   40% {
-    transform: translateY(-24px);
+    transform: translateY(-74px);
     animation-timing-function: ease-in;
   }
 
   65% {
-    transform: translateY(-12px);
+    transform: translateY(-44px);
     animation-timing-function: ease-in;
   }
 
   82% {
-    transform: translateY(-6px);
+    transform: translateY(-18px);
     animation-timing-function: ease-in;
   }
 
   93% {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
     animation-timing-function: ease-in;
   }
 
