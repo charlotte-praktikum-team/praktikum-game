@@ -16,7 +16,7 @@ const ErrorPage: FC<ErrorPageProps> = ({ title, description }) => {
         </Heading>
         <P classes='error-page__text'>{description}</P>
         <button className='error-page__button' onClick={() => navigate(routes.game.path, { replace: true })}>
-          <P classes='error-page__text'>в игру</P>
+          в игру
         </button>
       </div>
       <div className='shadow' />

@@ -16,6 +16,8 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    font-size: var(--font-size-m);
     transition: var(--trans-300);
 
     &:hover {
