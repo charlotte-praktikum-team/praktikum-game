@@ -1,7 +1,7 @@
 import { Flask } from '../gameEntities/flask';
 import { gameConfig } from './config';
 
-export const initLevel = (levelNumber: string | null): Flask[] => {
+export const initLevel = (levelNumber: number): Flask[] => {
   if (!levelNumber || !gameConfig.levels[levelNumber]) {
     return [];
   }

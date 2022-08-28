@@ -13,33 +13,68 @@ import { Ball } from './gameEntities/ball';
 import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
 
 import './game.css';
+import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
 
 const Game = () => {
   const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const clickSoundRef = useRef<HTMLAudioElement>(null);
-  const level = localStorage.getItem(ACTIVE_LEVEL_NUMBER);
 
+  const [level, setLevel] = useState(Number(localStorage.getItem(ACTIVE_LEVEL_NUMBER)) || 0);
+  const isLastLevel = Object.keys(gameConfig.levels).length === level;
   const [flaskList, setFlaskList] = useState<Flask[]>(initLevel(level));
   const [isNewFlaskAdded, setIsNewFlaskAdded] = useState<boolean>(false);
   const [activeFlaskId, setActiveFlaskId] = useState<string>();
+  const [isCompleteModalOpen, setIsCompleteModalOpen] = useState<boolean>(false);
+  const [points, setPoints] = useState<number>(0);
 
-  const { minutes, seconds, reset } = useStopwatch({ autoStart: true });
+  const { minutes, seconds, reset, pause } = useStopwatch({ autoStart: true });
   const timer = `${minutes < 10 ? 0 : ''}${minutes}:${seconds < 10 ? 0 : ''}${seconds}`;
+
+  const handleRefresh = () => {
+    reset();
+    setFlaskList(initLevel(level));
+    setPoints(0);
+    setIsCompleteModalOpen(false);
+    setIsNewFlaskAdded(false);
+  };
 
   useEffect(() => {
     if (!level) {
       navigate(routes.game.path);
     }
-  }, [level]);
 
-  const handleRefresh = () => {
-    reset();
-    setFlaskList(initLevel(level));
-  };
+    if (level !== Number(localStorage.getItem(ACTIVE_LEVEL_NUMBER))) {
+      localStorage.setItem(ACTIVE_LEVEL_NUMBER, level.toString());
+      handleRefresh();
+    }
+  }, [level]);
 
   const handleBack = () => {
     navigate(routes.game.path);
+  };
+
+  const handleNext = () => {
+    setLevel(level + 1);
+  };
+
+  const checkLevelComplete = () => {
+    const isComplete = flaskList.every(
+      (flask) =>
+        !flask.balls.length ||
+        (flask.balls.length === gameConfig.flask.maxBalls && flask.balls.every((ball) => ball.color === flask.balls[0].color))
+    );
+
+    if (isComplete) {
+      pause();
+
+      const earnedPoints = Math.round(gameConfig.maxPoints / (minutes * 60 + seconds) / (isNewFlaskAdded ? 2 : 1));
+
+      setPoints(earnedPoints);
+      setIsCompleteModalOpen(true);
+
+      // save points and time in the db
+    }
   };
 
   const handleAddFlask = () => {
@@ -93,6 +128,7 @@ const Game = () => {
         playClickSound();
         clickedFlask.addBall(activeFlask?.popBall() as Ball);
         setActiveFlaskId(undefined);
+        checkLevelComplete();
       } else {
         playClickSound();
         activeFlask?.dropBall();
@@ -129,6 +165,16 @@ const Game = () => {
       <main className='game__wrapper'>
         <canvas width='800' height='700' ref={canvasRef} onClick={handleCanvasClick} />
         <audio ref={clickSoundRef} src={clickSoundSrc} />
+
+        <LevelCompleteModal
+          isOpen={isCompleteModalOpen}
+          points={points}
+          timer={timer}
+          isLastLevel={isLastLevel}
+          onBack={handleBack}
+          onNext={handleNext}
+          onRefresh={handleRefresh}
+        />
       </main>
     </>
   );
