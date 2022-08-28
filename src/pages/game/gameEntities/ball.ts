@@ -1,5 +1,5 @@
 import { Position } from '../types';
-import { gameConfig } from '../utils/config';
+import { gameConfig, mapColorToGradientTone } from '../utils/config';
 
 type yVelDirection = 'up' | 'down';
 type xVelDirection = 'right' | 'left';
@@ -76,14 +76,21 @@ export class Ball {
   };
 
   render = (ctx: CanvasRenderingContext2D, dt: number) => {
+    const { borderColor, borderWidth, radius } = gameConfig.ball;
+
     this.update(dt);
 
-    ctx.fillStyle = this.color;
-    ctx.strokeStyle = gameConfig.ball.borderColor;
-    ctx.lineWidth = gameConfig.ball.borderWidth;
+    const gradient = ctx.createLinearGradient(this.x - radius, this.y - radius / 2, this.x + radius, this.y + radius / 2);
+
+    gradient.addColorStop(0, this.color);
+    gradient.addColorStop(0.8, mapColorToGradientTone[this.color]);
+
+    ctx.fillStyle = gradient;
+    ctx.strokeStyle = borderColor;
+    ctx.lineWidth = borderWidth;
 
     ctx.beginPath();
-    ctx.arc(this.x, this.y, gameConfig.ball.radius, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI);
     ctx.fill();
     ctx.stroke();
   };

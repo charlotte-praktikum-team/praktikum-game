@@ -28,14 +28,6 @@ export class Flask {
     }
   }
 
-  render = (ctx: CanvasRenderingContext2D, dt: number) => {
-    ctx.strokeStyle = gameConfig.flask.color;
-    ctx.lineWidth = gameConfig.flask.lineWidth;
-    ctx.strokeRect(this.x, this.y, gameConfig.flask.width, gameConfig.flask.height);
-
-    this.balls.forEach((ball) => ball.render(ctx, dt));
-  };
-
   get ballXPos() {
     return this.x + gameConfig.flask.width / 2;
   }
@@ -54,6 +46,33 @@ export class Flask {
       y: this.y - gameConfig.ball.radius - gameConfig.flask.padding,
     };
   }
+
+  render = (ctx: CanvasRenderingContext2D, dt: number) => {
+    ctx.strokeStyle = gameConfig.flask.color;
+    ctx.lineWidth = gameConfig.flask.lineWidth;
+
+    this.strokeFlask(ctx);
+    this.balls.forEach((ball) => ball.render(ctx, dt));
+  };
+
+  strokeFlask = (ctx: CanvasRenderingContext2D) => {
+    const { width, height, radius, neckSize } = gameConfig.flask;
+
+    ctx.beginPath();
+
+    ctx.moveTo(this.x - neckSize + radius.topLeft, this.y);
+    ctx.lineTo(this.x + width + neckSize - radius.topRight, this.y);
+    ctx.quadraticCurveTo(this.x + width, this.y, this.x + width, this.y + radius.topRight);
+    ctx.lineTo(this.x + width, this.y + height - radius.bottomRight);
+    ctx.quadraticCurveTo(this.x + width, this.y + height, this.x + width - radius.bottomRight, this.y + height);
+    ctx.lineTo(this.x + radius.bottomLeft, this.y + height);
+    ctx.quadraticCurveTo(this.x, this.y + height, this.x, this.y + height - radius.bottomLeft);
+    ctx.lineTo(this.x, this.y + radius.topLeft);
+    ctx.quadraticCurveTo(this.x, this.y, this.x + radius.topLeft - neckSize, this.y);
+
+    ctx.closePath();
+    ctx.stroke();
+  };
 
   getUpperBall = (): Ball | null => {
     if (this.balls.length) {
