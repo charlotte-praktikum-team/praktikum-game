@@ -4,7 +4,7 @@ import { ProfileForm } from '../components/profileForm/profileForm';
 import { ProfileUserFormData } from './types';
 import { inputs, validationSchema } from './constants';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { changeUser } from '@/store/user/slice';
+import { changeUser } from '@/store/user/thunk';
 import { selectIsLoading, selectUser } from '@/store/user/selectors';
 
 const ProfileUser = () => {

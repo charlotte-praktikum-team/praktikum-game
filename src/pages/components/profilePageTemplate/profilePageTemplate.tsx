@@ -7,9 +7,9 @@ import { Button, Heading, Modal, SmallText } from '@/components';
 import './profilePageTemplate.css';
 import { ProfilePageTemplateProps } from './types';
 import { initialValues, validationSchema } from './constants';
-import { selectUser, selectIsLoading } from '@/store/user/selectors';
+import { selectIsLoading, selectUser } from '@/store/user/selectors';
 import { PRACTICUM_ORIGIN_AVATAR } from '@/utils/constants';
-import { changeAvatar } from '@/store/user/slice';
+import { changeAvatar } from '@/store/user/thunk';
 import { useAppDispatch, useAppSelector } from '@/store';
 
 export const ProfilePageTemplate: FC<ProfilePageTemplateProps> = ({ children, title }) => {
