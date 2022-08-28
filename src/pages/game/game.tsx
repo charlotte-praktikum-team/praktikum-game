@@ -11,15 +11,14 @@ import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
 import { getCursorPosition } from './utils/getCursorPosition';
 import { Ball } from './gameEntities/ball';
 import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
+import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
 
 import './game.css';
-import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
 
 const Game = () => {
   const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const clickSoundRef = useRef<HTMLAudioElement>(null);
-
   const [level, setLevel] = useState(Number(localStorage.getItem(ACTIVE_LEVEL_NUMBER)) || 0);
   const isLastLevel = Object.keys(gameConfig.levels).length === level;
   const [flaskList, setFlaskList] = useState<Flask[]>(initLevel(level));
@@ -165,7 +164,6 @@ const Game = () => {
       <main className='game__wrapper'>
         <canvas width='800' height='700' ref={canvasRef} onClick={handleCanvasClick} />
         <audio ref={clickSoundRef} src={clickSoundSrc} />
-
         <LevelCompleteModal
           isOpen={isCompleteModalOpen}
           points={points}
