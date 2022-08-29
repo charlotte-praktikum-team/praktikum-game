@@ -30,6 +30,7 @@ export const mapColorToGradientTone = {
 };
 
 export const gameConfig: GameConfig = {
+  maxPoints: 100000,
   grid: {
     baseGap: 6,
     flasksGap: 110,

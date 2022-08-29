@@ -35,6 +35,7 @@ type GridConfig = {
 };
 
 export type GameConfig = {
+  maxPoints: number;
   grid: GridConfig;
   flask: FlaskConfig;
   ball: BallConfig;
