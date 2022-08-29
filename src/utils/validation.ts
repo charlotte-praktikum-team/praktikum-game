@@ -20,6 +20,7 @@ const messages = {
   hasDigits: 'Обязательна хотя бы одна цифра',
   hasNoSpecialCharsExHyphen: 'Не допускаются пробелы, цифры и спецсимволы, кроме "-"',
   phone: 'Телефон должен состоять только из цифр, в начале допускается "+"',
+  confirmPassword: 'Пароли должны совпадать',
 };
 
 export const validationSchema: Record<string, Yup.AnySchema> = {
@@ -35,6 +36,28 @@ export const validationSchema: Record<string, Yup.AnySchema> = {
     .max(40, messages.min('пароля', 40))
     .matches(regExps.hasUppercaseLatinChars, messages.hasUppercaseLatinChars)
     .matches(regExps.hasDigits, messages.hasDigits)
+    .required(messages.required),
+  oldPassword: Yup.string()
+    .trim()
+    .min(8, messages.min('пароля', 8))
+    .max(40, messages.min('пароля', 40))
+    .matches(regExps.hasUppercaseLatinChars, messages.hasUppercaseLatinChars)
+    .matches(regExps.hasDigits, messages.hasDigits)
+    .required(messages.required),
+  newPassword: Yup.string()
+    .trim()
+    .min(8, messages.min('пароля', 8))
+    .max(40, messages.min('пароля', 40))
+    .matches(regExps.hasUppercaseLatinChars, messages.hasUppercaseLatinChars)
+    .matches(regExps.hasDigits, messages.hasDigits)
+    .required(messages.required),
+  repeatPassword: Yup.string()
+    .trim()
+    .min(8, messages.min('пароля', 8))
+    .max(40, messages.min('пароля', 40))
+    .matches(regExps.hasUppercaseLatinChars, messages.hasUppercaseLatinChars)
+    .matches(regExps.hasDigits, messages.hasDigits)
+    .oneOf([Yup.ref('newPassword'), null], messages.confirmPassword)
     .required(messages.required),
   first_name: Yup.string()
     .trim()

@@ -8,3 +8,5 @@
 postcss.config.js
 webpack.*
 declarations/custom.d.ts
+serviceWorker*
+sw.ts

@@ -1,0 +1,26 @@
+.profile-form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-weight: 500;
+  font-size: var(--font-size-profile);
+  line-height: var(--line-height-profile);
+  color: var(--text-dark-secondary);
+
+  &__input {
+    border: 0;
+    text-align: right;
+    color: var(--divider-primary);
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    top: 0;
+    color: var(--danger);
+  }
+}

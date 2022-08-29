@@ -23,6 +23,7 @@
     "no-useless-catch": "off",
     "no-inner-declarations": "off",
     "no-prototype-builtins": "off",
+    "no-use-before-define": "warn",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-this-alias": "off",
@@ -53,7 +54,12 @@
     "no-plusplus": "off",
     "no-useless-constructor": "off",
     "no-empty-function": ["warn", { "allow": ["constructors"] }],
-    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }]
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": [ "state", "ctx" ] }],
+    "import/no-extraneous-dependencies": "off",
+    "consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }],
+    "camelcase": "warn",
+    "no-shadow": "warn",
+    "jsx-a11y/media-has-caption": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2017,

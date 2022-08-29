@@ -1,6 +1,15 @@
+type FlaskRadius = {
+  topLeft: number;
+  topRight: number;
+  bottomRight: number;
+  bottomLeft: number;
+};
+
 type FlaskConfig = {
   width: number;
   height: number;
+  radius: FlaskRadius;
+  neckSize: number;
   lineWidth: number;
   color: string;
   padding: number;
@@ -26,6 +35,7 @@ type GridConfig = {
 };
 
 export type GameConfig = {
+  maxPoints: number;
   grid: GridConfig;
   flask: FlaskConfig;
   ball: BallConfig;
