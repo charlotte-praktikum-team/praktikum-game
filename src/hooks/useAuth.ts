@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import { selectErrorMessage, selectIsAuth, selectIsLoading } from '@/store/user/selectors';
 import { getUserData, logout, signIn, signUp } from '@/store/user/thunk';
 import { routes } from '@/router/routes';
+import { setErrorMessage } from '@/store/user/slice';
 
 export const useAuth = () => {
   const navigate = useNavigate();
@@ -45,6 +46,10 @@ export const useAuth = () => {
     navigate(routes.login.path);
   }, []);
 
+  const clearErrorMessage = useCallback(() => {
+    dispatch(setErrorMessage(''));
+  }, []);
+
   return {
     isLoading,
     isAuth,
@@ -52,5 +57,6 @@ export const useAuth = () => {
     handleRegister,
     handleLogout,
     getUser,
+    clearErrorMessage,
   };
 };

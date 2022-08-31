@@ -63,4 +63,6 @@ export const userSlice = createSlice({
   },
 });
 
+export const { setErrorMessage } = userSlice.actions;
+
 export default userSlice.reducer;

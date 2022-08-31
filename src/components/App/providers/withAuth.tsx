@@ -4,10 +4,13 @@ import { useAuth } from '@/hooks/useAuth';
 export const withAuth = (Component: () => ReactElement) => () => {
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
-  const { getUser } = useAuth();
+  const { getUser, clearErrorMessage } = useAuth();
 
   useEffect(() => {
-    getUser().finally(() => setIsCheckingAuth(false));
+    getUser().finally(() => {
+      clearErrorMessage();
+      setIsCheckingAuth(false);
+    });
   }, []);
 
   if (isCheckingAuth) {
