@@ -1,7 +1,6 @@
-import { FC, KeyboardEvent, memo, MouseEvent, useRef } from 'react';
+import { FC, KeyboardEvent, memo, MouseEvent, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
-import { APP_ROOT_ID } from 'utils/constants';
 import { ModalProps } from './types';
 import { Card } from '../card/card';
 import { Heading } from '../heading/heading';
@@ -9,8 +8,20 @@ import { Heading } from '../heading/heading';
 import './modal.css';
 import { Icon } from '../icon/icon';
 
+const modalRoot = document.createElement('div');
+modalRoot.setAttribute('id', 'modal-root');
+document.body.appendChild(modalRoot);
+
 export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children }) => {
+  const modalEl = document.createElement('div');
   const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    modalRoot.appendChild(modalEl);
+    return () => {
+      modalRoot.removeChild(modalEl);
+    };
+  });
 
   const handleOverflowClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === modalRef.current && onClose) {
@@ -40,6 +51,6 @@ export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children })
     </div>,
     // Container is the app root. So it will be in the dom for sure
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    document.getElementById(APP_ROOT_ID)!
+    modalEl
   );
 });

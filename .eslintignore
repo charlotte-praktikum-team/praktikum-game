@@ -2,11 +2,12 @@
 /build
 /node_modules
 .eslintrc.json
-/src/**/*.spec.ts
-/src/**/*.test.ts
+/src/**/*.spec.*
+/src/**/*.test.*
 /.github
 postcss.config.js
 webpack.*
 declarations/custom.d.ts
 serviceWorker*
 sw.ts
+jest.config.js
