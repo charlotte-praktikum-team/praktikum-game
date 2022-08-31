@@ -21,13 +21,15 @@ const Leaderboard = lazy(() => import('@/pages/leaderboard/leaderboard'));
 const Dashboard = lazy(() => import('@/pages/dashboard/dashboard'));
 const Game = lazy(() => import('@/pages/game/game'));
 
+const ErrorPage = lazy(() => import('@/pages/error/error'));
+
 export const Router = () => (
   <Routes>
     <Route element={<CenteredLayout />}>
       <Route path={routes.login.path} element={<Login />} />
       <Route path={routes.register.path} element={<Register />} />
-      <Route path={routes.notFound.path} element={<h1>404</h1>} />
-      <Route path={routes.error.path} element={<h1>500</h1>} />
+      <Route path={routes.notFound.path} element={<ErrorPage title='404' description='не туда попали' />} />
+      <Route path={routes.error.path} element={<ErrorPage title='500' description='уже фиксим' />} />
     </Route>
 
     <Route element={<RequireAuth />}>
