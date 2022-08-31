@@ -10,3 +10,4 @@ webpack.*
 declarations/custom.d.ts
 serviceWorker*
 sw.ts
+jest.config.js

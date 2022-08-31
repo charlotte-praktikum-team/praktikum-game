@@ -5,7 +5,8 @@ module.exports = {
   },
   moduleNameMapper: {
     '^utils/(.*)$': '<rootDir>/src/utils/$1',
-    '\\.css?$': 'identity-obj-proxy'
+    '\\.css?$': 'identity-obj-proxy',
+    '\\.svg': "<rootDir>/src/tests/svg.js"
   },
-  setupFilesAfterEnv: ['<rootDir>/src/jest-setup.js']
+  setupFilesAfterEnv: ['<rootDir>/src/tests/jest-setup.js']
 };
