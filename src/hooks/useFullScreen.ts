@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export const useFullScreen = (key = 'f') => {
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
-      if (e.key.toLocaleLowerCase() === key) {
+      if (e.key?.toLocaleLowerCase() === key && e.ctrlKey) {
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
         } else {
