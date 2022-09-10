@@ -31,7 +31,9 @@
     "./src/**/*.spec.ts",
     "./src/**/*.test.ts"
   ],
-  "include": ["src",
-    "declarations/*"
+  "include": [
+    "src",
+    "declarations/*",
+    "server"
   ]
 }

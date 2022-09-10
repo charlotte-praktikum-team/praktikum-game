@@ -10,7 +10,7 @@ configureAxios();
 
 const devMode = process.env.NODE_ENV === 'development';
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <React.StrictMode>
     <App />
   </React.StrictMode>,

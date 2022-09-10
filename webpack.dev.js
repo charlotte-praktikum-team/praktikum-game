@@ -1,9 +1,11 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
+  target: 'node',
   mode: 'development',
   devtool: 'cheap-source-map',
   devServer: {
@@ -15,28 +17,24 @@ module.exports = merge(common, {
     hot: true,
   },
   output: {
-    filename: '[name].js',
+    filename: 'server.js',
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, '/build'),
+    publicPath: '/static/',
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-          },
-        ],
+        loader: 'null-loader'
       },
+      {
+        test: /\.(?:svg|png|jpg|jpeg)$/i,
+        loader: 'null-loader'
+      }
     ],
   },
+  externals: [nodeExternals({ allowlist: [/\.(?!(?:tsx?|json)$).{1,5}$/i] })],
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
