@@ -12,11 +12,13 @@ import { getCursorPosition } from './utils/getCursorPosition';
 import { Ball } from './gameEntities/ball';
 import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
 import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
+import { useNotification } from '@/hooks/useNotification';
 
 import './game.css';
 
 const Game = () => {
   const navigate = useNavigate();
+  const showNotification = useNotification();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const clickSoundRef = useRef<HTMLAudioElement>(null);
   const [level, setLevel] = useState(Number(localStorage.getItem(ACTIVE_LEVEL_NUMBER)) || 0);
@@ -48,6 +50,12 @@ const Game = () => {
       handleRefresh();
     }
   }, [level]);
+
+  useEffect(() => {
+    if (timer === '02:00' && !isCompleteModalOpen) {
+      showNotification('Застряли?', 'Вы можете воспользоваться дополнительной колбой, нажав на иконку в правом верхнем углу.');
+    }
+  }, [timer]);
 
   const handleBack = () => {
     navigate(routes.game.path);
