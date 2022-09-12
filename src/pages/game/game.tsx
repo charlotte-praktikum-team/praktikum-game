@@ -15,6 +15,7 @@ import { LevelCompleteModal } from './components/levelCompleteModal/levelComplet
 import { useNotification } from '@/hooks/useNotification';
 
 import './game.css';
+import { withFullScreen } from './providers/withFullScreen';
 
 const Game = () => {
   const navigate = useNavigate();
@@ -186,4 +187,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default withFullScreen(Game);
