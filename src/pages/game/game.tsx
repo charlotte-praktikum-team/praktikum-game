@@ -14,6 +14,7 @@ import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
 import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
 
 import './game.css';
+import { withFullScreen } from './providers/withFullScreen';
 
 const Game = () => {
   const navigate = useNavigate();
@@ -178,4 +179,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default withFullScreen(Game);
