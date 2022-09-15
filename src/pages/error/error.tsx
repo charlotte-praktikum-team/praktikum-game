@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, P } from '@/components';
+import { Heading, P, PageMeta } from '@/components';
 import { ErrorPageProps } from '@/pages/error/types';
 import './error.css';
 import { routes } from '@/router/routes';
@@ -11,6 +11,7 @@ const ErrorPage: FC<ErrorPageProps> = ({ title, description }) => {
   return (
     <>
       <div className='error-page bounce-top'>
+        <PageMeta title='Ошибка' />
         <Heading type='h1' size='xxl' classes='error-page__text'>
           {title}
         </Heading>

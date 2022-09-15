@@ -1,7 +1,7 @@
 import { useState, Children } from 'react';
 
 import { ForumPageWrapper } from '../components/forumPageWrapper/forumPageWrapper';
-import { Button, Modal, Textarea, Heading } from '@/components';
+import { Button, Modal, Textarea, Heading, PageMeta } from '@/components';
 import { ForumBackLink } from '../components/forumBackLink/forumBackLink';
 import { ForumPost } from './components/forumPost/forumPost';
 
@@ -16,6 +16,7 @@ const ForumTopic = () => {
   return (
     <>
       <ForumPageWrapper>
+        <PageMeta title='Тема форума' />
         <div className='forum-topic'>
           <div className='forum-topic__back-button'>
             <ForumBackLink title='Вернуться к разделам' />

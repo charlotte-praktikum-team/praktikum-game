@@ -1,5 +1,5 @@
 import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePageTemplate';
-import { Link } from '@/components';
+import { Link, PageMeta } from '@/components';
 import { ProfileList } from '../components/profileList/profileList';
 import { ProfileListItem } from '../components/profileListItem/profileListItem';
 import { ProfileDataItem } from './components/profileDataItem/profileDataItem';
@@ -14,6 +14,7 @@ const Profile = () => {
 
   return (
     <ProfilePageTemplate title={`${first_name} ${second_name}`}>
+      <PageMeta title='Профиль' />
       <ProfileList>
         <ProfileDataItem title={Label.EMAIL} text={email} />
         <ProfileDataItem title={Label.LOGIN} text={login} />

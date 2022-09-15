@@ -1,7 +1,7 @@
 import { useState, Children } from 'react';
 import cn from 'classnames';
 
-import { Heading } from '@/components';
+import { Heading, PageMeta } from '@/components';
 import { LeaderboardRow } from './components/leaderboardRow/leaderboardRow';
 
 import { LeaderboardColumn } from '@/pages/leaderboard/types';
@@ -13,6 +13,7 @@ const Leaderboard = () => {
 
   return (
     <div className='leaderboard'>
+      <PageMeta title='Таблица лидеров' />
       <div className='leaderboard__wrapper leaderboard__wrapper_dark'>
         <div className='leaderboard__heading'>
           <Heading size='xl' type='h1'>

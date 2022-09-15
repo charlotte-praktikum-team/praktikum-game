@@ -1,5 +1,7 @@
 import { AuthPageTemplate } from '@/pages/components/authPageTemplate/authPageTemplate';
 import { AuthForm } from '@/pages/components/authForm/authForm';
+import { PageMeta } from '@/components';
+
 import { useAuth } from '@/hooks/useAuth';
 import { routes } from '@/router/routes';
 import { RegisterFormData } from './types';
@@ -10,6 +12,7 @@ const Register = () => {
 
   return (
     <AuthPageTemplate isReversed>
+      <PageMeta title='Регистрация' />
       <AuthForm<RegisterFormData>
         isLoading={isLoading}
         formTitle='Регистрация'
