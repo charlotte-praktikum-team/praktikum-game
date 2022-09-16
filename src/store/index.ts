@@ -2,9 +2,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { AppState } from './types';
 import userReducer from './user/slice';
+import dashboardReducer from './dashboard/slice';
+import leaderboardReducer from './leaderboard/slice';
 
 const appReducer = combineReducers<AppState>({
   user: userReducer,
+  dashboard: dashboardReducer,
+  leaderboard: leaderboardReducer,
 });
 
 export const store = configureStore({

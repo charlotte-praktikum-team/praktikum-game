@@ -16,8 +16,11 @@ import { useNotification } from '@/hooks/useNotification';
 
 import './game.css';
 import { withFullScreen } from './providers/withFullScreen';
+import { useAppDispatch } from '@/store';
+import { completeLevel } from '@/store/dashboard/thunk';
 
 const Game = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const showNotification = useNotification();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -80,8 +83,7 @@ const Game = () => {
 
       setPoints(earnedPoints);
       setIsCompleteModalOpen(true);
-
-      // save points and time in the db
+      dispatch(completeLevel({ level, points: earnedPoints }));
     }
   };
 
