@@ -2,6 +2,8 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const LoadablePlugin = require('@loadable/webpack-plugin');
+
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -39,5 +41,6 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new LoadablePlugin()
   ],
 });
