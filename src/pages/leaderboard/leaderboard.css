@@ -5,7 +5,12 @@
 
   &__wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    & > * + * {
+      margin-top: 10px;
+    }
 
     &_dark {
       background-color: var(--dark-primary);
