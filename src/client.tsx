@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { hydrate } from 'react-dom';
 import { loadableReady } from '@loadable/component';
 
 import App from './components/App/App';
@@ -14,7 +14,7 @@ configureAxios();
 const devMode = process.env.NODE_ENV === 'development';
 
 loadableReady(() => {
-  ReactDOM.hydrate(
+  hydrate(
     <React.StrictMode>
       <App />
     </React.StrictMode>,

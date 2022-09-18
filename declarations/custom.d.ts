@@ -1,4 +1,4 @@
-import { AppState } from '@/store/types';
+import { Store } from 'react-redux';
 
 declare module '*.svg' {
   const content: any;
@@ -12,6 +12,6 @@ declare module '*.ogg' {
 
 declare global {
   interface Window {
-    __INITIAL_STATE__: AppState;
+    __INITIAL_STORE__: Store;
   }
 }

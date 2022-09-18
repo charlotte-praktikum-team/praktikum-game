@@ -6,13 +6,13 @@ import Helmet, { HelmetData } from 'react-helmet';
 import path from 'path';
 import { ChunkExtractor } from '@loadable/server';
 
-import App from '../src/components/App/App';
+import App from './components/App/App';
 
 import { store } from '@/store';
 
 export default (req: Request, res: Response) => {
   const location = req.url;
-  const statsFile = path.resolve('../build/loadable-stats.json');
+  const statsFile = path.resolve('./dist/loadable-stats.json');
   const chunkExtractor = new ChunkExtractor({ statsFile });
 
   const jsx = chunkExtractor.collectChunks(
@@ -24,17 +24,18 @@ export default (req: Request, res: Response) => {
   );
 
   const reactHtml = renderToString(jsx);
-  const reduxState = store.getState();
   const helmetData = Helmet.renderStatic();
 
   if (req.url) {
     return res.redirect(req.url);
   }
 
-  res.status(req.statusCode || 200).send(getHtml(reactHtml, reduxState, helmetData, chunkExtractor));
+  res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store));
+
+  // return Promise.all(dataRequirements);
 };
 
-function getHtml(reactHtml: string, reduxState = {}, helmetData: HelmetData, chunkExtractor: ChunkExtractor) {
+function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore = {}) {
   const scriptTags = chunkExtractor.getScriptTags();
   const linkTags = chunkExtractor.getLinkTags();
   const styleTags = chunkExtractor.getStyleTags();
@@ -54,7 +55,7 @@ function getHtml(reactHtml: string, reduxState = {}, helmetData: HelmetData, chu
       <body>
         <div class="root" id="root">${reactHtml}</div>
         <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(reduxState)}
+          window.__INITIAL_STORE__ = ${JSON.stringify(reduxStore)}
         </script>
         <script src="/main.js"></script>
         ${scriptTags}
