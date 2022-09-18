@@ -16,4 +16,11 @@ export const signUp = createAsyncThunk('user/signUp', (payload: SignUpPayload) =
 
 export const getUserData = createAsyncThunk('user/getUser', () => AuthService.getUser());
 
+export const getUserDataByOAuth = createAsyncThunk('user/getUserDataByOAuth', async (code: string) => {
+  await AuthService.signInByOAuth(code);
+  return AuthService.getUser();
+});
+
 export const logout = createAsyncThunk('user/logout', () => AuthService.logout());
+
+export const getServiceId = createAsyncThunk('user/getServiceId', () => AuthService.getServiceId());

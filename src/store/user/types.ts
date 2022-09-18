@@ -5,4 +5,5 @@ export type UserState = {
   isAuth: boolean;
   isLoading: boolean;
   errorMessage: string;
+  serviceId?: string;
 };
