@@ -57,7 +57,6 @@ function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: Chun
         <script>
           window.__INITIAL_STORE__ = ${JSON.stringify(reduxStore)}
         </script>
-        <script src="/main.js"></script>
         ${scriptTags}
       </body>
     </html>

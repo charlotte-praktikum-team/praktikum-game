@@ -3,7 +3,7 @@ import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 
-import { IS_DEV, SRC_DIR, DIST_DIR } from './env';
+import { IS_DEV, SRC_DIR, SERVER_DIR } from './env';
 import audioLoader from './loaders/audio';
 import cssLoader from './loaders/css';
 import jsLoader from './loaders/js';
@@ -21,7 +21,7 @@ const config: Configuration = {
   output: {
     filename: 'server.js',
     libraryTarget: 'commonjs2',
-    path: DIST_DIR,
+    path: SERVER_DIR,
     publicPath: '/assets/',
   },
   resolve: {

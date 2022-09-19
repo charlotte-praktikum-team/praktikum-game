@@ -12,3 +12,4 @@
 .stylelintrc.json
 node_modules
 dist
+server
