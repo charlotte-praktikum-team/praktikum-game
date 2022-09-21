@@ -3444,6 +3444,7 @@ const path_1 = __importDefault(__webpack_require__(/*! path */ "path"));
 const server_3 = __webpack_require__(/*! @loadable/server */ "@loadable/server");
 const App_1 = __importDefault(__webpack_require__(/*! ./components/App/App */ "./src/components/App/App.tsx"));
 const store_1 = __webpack_require__(/*! @/store */ "./src/store/index.ts");
+const thunk_1 = __webpack_require__(/*! @/store/user/thunk */ "./src/store/user/thunk.ts");
 exports.default = (req, res) => {
     const location = req.url;
     const statsFile = path_1.default.resolve('./dist/loadable-stats.json');
@@ -3451,11 +3452,12 @@ exports.default = (req, res) => {
     const jsx = chunkExtractor.collectChunks((0, jsx_runtime_1.jsx)(react_redux_1.Provider, Object.assign({ store: store_1.store }, { children: (0, jsx_runtime_1.jsx)(server_2.StaticRouter, Object.assign({ location: location }, { children: (0, jsx_runtime_1.jsx)(App_1.default, {}) })) })));
     const reactHtml = (0, server_1.renderToString)(jsx);
     const helmetData = react_helmet_1.default.renderStatic();
+    const dataRequirements = [store_1.store.dispatch((0, thunk_1.getUserData)())];
     if (req.url) {
         return res.redirect(req.url);
     }
     res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store_1.store));
-    // return Promise.all(dataRequirements);
+    return Promise.all(dataRequirements);
 };
 function getHtml(reactHtml, helmetData, chunkExtractor, reduxStore = {}) {
     const scriptTags = chunkExtractor.getScriptTags();
@@ -3510,6 +3512,7 @@ exports.app = app;
 app
     .use((0, compression_1.default)())
     .use(express_1.default.static(path_1.default.resolve(__dirname, '../dist')))
+    .use(express_1.default.static(path_1.default.resolve(__dirname, '../server')))
     .use(express_1.default.static(path_1.default.resolve(__dirname, '../assets')));
 app.get('/*', server_render_middleware_1.default);
 

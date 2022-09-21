@@ -9,6 +9,7 @@ import { ChunkExtractor } from '@loadable/server';
 import App from './components/App/App';
 
 import { store } from '@/store';
+import { getUserData } from '@/store/user/thunk';
 
 export default (req: Request, res: Response) => {
   const location = req.url;
@@ -25,6 +26,7 @@ export default (req: Request, res: Response) => {
 
   const reactHtml = renderToString(jsx);
   const helmetData = Helmet.renderStatic();
+  const dataRequirements = [store.dispatch(getUserData())];
 
   if (req.url) {
     return res.redirect(req.url);
@@ -32,7 +34,7 @@ export default (req: Request, res: Response) => {
 
   res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store));
 
-  // return Promise.all(dataRequirements);
+  return Promise.all(dataRequirements);
 };
 
 function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore = {}) {
