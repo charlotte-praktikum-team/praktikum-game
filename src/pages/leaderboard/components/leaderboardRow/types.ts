@@ -1,11 +1,5 @@
-type LeaderItem = {
-  id: number;
-  place: number;
-  name: string;
-  avatar: null | string;
-  points: number;
-};
+import { LeaderboardData } from '@/types';
 
 export type LeaderboardRowProps = {
-  leaderItem: LeaderItem;
+  leaderItem: LeaderboardData;
 };

@@ -14,6 +14,7 @@ import Logout from '../../../assets/icons/logout.svg';
 import Plus from '../../../assets/icons/plus.svg';
 import Refresh from '../../../assets/icons/refresh.svg';
 import User from '../../../assets/icons/user.svg';
+import Yandex from '../../../assets/icons/yandex.svg';
 
 const defaultAttributes = {
   preserveAspectRatio: 'xMidYMid meet',
@@ -62,6 +63,10 @@ export const Icon: FC<IconProps> = memo(({ name, size = 'm' }) => {
 
     case 'user': {
       return <User className={classNames} {...defaultAttributes} />;
+    }
+
+    case 'yandex': {
+      return <Yandex className={classNames} {...defaultAttributes} />;
     }
 
     default: {

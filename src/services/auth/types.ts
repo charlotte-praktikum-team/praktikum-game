@@ -15,3 +15,12 @@ export type SignUpPayload = {
 export type SignUpResponse = {
   id: number;
 };
+
+export type ServiceIdResponse = {
+  service_id: string;
+};
+
+export type SignInByOAuth = {
+  code: string;
+  redirect_uri: string;
+};

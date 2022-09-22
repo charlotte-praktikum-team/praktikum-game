@@ -1,28 +1,33 @@
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { SignInPayload, SignUpPayload } from '@/services/auth';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { selectErrorMessage, selectIsAuth, selectIsLoading } from '@/store/user/selectors';
-import { getUserData, logout, signIn, signUp } from '@/store/user/thunk';
+import { selectErrorMessage, selectIsAuth, selectIsLoading, selectServiceId } from '@/store/user/selectors';
+import { getUserData, logout, signIn, signUp, getServiceId as getServiceIdThunk, getUserDataByOAuth } from '@/store/user/thunk';
 import { routes } from '@/router/routes';
 import { setErrorMessage } from '@/store/user/slice';
 
 export const useAuth = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const [searchParams] = useSearchParams();
+  const code = searchParams.get('code');
 
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(selectIsLoading);
   const isAuth = useAppSelector(selectIsAuth);
   const errorMessage = useAppSelector(selectErrorMessage);
+  const serviceId = useAppSelector(selectServiceId);
 
   const getUser = useCallback(async () => {
-    await dispatch(getUserData());
-
-    if (pathname === routes.login.path || pathname === routes.register.path) {
-      navigate(routes.game.path, { replace: true });
+    if (code) {
+      return dispatch(getUserDataByOAuth(code));
     }
+
+    return dispatch(getUserData());
+  }, [code]);
+
+  const getServiceId = useCallback(() => {
+    dispatch(getServiceIdThunk());
   }, []);
 
   const handleLogin = useCallback(async (data: SignInPayload) => {
@@ -53,6 +58,8 @@ export const useAuth = () => {
   return {
     isLoading,
     isAuth,
+    serviceId,
+    getServiceId,
     handleLogin,
     handleRegister,
     handleLogout,

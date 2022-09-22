@@ -1,4 +1,15 @@
-export type IconName = 'arrow-left' | 'balls' | 'cross' | 'flask' | 'forum' | 'leaderboard' | 'logout' | 'plus' | 'refresh' | 'user';
+export type IconName =
+  | 'arrow-left'
+  | 'balls'
+  | 'cross'
+  | 'flask'
+  | 'forum'
+  | 'leaderboard'
+  | 'logout'
+  | 'plus'
+  | 'refresh'
+  | 'user'
+  | 'yandex';
 type Size = 'l' | 'm' | 's';
 
 export type IconProps = {

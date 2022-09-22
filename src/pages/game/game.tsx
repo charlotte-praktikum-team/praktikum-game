@@ -16,9 +16,16 @@ import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
 import { useGameLoop } from './hooks/useGameLoop';
 import { initLevel } from './utils/initLevel';
 import { gameConfig } from './utils/config';
+import { useNotification } from '@/hooks/useNotification';
+
+import { withFullScreen } from './providers/withFullScreen';
+import { useAppDispatch } from '@/store';
+import { completeLevel } from '@/store/dashboard/thunk';
 
 const Game = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const showNotification = useNotification();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const clickSoundRef = useRef<HTMLAudioElement>(null);
   const [level, setLevel] = useState(Number(localStorage.getItem(ACTIVE_LEVEL_NUMBER)) || 0);
@@ -51,6 +58,12 @@ const Game = () => {
     }
   }, [level]);
 
+  useEffect(() => {
+    if (timer === '02:00' && !isCompleteModalOpen) {
+      showNotification('Застряли?', 'Вы можете воспользоваться дополнительной колбой, нажав на иконку в правом верхнем углу.');
+    }
+  }, [timer]);
+
   const handleBack = () => {
     navigate(routes.game.path);
   };
@@ -73,8 +86,7 @@ const Game = () => {
 
       setPoints(earnedPoints);
       setIsCompleteModalOpen(true);
-
-      // save points and time in the db
+      dispatch(completeLevel({ level, points: earnedPoints }));
     }
   };
 
@@ -182,4 +194,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default withFullScreen(Game);

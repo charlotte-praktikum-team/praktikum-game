@@ -1,8 +1,10 @@
-export const LEVELS_STUB = [
+import { Level } from '@/store/dashboard/types';
+
+export const LEVELS_STUB: Level[] = [
   {
     number: 1,
-    isComplete: true,
-    points: 2048,
+    isComplete: false,
+    points: null,
   },
   {
     number: 2,

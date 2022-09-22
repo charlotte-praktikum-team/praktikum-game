@@ -1,16 +1,26 @@
-import { Children, useMemo } from 'react';
+import { Children, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { P, SmallText, PageMeta } from '@/components';
 import { LevelOverview } from './components/levelOverview';
 
 import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
-import { LEVELS_STUB } from './mock';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { getLevels } from '@/store/dashboard/thunk';
+import { selectCurrentLevelNumber, selectIsLoading, selectLevels } from '@/store/dashboard/selectors';
 import './dashboard.css';
 
 const Dashboard = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const currentLevelNumber = useMemo(() => LEVELS_STUB.find((level) => !level.isComplete)?.number ?? 1, [LEVELS_STUB]);
+
+  const currentLevelNumber = useAppSelector(selectCurrentLevelNumber);
+  const levels = useAppSelector(selectLevels);
+  const isLoading = useAppSelector(selectIsLoading);
+
+  useEffect(() => {
+    dispatch(getLevels());
+  }, []);
 
   const handleLevelClick = (number: number) => {
     localStorage.setItem(ACTIVE_LEVEL_NUMBER, number.toString());
@@ -35,15 +45,19 @@ const Dashboard = () => {
       </div>
 
       <div className='dashboard__levels-wrapper'>
-        {Children.toArray(
-          LEVELS_STUB.map((level) => (
-            <LevelOverview
-              number={level.number}
-              points={level.points}
-              disabled={!level.isComplete && level.number !== currentLevelNumber}
-              onClick={handleLevelClick}
-            />
-          ))
+        {!isLoading ? (
+          Children.toArray(
+            levels.map((level) => (
+              <LevelOverview
+                number={level.number}
+                points={level.points}
+                disabled={!level.isComplete && level.number !== currentLevelNumber}
+                onClick={handleLevelClick}
+              />
+            ))
+          )
+        ) : (
+          <P>Загрузка...</P>
         )}
       </div>
     </div>

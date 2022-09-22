@@ -52,4 +52,16 @@
       }
     }
   }
+
+  &_yandex {
+    color: var(--background-secondary);
+    background: var(--dark-primary);
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.button-link {
+  text-decoration: none;
+  color: inherit;
 }

@@ -1,15 +1,33 @@
-import { useState, Children } from 'react';
+import { useState, Children, useEffect } from 'react';
 import cn from 'classnames';
 
-import { Heading, PageMeta } from '@/components';
+import { Button, Heading, P, PageMeta } from '@/components';
 import { LeaderboardRow } from './components/leaderboardRow/leaderboardRow';
 
 import { LeaderboardColumn } from '@/pages/leaderboard/types';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { selectIsLoading, selectLeaderboardList } from '@/store/leaderboard/selectors';
+import { getLeaderboard } from '@/store/leaderboard/thunk';
+import { LEADERBOARD_PAGINATION_SIZE } from '@/utils/constants';
+import { clearData } from '@/store/leaderboard/slice';
 import './leaderboard.css';
-import { LEADERS_LIST } from './mock';
 
 const Leaderboard = () => {
+  const dispatch = useAppDispatch();
+
   const [activeColumn, setActiveColumn] = useState<LeaderboardColumn>('points');
+  const [cursor, setCursor] = useState(0);
+
+  const leaderboardList = useAppSelector(selectLeaderboardList);
+  const isLoading = useAppSelector(selectIsLoading);
+
+  useEffect(() => {
+    dispatch(getLeaderboard(cursor));
+
+    return () => {
+      dispatch(clearData());
+    };
+  }, [cursor]);
 
   return (
     <div className='leaderboard'>
@@ -21,6 +39,7 @@ const Leaderboard = () => {
           </Heading>
         </div>
       </div>
+
       <div className='leaderboard__wrapper leaderboard__wrapper_dark'>
         <div className='leaderboard__table-header'>
           <div
@@ -33,6 +52,7 @@ const Leaderboard = () => {
               Место
             </Heading>
           </div>
+
           <div
             className={cn('leaderboard__table-header-cell', 'leaderboard__table-header-cell_center', {
               'leaderboard__table-header-cell_active': activeColumn === 'player',
@@ -43,6 +63,7 @@ const Leaderboard = () => {
               Игрок
             </Heading>
           </div>
+
           <div
             className={cn('leaderboard__table-header-cell', 'leaderboard__table-header-cell_aside', {
               'leaderboard__table-header-cell_active': activeColumn === 'points',
@@ -55,8 +76,17 @@ const Leaderboard = () => {
           </div>
         </div>
       </div>
+
       <div className='leaderboard__wrapper'>
-        <div className='leaderboard__table'>{Children.toArray(LEADERS_LIST.map((leader) => <LeaderboardRow leaderItem={leader} />))}</div>
+        <div className='leaderboard__table'>
+          {Children.toArray(leaderboardList.map((leader) => <LeaderboardRow leaderItem={leader} />))}
+        </div>
+
+        {isLoading && <P>Загрузка</P>}
+
+        {!isLoading && cursor + LEADERBOARD_PAGINATION_SIZE === leaderboardList.length && (
+          <Button onClick={() => setCursor(cursor + LEADERBOARD_PAGINATION_SIZE)}>Загрузить еще</Button>
+        )}
       </div>
     </div>
   );
