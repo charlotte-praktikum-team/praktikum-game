@@ -5,6 +5,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import Helmet, { HelmetData } from 'react-helmet';
 import path from 'path';
 import { ChunkExtractor } from '@loadable/server';
+import { EnhancedStore } from '@reduxjs/toolkit';
 
 import App from './components/App/App';
 
@@ -28,16 +29,12 @@ export default (req: Request, res: Response) => {
   const helmetData = Helmet.renderStatic();
   const dataRequirements = [store.dispatch(getUserData())];
 
-  if (req.url) {
-    return res.redirect(req.url);
-  }
-
   res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store));
 
   return Promise.all(dataRequirements);
 };
 
-function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore = {}) {
+function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore: EnhancedStore) {
   const scriptTags = chunkExtractor.getScriptTags();
   const linkTags = chunkExtractor.getLinkTags();
   const styleTags = chunkExtractor.getStyleTags();
@@ -57,7 +54,7 @@ function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: Chun
       <body>
         <div class="root" id="root">${reactHtml}</div>
         <script>
-          window.__INITIAL_STORE__ = ${JSON.stringify(reduxStore)}
+          window.__INITIAL_STATE__ = ${JSON.stringify(reduxStore.getState())}
         </script>
         ${scriptTags}
       </body>

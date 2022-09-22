@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
 import { AppState } from './types';
 import userReducer from './user/slice';
-
-export const isServer = !(typeof window !== 'undefined' && window.document && window.document.createElement);
+import { isServer } from '@/utils/isServer';
 
 const appReducer = combineReducers<AppState>({
   user: userReducer,

@@ -10,11 +10,11 @@ import { APP_ROOT_ID } from '@/utils/constants';
 import { configureAxios } from '@/utils/configureAxios';
 import registerServiceWorker from './serviceWorkerRegistration';
 import 'styles/index.css';
+import { store } from '@/store';
 
 configureAxios();
 
 const devMode = process.env.NODE_ENV === 'development';
-const store = window.__INITIAL_STORE__;
 
 loadableReady(() => {
   hydrate(
