@@ -1,7 +1,9 @@
 import { Children, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { P, SmallText } from '@/components';
+
+import { P, SmallText, PageMeta } from '@/components';
 import { LevelOverview } from './components/levelOverview';
+
 import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { getLevels } from '@/store/dashboard/thunk';
@@ -27,6 +29,8 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard__wrapper'>
+      <PageMeta title='Главная' />
+
       <div className='dashboard__description'>
         <P>
           Ball Sort Puzzle - игра-головоломка, которая подойдет для тренировки мозга и поможет скоротать время. Цель игры - как можно

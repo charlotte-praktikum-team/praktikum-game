@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { getLeaderboard } from './thunk';
 import { LeaderboardState } from './types';
+import { isServer } from '@/utils/isServer';
 
 const initialState: LeaderboardState = {
   leaderboardList: [],
@@ -10,7 +12,7 @@ const initialState: LeaderboardState = {
 
 export const leaderboardSlice = createSlice({
   name: 'leaderboard',
-  initialState,
+  initialState: !isServer ? window.__INITIAL_STATE__.leaderboard : initialState,
   reducers: {
     clearData: (state) => {
       state.leaderboardList = [];

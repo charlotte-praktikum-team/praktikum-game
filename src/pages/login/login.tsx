@@ -1,10 +1,12 @@
 import { AuthPageTemplate } from '@/pages/components/authPageTemplate/authPageTemplate';
 import { AuthForm } from '@/pages/components/authForm/authForm';
+import { PageMeta, Button, Icon } from '@/components';
+
 import { useAuth } from '@/hooks/useAuth';
 import { routes } from '@/router/routes';
 import { LoginFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
-import { Button, Icon } from '@/components';
+
 import { REDIRECT_URI } from '@/utils/constants';
 
 const Login = () => {
@@ -12,6 +14,7 @@ const Login = () => {
 
   return (
     <AuthPageTemplate>
+      <PageMeta title='Авторизация' />
       <AuthForm<LoginFormData>
         isLoading={isLoading}
         formTitle='Вход'

@@ -10,6 +10,7 @@ export { Avatar } from './avatar/avatar';
 export { Card } from './card/card';
 export { Modal } from './modal/modal';
 export { ErrorBoundary } from './errorBoundary/errorBoundary';
+export { PageMeta } from './pageMeta/pageMeta';
 
 export type { InputProps } from './input/types';
 export type { LinkProps } from './link/types';

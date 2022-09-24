@@ -1,5 +1,6 @@
 import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePageTemplate';
 import { ProfileForm } from '../components/profileForm/profileForm';
+import { PageMeta } from '@/components';
 
 import { ProfileUserFormData } from './types';
 import { inputs, validationSchema } from './constants';
@@ -14,6 +15,7 @@ const ProfileUser = () => {
 
   return (
     <ProfilePageTemplate>
+      <PageMeta title='Изменить данные' />
       <ProfileForm<ProfileUserFormData>
         isLoading={isLoading}
         formName='profileUserForm'

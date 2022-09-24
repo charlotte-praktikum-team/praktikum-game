@@ -1,5 +1,5 @@
-import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import loadable from '@loadable/component';
 
 import { routes } from './routes';
 import { RequireAuth } from './requireAuth';
@@ -7,21 +7,21 @@ import { RequireAuth } from './requireAuth';
 import { CenteredLayout } from '@/layouts/centeredLayout/centeredLayout';
 import { BaseLayout } from '@/layouts/baseLayout/baseLayout';
 
-const Forum = lazy(() => import('@/pages/forum/forum'));
-const ForumTopicsList = lazy(() => import('@/pages/forumTopicsList/forumTopicsList'));
-const ForumTopic = lazy(() => import('@/pages/forumTopic/forumTopic'));
+const Forum = loadable(() => import('@/pages/forum/forum'));
+const ForumTopicsList = loadable(() => import('@/pages/forumTopicsList/forumTopicsList'));
+const ForumTopic = loadable(() => import('@/pages/forumTopic/forumTopic'));
 
-const Profile = lazy(() => import('@/pages/profile/profile'));
-const ProfileUser = lazy(() => import('@/pages/profileUser/profileUser'));
-const ProfilePassword = lazy(() => import('@/pages/profilePassword/profilePassword'));
+const Profile = loadable(() => import('@/pages/profile/profile'));
+const ProfileUser = loadable(() => import('@/pages/profileUser/profileUser'));
+const ProfilePassword = loadable(() => import('@/pages/profilePassword/profilePassword'));
 
-const Login = lazy(() => import('@/pages/login/login'));
-const Register = lazy(() => import('@/pages/register/register'));
-const Leaderboard = lazy(() => import('@/pages/leaderboard/leaderboard'));
-const Dashboard = lazy(() => import('@/pages/dashboard/dashboard'));
-const Game = lazy(() => import('@/pages/game/game'));
+const Login = loadable(() => import('@/pages/login/login'));
+const Register = loadable(() => import('@/pages/register/register'));
+const Leaderboard = loadable(() => import('@/pages/leaderboard/leaderboard'));
+const Dashboard = loadable(() => import('@/pages/dashboard/dashboard'));
+const Game = loadable(() => import('@/pages/game/game'));
 
-const ErrorPage = lazy(() => import('@/pages/error/error'));
+const ErrorPage = loadable(() => import('@/pages/error/error'));
 
 export const Router = () => (
   <Routes>

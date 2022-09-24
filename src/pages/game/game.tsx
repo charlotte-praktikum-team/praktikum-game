@@ -1,20 +1,23 @@
 import { useCallback, useEffect, useRef, useState, MouseEvent } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { useNavigate } from 'react-router-dom';
-import { GameHeader } from './components/gameHeader/gameHeader';
-import { useGameLoop } from './hooks/useGameLoop';
+
 import { Flask } from './gameEntities/flask';
-import { initLevel } from './utils/initLevel';
-import { gameConfig } from './utils/config';
-import { routes } from '@/router/routes';
-import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
-import { getCursorPosition } from './utils/getCursorPosition';
+import { GameHeader } from './components/gameHeader/gameHeader';
 import { Ball } from './gameEntities/ball';
-import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
 import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
-import { useNotification } from '@/hooks/useNotification';
+import { PageMeta } from '@/components';
 
 import './game.css';
+import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
+import { getCursorPosition } from './utils/getCursorPosition';
+import { routes } from '@/router/routes';
+import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
+import { useGameLoop } from './hooks/useGameLoop';
+import { initLevel } from './utils/initLevel';
+import { gameConfig } from './utils/config';
+import { useNotification } from '@/hooks/useNotification';
+
 import { withFullScreen } from './providers/withFullScreen';
 import { useAppDispatch } from '@/store';
 import { completeLevel } from '@/store/dashboard/thunk';
@@ -170,6 +173,8 @@ const Game = () => {
 
   return (
     <>
+      <PageMeta title='Игра' />
+
       <GameHeader timer={timer} onBack={handleBack} onRefresh={handleRefresh} onAddFlask={handleAddFlask} />
 
       <main className='game__wrapper'>

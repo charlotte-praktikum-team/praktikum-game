@@ -11,4 +11,5 @@
 .prettierrc.json
 .stylelintrc.json
 node_modules
-build
+dist
+server

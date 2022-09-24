@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { getLevels } from './thunk';
 import { DashboardState } from './types';
+import { isServer } from '@/utils/isServer';
 
 const initialState: DashboardState = {
   levels: [],
@@ -10,7 +12,7 @@ const initialState: DashboardState = {
 
 export const dashboardSlice = createSlice({
   name: 'dashboard',
-  initialState,
+  initialState: !isServer ? window.__INITIAL_STATE__.dashboard : initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getLevels.fulfilled, (state, action) => {

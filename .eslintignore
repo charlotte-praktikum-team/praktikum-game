@@ -1,5 +1,6 @@
 /.idea
-/build
+/dist
+/server
 /node_modules
 .eslintrc.json
 /src/**/*.spec.ts
@@ -7,6 +8,8 @@
 /.github
 postcss.config.js
 webpack.*
+/webpack
 declarations/custom.d.ts
 serviceWorker*
 sw.ts
+index.js

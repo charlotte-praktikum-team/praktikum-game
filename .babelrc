@@ -8,5 +8,8 @@
         "runtime":  "automatic"
       }
     ]
+  ],
+  "plugins": [
+    "@loadable/babel-plugin"
   ]
 }

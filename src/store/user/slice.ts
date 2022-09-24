@@ -1,6 +1,7 @@
 import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState } from './types';
+import { isServer } from '@/utils/isServer';
 import { changeAvatar, changePassword, changeUser, getServiceId, getUserData, getUserDataByOAuth, logout, signIn, signUp } from './thunk';
 
 const initialState: UserState = {
@@ -21,7 +22,7 @@ const initialState: UserState = {
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState,
+  initialState: !isServer ? window.__INITIAL_STATE__.user : initialState,
   reducers: {
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
