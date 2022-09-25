@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import 'babel-polyfill';
 
-import App from './components/App/App';
+import { App } from './components/App/App';
 
 import { APP_ROOT_ID } from 'utils/constants';
 import { configureAxios } from 'utils/configureAxios';

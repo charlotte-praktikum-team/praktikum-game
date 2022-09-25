@@ -37,6 +37,7 @@
     "@babel/register": "7.4.0",
     "@loadable/babel-plugin": "5.13.2",
     "@loadable/webpack-plugin": "5.14.0",
+    "@svgr/webpack": "5.5.0",
     "@types/compression": "1.7.0",
     "@types/compression-webpack-plugin": "2.0.1",
     "@types/copy-webpack-plugin": "6.0.0",
@@ -104,6 +105,7 @@
     "write-file-webpack-plugin": "4.5.0"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "16.8.4",
     "@loadable/component": "5.14.1",
     "@loadable/server": "5.14.0",
     "@reduxjs/toolkit": "1.8.4",
@@ -117,6 +119,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
+    "react-hot-loader": "4.8.3",
     "react-redux": "8.0.2",
     "react-router": "6.3.0",
     "react-router-dom": "6.3.0",

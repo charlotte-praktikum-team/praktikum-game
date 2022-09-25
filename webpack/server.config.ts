@@ -7,7 +7,8 @@ import { IS_DEV, SRC_DIR, DIST_DIR } from './env';
 import audioLoader from './loaders/audio';
 import cssLoader from './loaders/css';
 import jsLoader from './loaders/js';
-import fileLoader from './loaders/file';
+import svgLoader from './loaders/svg';
+import imgLoader from './loaders/img';
 
 const config: Configuration = {
   name: 'server',
@@ -15,7 +16,7 @@ const config: Configuration = {
   node: { __dirname: false },
   entry: path.join(SRC_DIR, 'server'),
   module: {
-    rules: [audioLoader.server, cssLoader.server, jsLoader.server, fileLoader.server]
+    rules: [audioLoader.server, cssLoader.server, jsLoader.server, imgLoader.server, svgLoader.server]
   },
   output: {
     filename: 'server.js',

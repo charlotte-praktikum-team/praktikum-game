@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
-    "target": "es2017",
+    "target": "es5",
     "jsx": "react",
     "baseUrl": "src",
     "strictNullChecks": true,
@@ -16,5 +16,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictPropertyInitialization": false
-  }
+  },
+  "include": [
+    "src",
+    ".declarations/*",
+    "webpack"
+  ]
 }

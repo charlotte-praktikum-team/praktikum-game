@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader/root';
 
 import { Router } from 'router/router';
 import { ErrorBoundary } from 'components/errorBoundary/errorBoundary';
@@ -10,4 +11,6 @@ const App = () => (
   </ErrorBoundary>
 );
 
-export default withProviders(App);
+const Component = hot(withProviders(App));
+
+export { Component as App };

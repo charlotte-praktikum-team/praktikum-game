@@ -10,16 +10,18 @@ import { IS_DEV, SRC_DIR, DIST_DIR } from './env';
 import audioLoader from './loaders/audio';
 import cssLoader from './loaders/css';
 import jsLoader from './loaders/js';
-import fileLoader from './loaders/file';
+import svgLoader from './loaders/svg';
+import imgLoader from './loaders/img';
 
 const config: Configuration = {
   entry: ([
-    IS_DEV && 'webpack-hot-middleware/client',
+    IS_DEV && 'react-hot-loader/patch',
+    // IS_DEV && 'webpack-hot-middleware/client',
     IS_DEV && 'css-hot-loader/hotModuleReplacement',
     path.join(SRC_DIR, 'client'),
   ].filter(Boolean) as unknown) as Entry,
   module: {
-    rules: [audioLoader.client, cssLoader.client, jsLoader.client, fileLoader.client]
+    rules: [audioLoader.client, cssLoader.client, jsLoader.client, svgLoader.client, imgLoader.client]
   },
   output: {
     path: DIST_DIR,
@@ -28,6 +30,7 @@ const config: Configuration = {
   },
   resolve: {
     modules: ['src', 'node_modules'],
+    alias: { 'react-dom': '@hot-loader/react-dom' },
     extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
     plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
   },
