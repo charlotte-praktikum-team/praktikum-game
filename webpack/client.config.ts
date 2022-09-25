@@ -1,46 +1,47 @@
-import { Configuration } from 'webpack';
 import path from 'path';
+import { Configuration, Plugin, Entry } from 'webpack';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+import LoadablePlugin from '@loadable/webpack-plugin';
 import { InjectManifest } from 'workbox-webpack-plugin';
-const LoadablePlugin = require('@loadable/webpack-plugin');
 
 import { IS_DEV, SRC_DIR, DIST_DIR } from './env';
 import audioLoader from './loaders/audio';
 import cssLoader from './loaders/css';
 import jsLoader from './loaders/js';
-import svgLoader from './loaders/svg';
-import imgLoader from './loaders/img';
+import fileLoader from './loaders/file';
 
 const config: Configuration = {
-  entry: path.join(SRC_DIR, 'client'),
+  entry: ([
+    IS_DEV && 'webpack-hot-middleware/client',
+    IS_DEV && 'css-hot-loader/hotModuleReplacement',
+    path.join(SRC_DIR, 'client'),
+  ].filter(Boolean) as unknown) as Entry,
   module: {
-    rules: [audioLoader.client, cssLoader.client, jsLoader, svgLoader.client, imgLoader.client]
+    rules: [audioLoader.client, cssLoader.client, jsLoader.client, fileLoader.client]
   },
   output: {
     path: DIST_DIR,
-    filename: IS_DEV ? '[name].js' : '[name].[contenthash].js',
+    filename: '[name].js',
     publicPath: '/',
   },
   resolve: {
     modules: ['src', 'node_modules'],
+    extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
     plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
-    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: IS_DEV ? '[name].css' : '[name].[contenthash].css',
-    }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    !IS_DEV && new CompressionPlugin(),
     ...(!IS_DEV ? [
       new InjectManifest({
         swSrc: './src/sw.ts',
       }),
     ] : []),
     new LoadablePlugin(),
-  ],
-  devtool: IS_DEV ? 'cheap-source-map' : 'source-map',
+  ].filter(Boolean) as Plugin[],
+  devtool: 'source-map',
   performance: {
     hints: IS_DEV ? false : 'warning',
   },

@@ -1,3 +1,4 @@
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Request, Response } from 'express';
 import { StaticRouter } from 'react-router-dom/server';
@@ -9,8 +10,8 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 
 import App from './components/App/App';
 
-import { store } from '@/store';
-import { getUserData } from '@/store/user/thunk';
+import { store } from 'store';
+import { getUserData } from 'store/user/thunk';
 
 export default (req: Request, res: Response) => {
   const location = req.url;

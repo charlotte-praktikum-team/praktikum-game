@@ -1,13 +1,13 @@
-import { Children, useEffect } from 'react';
+import React, { Children, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { P, SmallText, PageMeta } from '@/components';
+import { P, SmallText, PageMeta } from 'components';
 import { LevelOverview } from './components/levelOverview';
 
-import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { getLevels } from '@/store/dashboard/thunk';
-import { selectCurrentLevelNumber, selectIsLoading, selectLevels } from '@/store/dashboard/selectors';
+import { ACTIVE_LEVEL_NUMBER } from 'utils/constants';
+import { useAppDispatch, useAppSelector } from 'store';
+import { getLevels } from 'store/dashboard/thunk';
+import { selectCurrentLevelNumber, selectIsLoading, selectLevels } from 'store/dashboard/selectors';
 import './dashboard.css';
 
 const Dashboard = () => {

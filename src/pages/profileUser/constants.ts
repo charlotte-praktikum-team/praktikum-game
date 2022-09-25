@@ -1,5 +1,5 @@
-import { InputProps } from '@/components';
-import { createValidationSchema } from '@/utils/validation';
+import { InputProps } from 'components';
+import { createValidationSchema } from 'utils/validation';
 
 export const inputs: InputProps[] = [
   {

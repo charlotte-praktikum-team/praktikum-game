@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, memo } from 'react';
+import React, { ChangeEvent, FC, memo } from 'react';
 import cn from 'classnames';
 
 import { TextareaProps } from './types';
@@ -7,7 +7,7 @@ import './textarea.css';
 
 export const Textarea: FC<TextareaProps> = memo(({ name, value, placeholder, errorMessage, invalid, onChange }) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    onChange?.(e);
+    onChange(e);
   };
 
   return (

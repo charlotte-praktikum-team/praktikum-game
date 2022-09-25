@@ -1,5 +1,5 @@
-import { Level } from '@/store/dashboard/types';
-import { LEVELS } from '@/utils/constants';
+import { Level } from 'store/dashboard/types';
+import { LEVELS } from 'utils/constants';
 import { LEVELS_STUB } from './mock';
 
 export const DashboardService = {

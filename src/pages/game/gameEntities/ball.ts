@@ -49,7 +49,7 @@ export class Ball {
 
     const isLeftDir = this.xVelDirection === 'left';
     const xDirection = isLeftDir ? -1 : 1;
-    const isHorizontalMoving = isLeftDir ? this.x > this.curMovePos?.x : this.x < this.curMovePos?.x;
+    const isHorizontalMoving = isLeftDir ? this.x > this.curMovePos.x : this.x < this.curMovePos.x;
 
     const isUpDir = this.yVelDirection === 'up';
     const yDirection = isUpDir ? -1 : 1;

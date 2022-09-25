@@ -1,5 +1,5 @@
 import { FormikHelpers } from 'formik';
-import { InputProps } from '@/components';
+import { InputProps } from 'components';
 
 export type ProfileFormProps<T> = {
   inputs: InputProps[];

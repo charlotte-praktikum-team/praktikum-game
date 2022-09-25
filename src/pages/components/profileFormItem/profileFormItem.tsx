@@ -1,11 +1,11 @@
-import { FC, useRef, memo } from 'react';
+import React, { FC, useRef, memo } from 'react';
 import cn from 'classnames';
 
 import { ProfileFormItemProps } from './types';
 import './profileFormItem.css';
 
 import { ProfileListItem } from '../profileListItem/profileListItem';
-import { SmallText } from '@/components';
+import { SmallText } from 'components';
 
 export const ProfileFormItem: FC<ProfileFormItemProps> = memo(
   ({ name, errorMessage, label, onBlur, onChange, type = 'text', value, invalid }) => {
@@ -14,7 +14,7 @@ export const ProfileFormItem: FC<ProfileFormItemProps> = memo(
     return (
       <ProfileListItem>
         <SmallText danger>{errorMessage}</SmallText>
-        <label htmlFor={name} className='profile-form-item' onClick={() => inputRef.current?.focus()}>
+        <label htmlFor={name} className='profile-form-item' onClick={() => inputRef.current.focus()}>
           <span>{label}</span>
           <input
             ref={inputRef}

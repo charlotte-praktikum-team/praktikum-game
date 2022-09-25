@@ -5,7 +5,7 @@ import { AppState } from './types';
 import userReducer from './user/slice';
 import dashboardReducer from './dashboard/slice';
 import leaderboardReducer from './leaderboard/slice';
-import { isServer } from '@/utils/isServer';
+import { isServer } from 'utils/isServer';
 
 const appReducer = combineReducers<AppState>({
   user: userReducer,

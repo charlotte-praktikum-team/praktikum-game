@@ -3,18 +3,17 @@ import { hydrate } from 'react-dom';
 import { loadableReady } from '@loadable/component';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import 'babel-polyfill';
 
 import App from './components/App/App';
 
-import { APP_ROOT_ID } from '@/utils/constants';
-import { configureAxios } from '@/utils/configureAxios';
+import { APP_ROOT_ID } from 'utils/constants';
+import { configureAxios } from 'utils/configureAxios';
 import registerServiceWorker from './serviceWorkerRegistration';
 import 'styles/index.css';
-import { store } from '@/store';
+import { store } from 'store';
 
 configureAxios();
-
-const devMode = process.env.NODE_ENV === 'development';
 
 loadableReady(() => {
   hydrate(
@@ -28,9 +27,5 @@ loadableReady(() => {
     document.getElementById(APP_ROOT_ID)
   );
 });
-
-if (devMode && module && module.hot) {
-  module.hot.accept();
-}
 
 registerServiceWorker();

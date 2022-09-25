@@ -1,16 +1,16 @@
 import cn from 'classnames';
 import { useFormik } from 'formik';
-import { ChangeEvent, FC, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 
-import { Button, Heading, Modal, SmallText } from '@/components';
+import { Button, Heading, Modal, SmallText } from 'components';
 
 import './profilePageTemplate.css';
 import { ProfilePageTemplateProps } from './types';
 import { initialValues, validationSchema } from './constants';
-import { selectIsLoading, selectUser } from '@/store/user/selectors';
-import { PRACTICUM_ORIGIN_AVATAR } from '@/utils/constants';
-import { changeAvatar } from '@/store/user/thunk';
-import { useAppDispatch, useAppSelector } from '@/store';
+import { selectIsLoading, selectUser } from 'store/user/selectors';
+import { PRACTICUM_ORIGIN_AVATAR } from 'utils/constants';
+import { changeAvatar } from 'store/user/thunk';
+import { useAppDispatch, useAppSelector } from 'store';
 
 export const ProfilePageTemplate: FC<ProfilePageTemplateProps> = ({ children, title }) => {
   const dispatch = useAppDispatch();

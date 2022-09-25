@@ -1,15 +1,15 @@
-import { useState, Children, useEffect } from 'react';
+import React, { useState, Children, useEffect } from 'react';
 import cn from 'classnames';
 
-import { Button, Heading, P, PageMeta } from '@/components';
+import { Button, Heading, P, PageMeta } from 'components';
 import { LeaderboardRow } from './components/leaderboardRow/leaderboardRow';
 
-import { LeaderboardColumn } from '@/pages/leaderboard/types';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { selectIsLoading, selectLeaderboardList } from '@/store/leaderboard/selectors';
-import { getLeaderboard } from '@/store/leaderboard/thunk';
-import { LEADERBOARD_PAGINATION_SIZE } from '@/utils/constants';
-import { clearData } from '@/store/leaderboard/slice';
+import { LeaderboardColumn } from 'pages/leaderboard/types';
+import { useAppDispatch, useAppSelector } from 'store';
+import { selectIsLoading, selectLeaderboardList } from 'store/leaderboard/selectors';
+import { getLeaderboard } from 'store/leaderboard/thunk';
+import { LEADERBOARD_PAGINATION_SIZE } from 'utils/constants';
+import { clearData } from 'store/leaderboard/slice';
 import './leaderboard.css';
 
 const Leaderboard = () => {

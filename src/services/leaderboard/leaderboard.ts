@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { RATING_FIELD_NAME, TEAM_NAME } from '@/utils/constants';
+import { RATING_FIELD_NAME, TEAM_NAME } from 'utils/constants';
 import { SavePointsRequest, LeaderboardRequest, LeaderboardResponse } from './types';
-import { LeaderboardServerData } from '@/types';
+import { LeaderboardServerData } from 'types';
 
 export const LeaderboardService = {
   savePoints: (data: LeaderboardServerData) =>

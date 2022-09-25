@@ -1,7 +1,7 @@
-import { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
-import { routes } from '@/router/routes';
+import { useAuth } from 'hooks/useAuth';
+import { routes } from 'router/routes';
 
 export const withAuth = (Component: () => ReactElement) => () => {
   const navigate = useNavigate();
@@ -27,9 +27,9 @@ export const withAuth = (Component: () => ReactElement) => () => {
     }
   }, [isAuth, isCheckingAuth]);
 
-  if (isCheckingAuth) {
-    return <p>Загрузка...</p>;
-  }
+  // if (isCheckingAuth) {
+  //   return <p>Загрузка...</p>;
+  // }
 
   return <Component />;
 };

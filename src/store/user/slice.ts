@@ -1,7 +1,7 @@
 import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState } from './types';
-import { isServer } from '@/utils/isServer';
+import { isServer } from 'utils/isServer';
 import { changeAvatar, changePassword, changeUser, getServiceId, getUserData, getUserDataByOAuth, logout, signIn, signUp } from './thunk';
 
 const initialState: UserState = {
@@ -67,7 +67,7 @@ export const userSlice = createSlice({
       isRejected(changeUser, changePassword, changeAvatar, signIn, signUp, logout, getUserData, getUserDataByOAuth),
       (state, action) => {
         state.isLoading = false;
-        state.errorMessage = action.error.message ?? 'Что-то пошло не так';
+        state.errorMessage = action.error.message || 'Что-то пошло не так';
       }
     );
   },

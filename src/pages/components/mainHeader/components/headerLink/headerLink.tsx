@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-import { Icon } from '@/components';
+import { Icon } from 'components';
 
 import { PageHeaderMainLinkProps, LinkIconName } from './types';
 import './headerLink.css';

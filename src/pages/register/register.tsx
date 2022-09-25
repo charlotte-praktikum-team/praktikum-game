@@ -1,9 +1,11 @@
-import { AuthPageTemplate } from '@/pages/components/authPageTemplate/authPageTemplate';
-import { AuthForm } from '@/pages/components/authForm/authForm';
-import { PageMeta } from '@/components';
+import React from 'react';
 
-import { useAuth } from '@/hooks/useAuth';
-import { routes } from '@/router/routes';
+import { AuthPageTemplate } from 'pages/components/authPageTemplate/authPageTemplate';
+import { AuthForm } from 'pages/components/authForm/authForm';
+import { PageMeta } from 'components';
+
+import { useAuth } from 'hooks/useAuth';
+import { routes } from 'router/routes';
 import { RegisterFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
 

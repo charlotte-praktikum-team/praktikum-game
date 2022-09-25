@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, MouseEvent } from 'react';
+import React, { useCallback, useEffect, useRef, useState, MouseEvent } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,21 +6,21 @@ import { Flask } from './gameEntities/flask';
 import { GameHeader } from './components/gameHeader/gameHeader';
 import { Ball } from './gameEntities/ball';
 import { LevelCompleteModal } from './components/levelCompleteModal/levelCompleteModal';
-import { PageMeta } from '@/components';
+import { PageMeta } from 'components';
 
 import './game.css';
 import clickSoundSrc from '../../../assets/sounds/clickSound.ogg';
 import { getCursorPosition } from './utils/getCursorPosition';
-import { routes } from '@/router/routes';
-import { ACTIVE_LEVEL_NUMBER } from '@/utils/constants';
+import { routes } from 'router/routes';
+import { ACTIVE_LEVEL_NUMBER } from 'utils/constants';
 import { useGameLoop } from './hooks/useGameLoop';
 import { initLevel } from './utils/initLevel';
 import { gameConfig } from './utils/config';
-import { useNotification } from '@/hooks/useNotification';
+import { useNotification } from 'hooks/useNotification';
 
 import { withFullScreen } from './providers/withFullScreen';
-import { useAppDispatch } from '@/store';
-import { completeLevel } from '@/store/dashboard/thunk';
+import { useAppDispatch } from 'store';
+import { completeLevel } from 'store/dashboard/thunk';
 
 const Game = () => {
   const dispatch = useAppDispatch();
@@ -135,16 +135,16 @@ const Game = () => {
       const activeFlask = flaskList.find((flask) => flask.id === activeFlaskId);
 
       if (
-        (activeFlask?.getUpperBall()?.color === clickedFlask.getUpperBall()?.color && clickedFlask.hasSpace) ||
+        (activeFlask.getUpperBall().color === clickedFlask.getUpperBall().color && clickedFlask.hasSpace) ||
         !clickedFlask.getUpperBall()
       ) {
         playClickSound();
-        clickedFlask.addBall(activeFlask?.popBall() as Ball);
+        clickedFlask.addBall(activeFlask.popBall() as Ball);
         setActiveFlaskId(undefined);
         checkLevelComplete();
       } else {
         playClickSound();
-        activeFlask?.dropBall();
+        activeFlask.dropBall();
         clickedFlask.select();
         setActiveFlaskId(clickedFlask.id);
       }
@@ -158,7 +158,7 @@ const Game = () => {
   const render = useCallback(
     (dt: number) => {
       const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
+      const ctx = canvas.getContext('2d');
 
       if (canvas && ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);

@@ -1,13 +1,14 @@
-import { AuthPageTemplate } from '@/pages/components/authPageTemplate/authPageTemplate';
-import { AuthForm } from '@/pages/components/authForm/authForm';
-import { PageMeta, Button, Icon } from '@/components';
+import { PageMeta, Button, Icon } from 'components';
+import React from 'react';
 
-import { useAuth } from '@/hooks/useAuth';
-import { routes } from '@/router/routes';
+import { AuthPageTemplate } from 'pages/components/authPageTemplate/authPageTemplate';
+import { AuthForm } from 'pages/components/authForm/authForm';
+
+import { useAuth } from 'hooks/useAuth';
+import { routes } from 'router/routes';
 import { LoginFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
-
-import { REDIRECT_URI } from '@/utils/constants';
+import { REDIRECT_URI } from 'utils/constants';
 
 const Login = () => {
   const { isLoading, serviceId, handleLogin } = useAuth();
