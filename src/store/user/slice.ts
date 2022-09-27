@@ -67,7 +67,7 @@ export const userSlice = createSlice({
       isRejected(changeUser, changePassword, changeAvatar, signIn, signUp, logout, getUserData, getUserDataByOAuth),
       (state, action) => {
         state.isLoading = false;
-        state.errorMessage = action.error.message || 'Что-то пошло не так';
+        state.errorMessage = action.error.message ?? 'Что-то пошло не так';
       }
     );
   },
