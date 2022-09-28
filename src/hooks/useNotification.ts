@@ -11,7 +11,7 @@ const checkNotificationPromise = () => {
 
 export const useNotification = () => {
   const [isSupported] = useState('Notification' in window);
-  const [isGranted, setIsGranted] = useState(Notification.permission === 'granted');
+  const [isGranted, setIsGranted] = useState(Notification?.permission === 'granted');
 
   useEffect(() => {
     if (isSupported && Notification.permission === 'default') {

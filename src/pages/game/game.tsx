@@ -135,16 +135,16 @@ const Game = () => {
       const activeFlask = flaskList.find((flask) => flask.id === activeFlaskId);
 
       if (
-        (activeFlask.getUpperBall().color === clickedFlask.getUpperBall().color && clickedFlask.hasSpace) ||
+        (activeFlask?.getUpperBall()?.color === clickedFlask.getUpperBall()?.color && clickedFlask.hasSpace) ||
         !clickedFlask.getUpperBall()
       ) {
         playClickSound();
-        clickedFlask.addBall(activeFlask.popBall() as Ball);
+        clickedFlask.addBall(activeFlask?.popBall() as Ball);
         setActiveFlaskId(undefined);
         checkLevelComplete();
       } else {
         playClickSound();
-        activeFlask.dropBall();
+        activeFlask?.dropBall();
         clickedFlask.select();
         setActiveFlaskId(clickedFlask.id);
       }
@@ -158,7 +158,7 @@ const Game = () => {
   const render = useCallback(
     (dt: number) => {
       const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas?.getContext('2d');
 
       if (canvas && ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);

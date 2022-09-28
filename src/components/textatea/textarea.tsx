@@ -7,7 +7,7 @@ import './textarea.css';
 
 export const Textarea: FC<TextareaProps> = memo(({ name, value, placeholder, errorMessage, invalid, onChange }) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(e);
+    onChange?.(e);
   };
 
   return (
