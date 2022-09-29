@@ -1,4 +1,4 @@
-import { LeaderboardServerData } from '@/types';
+import { LeaderboardServerData } from 'types';
 
 export type SavePointsRequest = {
   data: LeaderboardServerData;

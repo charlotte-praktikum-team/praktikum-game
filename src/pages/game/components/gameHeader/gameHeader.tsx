@@ -1,6 +1,6 @@
-import { FC, memo } from 'react';
-import { Header } from '@/pages/components/header/header';
-import { Icon } from '@/components';
+import React, { FC, memo } from 'react';
+import { Header } from 'pages/components/header/header';
+import { Icon } from 'components';
 import { GameHeaderProps } from './types';
 import './gameHeader.css';
 

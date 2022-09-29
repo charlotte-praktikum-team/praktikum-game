@@ -1,7 +1,7 @@
 import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState } from './types';
-import { isServer } from '@/utils/isServer';
+import { isServer } from 'utils/isServer';
 import { changeAvatar, changePassword, changeUser, getServiceId, getUserData, getUserDataByOAuth, logout, signIn, signUp } from './thunk';
 
 const initialState: UserState = {

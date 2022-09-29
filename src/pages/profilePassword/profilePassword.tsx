@@ -1,12 +1,14 @@
+import React from 'react';
+
 import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePageTemplate';
 import { ProfileForm } from '../components/profileForm/profileForm';
-import { PageMeta } from '@/components';
+import { PageMeta } from 'components';
 
 import { ProfilePasswordFormData } from './types';
 import { initialValues, inputs, validationSchema } from './constants';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { selectIsLoading } from '@/store/user/selectors';
-import { changePassword } from '@/store/user/thunk';
+import { useAppDispatch, useAppSelector } from 'store';
+import { selectIsLoading } from 'store/user/selectors';
+import { changePassword } from 'store/user/thunk';
 
 const ProfilePassword = () => {
   const dispatch = useAppDispatch();

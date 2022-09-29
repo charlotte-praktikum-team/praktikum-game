@@ -1,4 +1,4 @@
-import { LeaderboardData } from '@/types';
+import { LeaderboardData } from 'types';
 
 export type LeaderboardState = {
   leaderboardList: LeaderboardData[];

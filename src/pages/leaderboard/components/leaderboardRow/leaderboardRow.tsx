@@ -1,5 +1,5 @@
 import React from 'react';
-import { P, Avatar } from '@/components';
+import { P, Avatar } from 'components';
 import { LeaderboardRowProps } from './types';
 
 import './leaderboardRow.css';

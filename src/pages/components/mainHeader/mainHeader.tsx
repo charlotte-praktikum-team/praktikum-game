@@ -1,12 +1,12 @@
-import { memo, Children } from 'react';
+import React, { memo, Children } from 'react';
 
 import { HeaderLink } from './components/headerLink/headerLink';
-import { Heading, Icon } from '@/components';
+import { Heading, Icon } from 'components';
 import { Header } from '../header/header';
 
 import './mainHeader.css';
-import { useAuth } from '@/hooks/useAuth';
-import { routes } from '@/router/routes';
+import { useAuth } from 'hooks/useAuth';
+import { routes } from 'router/routes';
 
 export const MainHeader = memo(() => {
   const headerRoutes = [routes.game, routes.leaderboard, routes.forum, routes.profile];

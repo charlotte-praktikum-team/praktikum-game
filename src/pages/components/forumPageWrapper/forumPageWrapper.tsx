@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import './forumPageWrapper.css';
 import { ForumPageWrapperProps } from './types';

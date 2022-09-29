@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Heading, SmallText } from '@/components';
+import { Heading, SmallText } from 'components';
 
 import './forumCard.css';
 import { ForumCardProps } from './types';

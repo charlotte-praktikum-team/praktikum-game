@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import { ProfileListItemProps } from './types';
 import './profileListItem.css';

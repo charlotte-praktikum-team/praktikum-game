@@ -1,12 +1,14 @@
+import React from 'react';
+
 import { ProfilePageTemplate } from '../components/profilePageTemplate/profilePageTemplate';
-import { Link, PageMeta } from '@/components';
+import { Link, PageMeta } from 'components';
 import { ProfileList } from '../components/profileList/profileList';
 import { ProfileListItem } from '../components/profileListItem/profileListItem';
 import { ProfileDataItem } from './components/profileDataItem/profileDataItem';
 
 import './profile.css';
-import { useAppSelector } from '@/store';
-import { selectUser } from '@/store/user/selectors';
+import { useAppSelector } from 'store';
+import { selectUser } from 'store/user/selectors';
 import { Label } from './types';
 
 const Profile = () => {

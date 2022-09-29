@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { FormikHelpers } from 'formik';
-import { InputProps, LinkProps } from '@/components';
+import { InputProps, LinkProps } from 'components';
 
 export type AuthFormProps<T> = {
   inputs: InputProps[];

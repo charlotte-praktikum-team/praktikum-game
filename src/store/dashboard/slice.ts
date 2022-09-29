@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { getLevels } from './thunk';
 import { DashboardState } from './types';
-import { isServer } from '@/utils/isServer';
+import { isServer } from 'utils/isServer';
 
 const initialState: DashboardState = {
   levels: [],
@@ -24,7 +24,7 @@ export const dashboardSlice = createSlice({
     });
     builder.addCase(getLevels.rejected, (state, action) => {
       state.isLoading = false;
-      state.errorMessage = action.error.message ?? 'Что-то пошло не так';
+      state.errorMessage = action.error.message || 'Что-то пошло не так';
     });
   },
 });

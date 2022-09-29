@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { trimData } from '@/utils/trimData';
-import { ServiceIdResponse, SignInByOAuth, SignInPayload, SignUpPayload, SignUpResponse } from '@/services/auth/types';
-import { User } from '@/types';
-import { REDIRECT_URI } from '@/utils/constants';
+import { trimData } from 'utils/trimData';
+import { ServiceIdResponse, SignInByOAuth, SignInPayload, SignUpPayload, SignUpResponse } from 'services/auth/types';
+import { User } from 'types';
+import { REDIRECT_URI } from 'utils/constants';
 
 export const AuthService = {
   signIn: (payload: SignInPayload) => {

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { PasswordPayload, ProfilePayload, ProfileService } from '@/services/profile';
-import { AuthService, SignInPayload, SignUpPayload } from '@/services/auth';
+import { PasswordPayload, ProfilePayload, ProfileService } from 'services/profile';
+import { AuthService, SignInPayload, SignUpPayload } from 'services/auth';
 
 export const changeUser = createAsyncThunk('profile/changeUser', (payload: ProfilePayload) => ProfileService.changeProfile(payload));
 

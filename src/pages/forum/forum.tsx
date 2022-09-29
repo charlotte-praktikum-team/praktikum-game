@@ -1,8 +1,8 @@
-import { Children } from 'react';
+import React, { Children } from 'react';
 
 import { ForumPageWrapper } from '../components/forumPageWrapper/forumPageWrapper';
 import { ForumCard } from './components/forumCard/forumCard';
-import { PageMeta } from '@/components';
+import { PageMeta } from 'components';
 
 import './forum.css';
 import { FORUMS_LIST } from './mock';

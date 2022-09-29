@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import React, { FC, memo } from 'react';
 import cn from 'classnames';
 import { CardProps } from './types';
 

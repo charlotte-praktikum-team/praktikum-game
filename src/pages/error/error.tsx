@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, P, PageMeta } from '@/components';
-import { ErrorPageProps } from '@/pages/error/types';
+import { Heading, P, PageMeta } from 'components';
+import { ErrorPageProps } from 'pages/error/types';
 import './error.css';
-import { routes } from '@/router/routes';
+import { routes } from 'router/routes';
 
 const ErrorPage: FC<ErrorPageProps> = ({ title, description }) => {
   const navigate = useNavigate();

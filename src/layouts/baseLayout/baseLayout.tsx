@@ -1,6 +1,7 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { MainHeader } from '@/pages/components/mainHeader/mainHeader';
+import { MainHeader } from 'pages/components/mainHeader/mainHeader';
 
 /**
  * Main layout for page with header.

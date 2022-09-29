@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, memo } from 'react';
+import React, { ChangeEvent, FC, memo } from 'react';
 import cn from 'classnames';
 
 import { TextareaProps } from './types';

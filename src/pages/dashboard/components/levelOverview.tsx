@@ -1,7 +1,7 @@
-import { FC, memo } from 'react';
+import React, { FC, memo } from 'react';
 import cn from 'classnames';
 import { LevelOverviewProps } from './types';
-import { SmallText } from '@/components';
+import { SmallText } from 'components';
 
 import './levelOverview.css';
 
