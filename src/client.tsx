@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { hydrate } from 'react-dom';
 import { loadableReady } from '@loadable/component';
 import { Provider } from 'react-redux';
@@ -21,9 +21,7 @@ loadableReady(() => {
     <React.StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <Suspense fallback='Загрузка...'>
-            <App />
-          </Suspense>
+          <App />
         </BrowserRouter>
       </Provider>
     </React.StrictMode>,
