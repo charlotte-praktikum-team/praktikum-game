@@ -1,4 +1,4 @@
-import { Level } from '@/store/dashboard/types';
+import { Level } from 'store/dashboard/types';
 
 export const LEVELS_STUB: Level[] = [
   {

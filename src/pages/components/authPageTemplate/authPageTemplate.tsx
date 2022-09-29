@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
-import { Heading } from '@/components';
-import { routes } from '@/router/routes';
+import { Heading } from 'components';
+import { routes } from 'router/routes';
 import { AuthTemplateProps } from './types';
 
 import './authPageTemplate.css';

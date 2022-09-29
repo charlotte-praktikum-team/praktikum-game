@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Heading } from '../heading/heading';
 import { P } from '../p/p';
 import { ErrorBoundaryProps, ErrorBoundaryState } from './types';

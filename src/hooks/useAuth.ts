@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { SignInPayload, SignUpPayload } from '@/services/auth';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { selectErrorMessage, selectIsAuth, selectIsLoading, selectServiceId } from '@/store/user/selectors';
-import { getUserData, logout, signIn, signUp, getServiceId as getServiceIdThunk, getUserDataByOAuth } from '@/store/user/thunk';
-import { routes } from '@/router/routes';
-import { setErrorMessage } from '@/store/user/slice';
+import { SignInPayload, SignUpPayload } from 'services/auth';
+import { useAppDispatch, useAppSelector } from 'store';
+import { selectErrorMessage, selectIsAuth, selectIsLoading, selectServiceId } from 'store/user/selectors';
+import { getUserData, logout, signIn, signUp, getServiceId as getServiceIdThunk, getUserDataByOAuth } from 'store/user/thunk';
+import { routes } from 'router/routes';
+import { setErrorMessage } from 'store/user/slice';
 
 export const useAuth = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
-import { ProfileListItem } from '@/pages/components/profileListItem/profileListItem';
+import { ProfileListItem } from 'pages/components/profileListItem/profileListItem';
 
 import './profileDataItem.css';
 import { ProfileDataItemProps } from './types';

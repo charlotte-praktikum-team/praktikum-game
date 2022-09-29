@@ -1,7 +1,7 @@
-import { Children } from 'react';
+import React, { Children } from 'react';
 import cn from 'classnames';
 import { useFormik } from 'formik';
-import { Button, Card, Heading, Input, Link } from '@/components';
+import { Button, Card, Heading, Input, Link } from 'components';
 import { AuthFormProps } from './types';
 
 import './authForm.css';
@@ -37,7 +37,7 @@ export const AuthForm = <T extends Record<string, string>>({
             <Input
               {...input}
               {...getFieldProps(name)}
-              errorMessage={touched[name] && ((errors[name] as string) ?? '')}
+              errorMessage={touched[name] && ((errors[name] as string) || '')}
               invalid={touched[name] && !!errors[name]}
             />
           ))

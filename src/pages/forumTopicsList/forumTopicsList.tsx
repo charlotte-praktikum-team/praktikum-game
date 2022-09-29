@@ -1,7 +1,7 @@
-import { useState, Children } from 'react';
+import React, { useState, Children } from 'react';
 
 import { ForumPageWrapper } from '../components/forumPageWrapper/forumPageWrapper';
-import { Button, Modal, Input, Textarea, PageMeta } from '@/components';
+import { Button, Modal, Input, Textarea, PageMeta } from 'components';
 import { ForumBackLink } from '../components/forumBackLink/forumBackLink';
 import { ForumTopicItem } from './components/forumTopicItem/forumTopicItem';
 

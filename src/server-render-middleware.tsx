@@ -1,3 +1,4 @@
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Request, Response } from 'express';
 import { StaticRouter } from 'react-router-dom/server';
@@ -7,31 +8,34 @@ import path from 'path';
 import { ChunkExtractor } from '@loadable/server';
 import { EnhancedStore } from '@reduxjs/toolkit';
 
-import App from './components/App/App';
+import { App } from './components/App/App';
 
-import { store } from '@/store';
-import { getUserData } from '@/store/user/thunk';
+import { store } from 'store';
+import { getUserData } from 'store/user/thunk';
 
 export default (req: Request, res: Response) => {
   const location = req.url;
-  const statsFile = path.resolve('./dist/loadable-stats.json');
-  const chunkExtractor = new ChunkExtractor({ statsFile });
-
-  const jsx = chunkExtractor.collectChunks(
-    <ReduxProvider store={store}>
-      <StaticRouter location={location}>
-        <App />
-      </StaticRouter>
-    </ReduxProvider>
-  );
-
-  const reactHtml = renderToString(jsx);
-  const helmetData = Helmet.renderStatic();
   const dataRequirements = [store.dispatch(getUserData())];
 
-  res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store));
+  function renderApp() {
+    const statsFile = path.resolve('./dist/loadable-stats.json');
+    const chunkExtractor = new ChunkExtractor({ statsFile });
 
-  return Promise.all(dataRequirements);
+    const jsx = chunkExtractor.collectChunks(
+      <ReduxProvider store={store}>
+        <StaticRouter location={location}>
+          <App />
+        </StaticRouter>
+      </ReduxProvider>
+    );
+
+    const reactHtml = renderToString(jsx);
+    const helmetData = Helmet.renderStatic();
+
+    res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store));
+  }
+
+  return Promise.all(dataRequirements).then(() => renderApp());
 };
 
 function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore: EnhancedStore) {

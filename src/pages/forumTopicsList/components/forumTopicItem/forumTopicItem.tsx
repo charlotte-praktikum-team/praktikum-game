@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { SmallText, Avatar } from '@/components';
+import { SmallText, Avatar } from 'components';
 
 import './forumTopicItem.css';
 import { ForumTopicItemProps } from './types';

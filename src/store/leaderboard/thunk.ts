@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { LeaderboardService } from '@/services/leaderboard';
-import { RATING_FIELD_NAME, LEADERBOARD_PAGINATION_SIZE } from '@/utils/constants';
-import { LeaderboardData } from '@/types';
-import { LeaderboardResponseItem } from '@/services/leaderboard/types';
+import { LeaderboardService } from 'services/leaderboard';
+import { RATING_FIELD_NAME, LEADERBOARD_PAGINATION_SIZE } from 'utils/constants';
+import { LeaderboardData } from 'types';
+import { LeaderboardResponseItem } from 'services/leaderboard/types';
 
 export const getLeaderboard = createAsyncThunk('leaderboard/getLeaderboard', async (cursor: number): Promise<LeaderboardData[]> => {
   const response = await LeaderboardService.getLeaderboard({

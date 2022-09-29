@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
-import { useFullScreen } from '@/hooks/useFullScreen';
+import React, { ReactElement } from 'react';
+import { useFullScreen } from 'hooks/useFullScreen';
 
 export const withFullScreen = (Component: () => ReactElement) => () => {
   useFullScreen();

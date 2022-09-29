@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { LevelCompleteModalProps } from './types';
 import './levelCompleteModal.css';
-import { Button, Modal, P } from '@/components';
+import { Button, Modal, P } from 'components';
 
 export const LevelCompleteModal: FC<LevelCompleteModalProps> = ({ isOpen, isLastLevel, timer, points, onBack, onRefresh, onNext }) => (
   <Modal isOpen={isOpen} title='Победа!'>

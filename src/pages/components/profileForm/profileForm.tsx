@@ -1,9 +1,9 @@
-import { Children } from 'react';
+import React, { Children } from 'react';
 import { useFormik } from 'formik';
 
 import { ProfileFormItem } from '../profileFormItem/profileFormItem';
 import { ProfileList } from '../profileList/profileList';
-import { Button } from '@/components';
+import { Button } from 'components';
 
 import { ProfileFormProps } from './types';
 import './profileForm.css';
@@ -30,7 +30,7 @@ export const ProfileForm = <T extends Record<string, string>>({
             <ProfileFormItem
               {...input}
               {...getFieldProps(name)}
-              errorMessage={touched[name] && ((errors[name] as string) ?? '')}
+              errorMessage={touched[name] && ((errors[name] as string) || '')}
               invalid={touched[name] && !!errors[name]}
             />
           ))

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { getLeaderboard } from './thunk';
 import { LeaderboardState } from './types';
-import { isServer } from '@/utils/isServer';
+import { isServer } from 'utils/isServer';
 
 const initialState: LeaderboardState = {
   leaderboardList: [],
@@ -28,7 +28,7 @@ export const leaderboardSlice = createSlice({
     });
     builder.addCase(getLeaderboard.rejected, (state, action) => {
       state.isLoading = false;
-      state.errorMessage = action.error.message ?? 'Что-то пошло не так';
+      state.errorMessage = action.error.message || 'Что-то пошло не так';
     });
   },
 });

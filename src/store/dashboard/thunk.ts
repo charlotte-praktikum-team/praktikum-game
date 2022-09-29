@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { DashboardService } from '@/services/dashboard';
+import { DashboardService } from 'services/dashboard';
 import { AppState } from '../types';
-import { LeaderboardService } from '@/services/leaderboard';
+import { LeaderboardService } from 'services/leaderboard';
 
 export const getLevels = createAsyncThunk('dashboard/getLevels', () => DashboardService.getLevels());
 

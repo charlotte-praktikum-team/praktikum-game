@@ -3,7 +3,7 @@ import React from 'react';
 import { ForumPostProps } from './types';
 import './forumPost.css';
 
-import { SmallText, Avatar, Heading, P, Button } from '@/components';
+import { SmallText, Avatar, Heading, P, Button } from 'components';
 
 export const ForumPost: React.FC<ForumPostProps> = ({ postData }) => (
   <article className='forum-post'>

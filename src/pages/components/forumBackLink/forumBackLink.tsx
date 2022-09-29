@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router';
 
-import { Icon } from '@/components';
+import { Icon } from 'components';
 
-import { ForumBackLinkProps } from '@/pages/components/forumBackLink/types';
+import { ForumBackLinkProps } from 'pages/components/forumBackLink/types';
 import './forumBackLink.css';
 
 export const ForumBackLink: FC<ForumBackLinkProps> = ({ title }) => {
