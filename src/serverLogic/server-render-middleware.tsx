@@ -8,7 +8,7 @@ import path from 'path';
 import { ChunkExtractor } from '@loadable/server';
 import { EnhancedStore } from '@reduxjs/toolkit';
 
-import { App } from './components/App/App';
+import { App } from '../components/App/App';
 
 import { store } from 'store';
 import { getUserData } from 'store/user/thunk';

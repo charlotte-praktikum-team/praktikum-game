@@ -23,7 +23,6 @@
     "no-useless-catch": "off",
     "no-inner-declarations": "off",
     "no-prototype-builtins": "off",
-    "no-use-before-define": "warn",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-this-alias": "off",
@@ -47,7 +46,6 @@
     ],
     "react/react-in-jsx-scope": "off",
     "indent": "off",
-    "@typescript-eslint/indent": ["error", 2],
     "react/button-has-type": 0,
     "eol-last": ["error", "always"],
     "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ],
@@ -61,7 +59,8 @@
     "camelcase": "warn",
     "no-shadow": "warn",
     "jsx-a11y/media-has-caption": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "no-use-before-define": ["warn", { "functions": false, "classes": false }]
   },
   "parserOptions": {
     "ecmaVersion": 2017,
