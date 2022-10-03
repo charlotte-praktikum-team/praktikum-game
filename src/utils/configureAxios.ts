@@ -10,3 +10,23 @@ export const configureAxios = () => {
     (error: AxiosError) => Promise.reject(error)
   );
 };
+
+export const practicumAxios = axios.create({
+  baseURL: PRACTICUM_ORIGIN,
+  withCredentials: true,
+});
+
+practicumAxios.interceptors.response.use(
+  (response: AxiosResponse) => response.data,
+  (error: AxiosError) => Promise.reject(error)
+);
+
+export const localAxios = axios.create({
+  baseURL: '/api',
+  withCredentials: true,
+});
+
+localAxios.interceptors.response.use(
+  (response: AxiosResponse) => response.data,
+  (error: AxiosError) => Promise.reject(error)
+);
