@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { Comments } from './comments';
 
 interface IReplies {
@@ -25,6 +25,9 @@ export class Replies extends Model<IReplies, Omit<IReplies, 'id'>> {
   @ForeignKey(() => Comments)
   @Column({ type: DataType.INTEGER })
   comment_id: number;
+
+  @BelongsTo(() => Comments)
+  comment: Comments;
 
   @AllowNull(false)
   @Column(DataType.STRING)

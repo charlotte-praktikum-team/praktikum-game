@@ -1,4 +1,5 @@
-import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
+import { Comments } from './comments';
 import { Sections } from './sections';
 
 interface ITopics {
@@ -24,6 +25,12 @@ export class Topics extends Model<ITopics, Omit<ITopics, 'id'>> {
   @ForeignKey(() => Sections)
   @Column({ type: DataType.INTEGER })
   section_id: number;
+
+  @BelongsTo(() => Sections)
+  section: Sections;
+
+  @HasMany(() => Comments)
+  comments: Comments;
 
   @AllowNull(false)
   @Column(DataType.STRING)
