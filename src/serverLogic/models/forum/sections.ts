@@ -1,4 +1,5 @@
-import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, Index } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, Index, HasMany } from 'sequelize-typescript';
+import { Topics } from './topics';
 
 interface ISections {
   id: number;
@@ -21,4 +22,7 @@ export class Sections extends Model<ISections, Omit<ISections, 'id'>> {
   @Index
   @Column({ type: DataType.STRING })
   description: string;
+
+  @HasMany(() => Topics)
+  topics: number;
 }

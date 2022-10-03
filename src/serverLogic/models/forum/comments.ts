@@ -1,4 +1,5 @@
-import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
+import { Replies } from './replies';
 import { Topics } from './topics';
 
 interface IComments {
@@ -26,6 +27,9 @@ export class Comments extends Model<IComments, Omit<IComments, 'id'>> {
   @Column({ type: DataType.INTEGER })
   topic_id: number;
 
+  @BelongsTo(() => Topics)
+  topic: Topics;
+
   @AllowNull(false)
   @Column(DataType.STRING)
   login: string;
@@ -36,4 +40,7 @@ export class Comments extends Model<IComments, Omit<IComments, 'id'>> {
 
   @Column(DataType.INTEGER)
   likes: number;
+
+  @HasMany(() => Replies)
+  replies: Replies;
 }
