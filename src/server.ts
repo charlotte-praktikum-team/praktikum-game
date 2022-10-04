@@ -8,8 +8,8 @@ import https from 'https';
 import { dbConnect } from './serverLogic/dbInit';
 import router from './serverLogic/router';
 
-const key = fs.readFileSync(path.resolve('./key.pem'));
-const cert = fs.readFileSync(path.resolve('./cert.pem'));
+const key = fs.readFileSync(path.resolve(__dirname, '../key.pem'));
+const cert = fs.readFileSync(path.resolve(__dirname, '../cert.pem'));
 
 const app = express();
 
