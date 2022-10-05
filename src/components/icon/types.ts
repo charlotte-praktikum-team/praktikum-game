@@ -9,7 +9,8 @@ export type IconName =
   | 'plus'
   | 'refresh'
   | 'user'
-  | 'yandex';
+  | 'yandex'
+  | 'thumbUp';
 type Size = 'l' | 'm' | 's';
 
 export type IconProps = {

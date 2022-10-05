@@ -26,7 +26,7 @@ const sequelize = new Sequelize(sequelizeOptions);
 export async function dbConnect() {
   try {
     await sequelize.authenticate();
-    await sequelize.sync({ force: true });
+    await sequelize.sync();
 
     const section = await Sections.findOne({ where: { id: 1 } });
 

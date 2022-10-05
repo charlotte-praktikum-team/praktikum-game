@@ -5,12 +5,14 @@ import { AppState } from './types';
 import userReducer from './user/slice';
 import dashboardReducer from './dashboard/slice';
 import leaderboardReducer from './leaderboard/slice';
+import forumReducer from './forum/slice';
 import { isServer } from 'utils/isServer';
 
 const appReducer = combineReducers<AppState>({
   user: userReducer,
   dashboard: dashboardReducer,
   leaderboard: leaderboardReducer,
+  forum: forumReducer
 });
 
 export const store = configureStore({

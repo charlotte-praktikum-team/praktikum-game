@@ -1,8 +1,7 @@
 .forum-card {
-  width: 28.8vw;
+  width: 500px;
   padding: 20px 32px;
   display: flex;
-  flex: auto;
   border-radius: 16px;
   background-color: var(--ui-secondary);
   cursor: pointer;

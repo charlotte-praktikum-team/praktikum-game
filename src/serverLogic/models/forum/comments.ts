@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey, BelongsTo, HasMany, Default } from 'sequelize-typescript';
 import { Replies } from './replies';
 import { Topics } from './topics';
 
@@ -38,6 +38,7 @@ export class Comments extends Model<IComments, Omit<IComments, 'id'>> {
   @Column(DataType.STRING)
   userAvatar: string;
 
+  @Default(0)
   @Column(DataType.INTEGER)
   likes: number;
 
