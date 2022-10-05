@@ -7,3 +7,5 @@ export const TEAM_NAME = 'charlotte';
 export const LEVELS = 'levels';
 export const LEADERBOARD_PAGINATION_SIZE = 10;
 export const RATING_FIELD_NAME = 'points';
+export const DARK_THEME_CLASS = 'dark-theme';
+export const LIGHT_THEME_CLASS = 'light-theme';

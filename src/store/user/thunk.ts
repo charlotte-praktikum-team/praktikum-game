@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { PasswordPayload, ProfilePayload, ProfileService } from 'services/profile';
 import { AuthService, SignInPayload, SignUpPayload } from 'services/auth';
+import { Theme, ThemeService } from 'services/theme';
+import { AppState } from 'store/types';
 
 export const changeUser = createAsyncThunk('profile/changeUser', (payload: ProfilePayload) => ProfileService.changeProfile(payload));
 
@@ -24,3 +26,15 @@ export const getUserDataByOAuth = createAsyncThunk('user/getUserDataByOAuth', as
 export const logout = createAsyncThunk('user/logout', () => AuthService.logout());
 
 export const getServiceId = createAsyncThunk('user/getServiceId', () => AuthService.getServiceId());
+
+export const saveTheme = createAsyncThunk(
+  'user/saveTheme',
+  (theme: Theme, thunkApi) => {
+    const { user: { user } } = thunkApi.getState() as AppState;
+
+    return ThemeService.saveTheme({
+      theme,
+      userId: user.id!
+    });
+  }
+);
