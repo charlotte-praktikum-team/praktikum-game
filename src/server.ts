@@ -1,7 +1,6 @@
 import path from 'path';
 import express from 'express';
 import compression from 'compression';
-import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import https from 'https';
 
@@ -16,7 +15,6 @@ const app = express();
 app
   .use(compression())
   .use(express.json())
-  .use(cookieParser())
   .use(express.static(path.resolve(__dirname, '../dist')))
   .use(express.static(path.resolve(__dirname, '../assets')))
   .use(router);

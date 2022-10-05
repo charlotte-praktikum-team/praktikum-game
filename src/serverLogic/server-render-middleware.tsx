@@ -11,11 +11,11 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 import { App } from '../components/App/App';
 
 import { store } from 'store';
-import { getUserData } from 'store/user/thunk';
+import { setUser } from 'store/user/slice';
 
 export default (req: Request, res: Response) => {
   const location = req.url;
-  const dataRequirements = [store.dispatch(getUserData())];
+  const dataRequirements = [store.dispatch(setUser(req.user))];
 
   function renderApp() {
     const statsFile = path.resolve('./dist/loadable-stats.json');

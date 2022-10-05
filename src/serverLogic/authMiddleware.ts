@@ -1,7 +1,24 @@
 import { Request, Response, NextFunction } from 'express';
+import axios from 'axios';
 
-export default (req: Request, res: Response, next: NextFunction) => {
-  console.log('Cookies: ', req.cookies);
-  console.log('Signed Cookies: ', req.signedCookies);
+import { PRACTICUM_ORIGIN } from '../utils/constants';
+import { routes } from '../router/routes';
+
+const pathArray = Object.values(routes).map((route) => route.path);
+
+export default async (req: Request, res: Response, next: NextFunction) => {
+  if (req.headers.cookie && req.headers.cookie.includes('authCookie')) {
+    await axios
+      .get(`${PRACTICUM_ORIGIN}/auth/user`, {
+        headers: { Cookie: req.headers.cookie },
+      })
+      .then((data) => {
+        if (pathArray.includes(req.url)) {
+          req.user = data.data;
+        } else {
+          res.status(401);
+        }
+      });
+  }
   next();
 };
