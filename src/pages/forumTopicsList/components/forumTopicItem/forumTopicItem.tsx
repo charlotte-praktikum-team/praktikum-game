@@ -5,6 +5,7 @@ import { SmallText, Avatar } from 'components';
 
 import './forumTopicItem.css';
 import { ForumTopicItemProps } from './types';
+import { formatDate } from 'utils/formatDate';
 
 export const ForumTopicItem: React.FC<ForumTopicItemProps> = ({ topicItemData }) => {
   const navigate = useNavigate();
@@ -12,17 +13,22 @@ export const ForumTopicItem: React.FC<ForumTopicItemProps> = ({ topicItemData })
 
   return (
     <article className='forum-topic-item' onClick={() => navigate(`/forum/${sectionId}/${topicItemData.id}`)}>
-      <h2 className='forum-topic-item__title'>{topicItemData.name}</h2>
+      <h2 className='forum-topic-item__title'>{topicItemData.title}</h2>
+
       <div className='forum-topic-item__data'>
         <div className='forum-topic-item__data-left-part'>
-          <SmallText>Ответов: {topicItemData.postsCount}</SmallText>
-          <SmallText>Просмотров: {topicItemData.viewsCount}</SmallText>
+          <SmallText>Ответов: {topicItemData.commentsCount}</SmallText>
         </div>
+
         <div className='forum-topic-item__data-right-part'>
-          <Avatar size='s' src={topicItemData.avatar} />
+          <Avatar size='s' src={topicItemData.userAvatar} />
+
           <div className='forum-topic-item__user'>
-            <SmallText>{topicItemData.username}</SmallText>
-            <SmallText classes='forum-topic-item__user-date'>{topicItemData.date}</SmallText>
+            <SmallText>{topicItemData.login}</SmallText>
+
+            <SmallText classes='forum-topic-item__user-date'>
+              {formatDate(topicItemData.createdAt)}
+            </SmallText>
           </div>
         </div>
       </div>

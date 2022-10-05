@@ -1,4 +1,4 @@
-import { AppState } from 'store/types';
+import { AppState } from '../src/store/types';
 
 declare module '*.svg' {
   const content: any;

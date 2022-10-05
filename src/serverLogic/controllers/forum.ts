@@ -20,7 +20,7 @@ export const forumController = {
         group: ['Sections.id']
       });
 
-      res.json({ sections });
+      res.json(sections);
     } catch {
       res.status(500).send();
     }
@@ -44,7 +44,31 @@ export const forumController = {
         group: ['Topics.id']
       });
 
-      res.json({ topics });
+      res.json(topics);
+    } catch {
+      res.status(500).send();
+    }
+  },
+  getTopicHandler: async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    try {
+      const topic = await Topics.findOne({
+        where: {
+          id: Number(id)
+        },
+        attributes: {
+          include: [
+            [Sequelize.fn('COUNT', Sequelize.col('comments')), 'commentsCount'],
+          ]
+        },
+        include: [
+          { model: Comments, attributes: [] }
+        ],
+        group: ['Topics.id']
+      });
+
+      res.json(topic);
     } catch {
       res.status(500).send();
     }
@@ -82,10 +106,13 @@ export const forumController = {
         where: {
           topic_id: Number(topicId)
         },
+        order: [
+          ['id', 'ASC'],
+        ],
         include: Replies
       });
 
-      res.json({ comments });
+      res.json(comments);
     } catch {
       res.status(500).send();
     }

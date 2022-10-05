@@ -1,9 +1,5 @@
+import { Section } from 'types';
+
 export type ForumCardProps = {
-  cardData: {
-    id: number;
-    name: string;
-    description: string;
-    topicsCount: number;
-    postsCount: number;
-  };
+  cardData: Section;
 };

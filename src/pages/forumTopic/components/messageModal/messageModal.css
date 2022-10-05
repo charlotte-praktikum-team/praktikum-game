@@ -1,0 +1,10 @@
+.message-modal {
+  &__wrapper {
+    height: 43vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    row-gap: 32px;
+  }
+}
