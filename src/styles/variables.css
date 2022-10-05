@@ -1,5 +1,6 @@
 :root {
   --background-primary: #fcfcfc;
+  --background-header: #fcfcfc;
   --background-secondary: #fff;
   --background-avatar: #efefef;
   --danger: #ff4e4e;
@@ -10,6 +11,7 @@
   --ui-primary: #3369f3;
   --ui-dark-primary: #2047aa;
   --ui-secondary: #f1f1f1;
+  --text-buttons: #fff;
   --text-secondary: #fff;
   --text-dark-secondary: #1e1e1e;
   --text-placeholder: #8d8d8d;
@@ -29,4 +31,16 @@
   --line-height-xs: 1.16;
   --line-height-profile: 13px;
   --trans-300: 0.3s;
+  --shadow-header: 0 2px 4px rgb(231 232 235 / 60%), 0 4px 8px rgb(231 232 235 / 60%);
+
+  .dark-theme {
+    --background-primary: #212329;
+    --background-header: #35363a;
+    --background-secondary: #35363a;
+    --dark-primary: #fcfcfc;
+    --shadow-header: none;
+    --ui-secondary: #35363a;
+    --text-secondary: #1e1e1e;
+    --text-dark-secondary: #fff;
+  }
 }

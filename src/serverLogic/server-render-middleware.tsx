@@ -12,12 +12,13 @@ import { App } from '../components/App/App';
 
 import { store } from 'store';
 import { getUserData } from 'store/user/thunk';
+import { themeController } from './controllers/theme';
 
 export default (req: Request, res: Response) => {
   const location = req.url;
   const dataRequirements = [store.dispatch(getUserData())];
 
-  function renderApp() {
+  async function renderApp() {
     const statsFile = path.resolve('./dist/loadable-stats.json');
     const chunkExtractor = new ChunkExtractor({ statsFile });
 
@@ -31,14 +32,21 @@ export default (req: Request, res: Response) => {
 
     const reactHtml = renderToString(jsx);
     const helmetData = Helmet.renderStatic();
+    const theme = await themeController.getActiveTheme(14544); // Здесь нужен id юзера из authMiddleware
 
-    res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store));
+    res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store, theme));
   }
 
   return Promise.all(dataRequirements).then(() => renderApp());
 };
 
-function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore: EnhancedStore) {
+function getHtml(
+  reactHtml: string,
+  helmetData: HelmetData,
+  chunkExtractor: ChunkExtractor,
+  reduxStore: EnhancedStore,
+  theme: string
+) {
   const scriptTags = chunkExtractor.getScriptTags();
   const linkTags = chunkExtractor.getLinkTags();
   const styleTags = chunkExtractor.getStyleTags();
@@ -56,7 +64,7 @@ function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: Chun
         ${styleTags}
       </head>
       <body>
-        <div class="root" id="root">${reactHtml}</div>
+        <div class="root ${theme}" id="root">${reactHtml}</div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(reduxStore.getState())}
         </script>

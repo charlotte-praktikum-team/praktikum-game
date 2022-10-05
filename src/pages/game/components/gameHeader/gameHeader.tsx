@@ -5,7 +5,7 @@ import { GameHeaderProps } from './types';
 import './gameHeader.css';
 
 export const GameHeader: FC<GameHeaderProps> = memo(({ timer, onBack, onRefresh, onAddFlask }) => (
-  <Header classes='game-header'>
+  <Header classes='game-header__wrapper'>
     <div className='game-header__actions-wrapper'>
       <button className='game-header__button' onClick={onBack}>
         <Icon name='arrow-left' />

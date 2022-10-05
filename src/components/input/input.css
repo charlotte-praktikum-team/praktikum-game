@@ -28,6 +28,7 @@
 
   &__input {
     width: 100%;
+    background: var(--background-secondary);
     padding: 7px 0;
     outline: none;
     border: none;
@@ -35,6 +36,15 @@
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
     color: var(--dark-primary);
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active {
+      /* stylelint-disable-next-line property-no-vendor-prefix */
+      -webkit-box-shadow: 0 0 0 30px var(--background-secondary) inset !important;
+      -webkit-text-fill-color: var(--dark-primary) !important;
+    }
 
     &:disabled {
       background-color: var(--background-secondary);

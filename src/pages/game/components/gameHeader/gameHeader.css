@@ -1,4 +1,8 @@
 .game-header {
+  &__wrapper {
+    color: var(--dark-primary);
+  }
+
   &__actions-wrapper {
     display: flex;
     gap: 30px;
@@ -9,6 +13,7 @@
   }
 
   &__button {
+    color: inherit;
     border: none;
     background: transparent;
     cursor: pointer;
