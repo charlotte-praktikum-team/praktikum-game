@@ -5,6 +5,6 @@ export default {
   },
   server: {
     test: /^(?!.*\.inline).*\.svg$/,
-    loader: 'null-loader',
+    loader: '@svgr/webpack',
   }
 }

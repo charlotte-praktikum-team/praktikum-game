@@ -19,6 +19,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
           res.status(401);
         }
       });
+  } else {
+    res.redirect('/');
   }
   next();
 };
