@@ -2,7 +2,7 @@
   display: table-row;
 
   &:nth-child(odd) {
-    background-color: var(--background-primary);
+    background-color: var(--background-secondary);
   }
 
   &:nth-child(even) {

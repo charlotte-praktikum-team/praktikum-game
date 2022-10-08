@@ -15,6 +15,9 @@ import Plus from '../../../assets/icons/plus.svg';
 import Refresh from '../../../assets/icons/refresh.svg';
 import User from '../../../assets/icons/user.svg';
 import Yandex from '../../../assets/icons/yandex.svg';
+import ThumbUp from '../../../assets/icons/thumbUp.svg';
+import Moon from '../../../assets/icons/moon.svg';
+import Sun from '../../../assets/icons/sun.svg';
 
 const defaultAttributes = {
   preserveAspectRatio: 'xMidYMid meet',
@@ -67,6 +70,18 @@ export const Icon: FC<IconProps> = memo(({ name, size = 'm' }) => {
 
     case 'yandex': {
       return <Yandex className={classNames} {...defaultAttributes} />;
+    }
+
+    case 'thumbUp': {
+      return <ThumbUp className={classNames} {...defaultAttributes} />;
+    }
+
+    case 'moon': {
+      return <Moon className={classNames} {...defaultAttributes} />;
+    }
+
+    case 'sun': {
+      return <Sun className={classNames} {...defaultAttributes} />;
     }
 
     default: {

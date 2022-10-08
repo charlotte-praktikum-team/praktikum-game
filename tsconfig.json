@@ -21,7 +21,7 @@
   },
   "include": [
     "src",
-    ".declarations/*",
+    "declarations",
     "webpack"
   ]
 }
