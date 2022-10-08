@@ -14,10 +14,11 @@ const getUser = (req: Request) => {
       const { data } = axios.get(`${PRACTICUM_ORIGIN}/auth/user`, {
         headers: { Cookie: req.headers.cookie },
       });
+
       return data;
-    } else {
-      return null;
     }
+
+    return null;
   } catch (e) {
     return null;
   }
@@ -32,7 +33,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   } else {
     if (!pathArray.includes(req.url)) {
       return res.status(401).send();
-    } else if (pathArray.includes(req.url) && req.url !== '/') {
+    }
+    if (pathArray.includes(req.url) && req.url !== '/') {
       return res.redirect('/');
     }
   }
