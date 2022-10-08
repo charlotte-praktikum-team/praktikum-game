@@ -60,7 +60,8 @@
     "no-shadow": "warn",
     "jsx-a11y/media-has-caption": "off",
     "no-underscore-dangle": "off",
-    "no-use-before-define": ["warn", { "functions": false, "classes": false }]
+    "no-use-before-define": ["warn", { "functions": false, "classes": false }],
+    "@typescript-eslint/no-non-null-assertion": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2017,

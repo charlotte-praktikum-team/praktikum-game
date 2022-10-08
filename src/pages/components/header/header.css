@@ -5,5 +5,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgb(231 232 235 / 60%), 0 4px 8px rgb(231 232 235 / 60%);
+  background: var(--background-header);
+  box-shadow: var(--shadow-header);
 }

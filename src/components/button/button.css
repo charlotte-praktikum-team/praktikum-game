@@ -28,7 +28,7 @@
   }
 
   &_primary {
-    color: var(--background-secondary);
+    color: var(--text-buttons);
     background: var(--ui-primary);
 
     &:disabled {
