@@ -4,5 +4,5 @@ import { themeController } from '../controllers/theme';
 import authMiddleware from '../authMiddleware';
 
 export function themeRoutes(router: Router) {
-  router.get('/api/active-theme', [authMiddleware], themeController.getActiveThemeHandler);
+  router.post('/api/theme', [authMiddleware], themeController.saveThemeHandler);
 }
