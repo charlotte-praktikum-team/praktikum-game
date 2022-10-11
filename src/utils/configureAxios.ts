@@ -13,7 +13,7 @@ export const configureAxios = () => {
 
 export const practicumAxios = axios.create({
   baseURL: PRACTICUM_ORIGIN,
-  withCredentials: true
+  withCredentials: true,
 });
 
 practicumAxios.interceptors.response.use(
@@ -23,7 +23,7 @@ practicumAxios.interceptors.response.use(
 
 export const localAxios = axios.create({
   baseURL: '/api',
-  withCredentials: true
+  withCredentials: true,
 });
 
 localAxios.interceptors.response.use(

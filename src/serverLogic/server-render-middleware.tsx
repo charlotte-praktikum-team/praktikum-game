@@ -11,12 +11,12 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 import { App } from '../components/App/App';
 
 import { store } from 'store';
-import { getUserData } from 'store/user/thunk';
+import { setUser } from 'store/user/slice';
 import { themeController } from './controllers/theme';
 
 export default (req: Request, res: Response) => {
   const location = req.url;
-  const dataRequirements = [store.dispatch(getUserData())];
+  const dataRequirements = [store.dispatch(setUser(req.user))];
 
   async function renderApp() {
     const statsFile = path.resolve('./dist/loadable-stats.json');
@@ -32,7 +32,7 @@ export default (req: Request, res: Response) => {
 
     const reactHtml = renderToString(jsx);
     const helmetData = Helmet.renderStatic();
-    const theme = await themeController.getActiveTheme(14544); // Здесь нужен id юзера из authMiddleware
+    const theme = await themeController.getActiveTheme(req.user ? req.user.id : '');
 
     res.status(req.statusCode || 200).send(getHtml(reactHtml, helmetData, chunkExtractor, store, theme));
   }
@@ -40,13 +40,7 @@ export default (req: Request, res: Response) => {
   return Promise.all(dataRequirements).then(() => renderApp());
 };
 
-function getHtml(
-  reactHtml: string,
-  helmetData: HelmetData,
-  chunkExtractor: ChunkExtractor,
-  reduxStore: EnhancedStore,
-  theme: string
-) {
+function getHtml(reactHtml: string, helmetData: HelmetData, chunkExtractor: ChunkExtractor, reduxStore: EnhancedStore, theme: string) {
   const scriptTags = chunkExtractor.getScriptTags();
   const linkTags = chunkExtractor.getLinkTags();
   const styleTags = chunkExtractor.getStyleTags();

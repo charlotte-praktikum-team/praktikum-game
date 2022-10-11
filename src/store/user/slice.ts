@@ -1,8 +1,10 @@
 import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 
+import { User } from '../../types';
 import { UserState } from './types';
 import { isServer } from 'utils/isServer';
 import { changeAvatar, changePassword, changeUser, getServiceId, getUserData, getUserDataByOAuth, logout, signIn, signUp } from './thunk';
+import { ProfilePayload } from '../../services/profile';
 
 const initialState: UserState = {
   user: {
@@ -29,6 +31,9 @@ export const userSlice = createSlice({
     },
     setErrorMessage: (state, action: PayloadAction<string>) => {
       state.errorMessage = action.payload;
+    },
+    setUser: (state, action: PayloadAction<User>) => {
+      state.user = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -73,6 +78,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setErrorMessage } = userSlice.actions;
+export const { setErrorMessage, setUser } = userSlice.actions;
 
 export default userSlice.reducer;
