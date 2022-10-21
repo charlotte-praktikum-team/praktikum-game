@@ -1,10 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 import { PRACTICUM_ORIGIN } from '../utils/constants';
 import { routes } from '../router/routes';
-import { User } from '../types';
-import { practicumAxios } from '../utils/configureAxios';
 
 const pathArray = Object.values(routes).map((route) => route.path);
 
