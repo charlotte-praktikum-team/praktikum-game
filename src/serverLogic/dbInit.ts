@@ -6,7 +6,7 @@ import { Topics } from './models/forum/topics';
 import { UsedThemes } from './models/usedThemes';
 
 const sequelizeOptions: SequelizeOptions = {
-  host: 'localhost',
+  host: 'postgres',
   port: 5432,
   username: 'postgres',
   password: 'newPassword123',
