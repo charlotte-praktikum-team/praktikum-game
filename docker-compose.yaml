@@ -46,9 +46,16 @@ services:
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/PX3U7yeKGaTvucIk1SLVfyBoXvvN35o_cYOAV61CaYE.html:/.well-known/acme-challenge/PX3U7yeKGaTvucIk1SLVfyBoXvvN35o_cYOAV61CaYE.html
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
     networks:
       - awesome
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
 
 networks:
     awesome:
