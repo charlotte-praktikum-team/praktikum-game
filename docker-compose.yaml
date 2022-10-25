@@ -7,6 +7,8 @@ services:
       - "3000:3000"
     networks:
       - awesome
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:12
