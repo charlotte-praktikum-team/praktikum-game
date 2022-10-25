@@ -6,11 +6,11 @@ import { routes } from '../router/routes';
 
 const pathArray = Object.values(routes).map((route) => route.path);
 
-const getUser = (req: Request) => {
+const getUser = async (req: Request) => {
   console.log('from server: ', req.url, req.headers);
   try {
     if (req.headers.cookie && req.headers.cookie.includes('authCookie')) {
-      const { data } = axios.get(`${PRACTICUM_ORIGIN}/auth/user`, {
+      const { data } = await axios.get(`${PRACTICUM_ORIGIN}/auth/user`, {
         headers: { Cookie: req.headers.cookie },
       });
 
