@@ -7,7 +7,7 @@ import { routes } from '../router/routes';
 const pathArray = Object.values(routes).map((route) => route.path);
 
 const getUser = (req: Request) => {
-  console.log(req);
+  console.log('from server: ', req.url, req.headers);
   try {
     if (req.headers.cookie && req.headers.cookie.includes('authCookie')) {
       const { data } = axios.get(`${PRACTICUM_ORIGIN}/auth/user`, {
