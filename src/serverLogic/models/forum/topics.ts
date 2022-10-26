@@ -10,7 +10,7 @@ interface ITopics {
   userAvatar: string;
 }
 
-@Table({ tableName: 'topics' })
+@Table({ tableName: 'topics', freezeTableName: true })
 export class Topics extends Model<ITopics, Omit<ITopics, 'id'>> {
   @PrimaryKey
   @AutoIncrement

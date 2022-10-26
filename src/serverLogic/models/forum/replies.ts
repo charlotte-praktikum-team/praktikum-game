@@ -10,7 +10,7 @@ interface IReplies {
   likes?: number;
 }
 
-@Table({ tableName: 'replies' })
+@Table({ tableName: 'replies', freezeTableName: true })
 export class Replies extends Model<IReplies, Omit<IReplies, 'id'>> {
   @PrimaryKey
   @AutoIncrement

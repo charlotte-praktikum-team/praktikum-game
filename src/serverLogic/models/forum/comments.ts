@@ -1,4 +1,16 @@
-import { Model, Table, Column, DataType, PrimaryKey, AutoIncrement, AllowNull, ForeignKey, BelongsTo, HasMany, Default } from 'sequelize-typescript';
+import {
+  Model,
+  Table,
+  Column,
+  DataType,
+  PrimaryKey,
+  AutoIncrement,
+  AllowNull,
+  ForeignKey,
+  BelongsTo,
+  HasMany,
+  Default
+} from 'sequelize-typescript';
 import { Replies } from './replies';
 import { Topics } from './topics';
 
@@ -11,7 +23,7 @@ interface IComments {
   likes?: number;
 }
 
-@Table({ tableName: 'comments' })
+@Table({ tableName: 'comments', freezeTableName: true })
 export class Comments extends Model<IComments, Omit<IComments, 'id'>> {
   @PrimaryKey
   @AutoIncrement

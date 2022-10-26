@@ -6,7 +6,7 @@ interface IUsedThemes {
   user_id: number;
 }
 
-@Table({ tableName: 'used_themes' })
+@Table({ tableName: 'used_themes', freezeTableName: true })
 export class UsedThemes extends Model<IUsedThemes, Omit<IUsedThemes, 'id'>> {
   @PrimaryKey
   @AutoIncrement

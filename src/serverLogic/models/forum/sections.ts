@@ -7,7 +7,7 @@ interface ISections {
   description: string;
 }
 
-@Table({ tableName: 'sections' })
+@Table({ tableName: 'sections', freezeTableName: true })
 export class Sections extends Model<ISections, Omit<ISections, 'id'>> {
   @PrimaryKey
   @AutoIncrement
