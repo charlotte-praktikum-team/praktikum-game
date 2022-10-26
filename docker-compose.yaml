@@ -1,14 +1,14 @@
 version: "3"
 services:
-  app:
-    image: charlottestudious/ball-sort-puzzle:latest
-    restart: always
-    ports:
-      - "3000:3000"
-    networks:
-      - awesome
-    depends_on:
-      - postgres
+  #app:
+    #image: charlottestudious/ball-sort-puzzle:latest
+    #restart: always
+    #ports:
+      #- "3000:3000"
+    #networks:
+      #- awesome
+    #depends_on:
+      #- postgres
 
   postgres:
     image: postgres:12
@@ -40,24 +40,24 @@ services:
     networks:
       - awesome
 
-  nginx:
-    image: nginx:latest
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf:/etc/letsencrypt:ro
-    networks:
-      - awesome
+  #nginx:
+    #image: nginx:latest
+    #restart: always
+    #ports:
+      #- "80:80"
+      #- "443:443"
+    #volumes:
+      #- ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      #- ./certbot/www:/var/www/certbot/:ro
+      #- ./certbot/conf:/etc/letsencrypt:ro
+    #networks:
+      #- awesome
 
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
+  #certbot:
+    #image: certbot/certbot:latest
+    #volumes:
+      #- ./certbot/www/:/var/www/certbot/:rw
+      #- ./certbot/conf/:/etc/letsencrypt/:rw
 
 networks:
     awesome:
@@ -66,4 +66,4 @@ networks:
 volumes:
     postgres:
     pgadmin-data:
-    nginx:
+    #nginx:

@@ -1,6 +1,6 @@
 /.idea
 /dist
-/server
+/postgresdata
 /node_modules
 .eslintrc.json
 /src/**/*.spec.ts
