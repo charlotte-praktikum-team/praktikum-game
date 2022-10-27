@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEvent, memo, MouseEvent, useRef } from 'react';
+import React, { FC, KeyboardEvent, memo, MouseEvent, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
 import { APP_ROOT_ID } from 'utils/constants';
@@ -11,6 +11,11 @@ import { Icon } from '../icon/icon';
 
 export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleOverflowClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === modalRef.current && onClose) {
@@ -23,6 +28,10 @@ export const Modal: FC<ModalProps> = memo(({ isOpen, onClose, title, children })
       onClose();
     }
   };
+  
+  if (!isMounted) {
+    return null;
+  }
 
   return createPortal(
     <div ref={modalRef} className={cn('modal__overflow', { modal__overflow_open: isOpen })} onClick={handleOverflowClick}>
