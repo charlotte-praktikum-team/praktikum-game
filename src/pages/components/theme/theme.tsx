@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
 
 import { Icon } from 'components';
 
@@ -12,11 +12,18 @@ import { saveTheme } from 'store/user/thunk';
 export const Theme: FC<ThemeProps> = memo(({ classes }) => {
   const dispatch = useAppDispatch();
 
-  const rootNode = document.querySelector(`#${APP_ROOT_ID}`);
-  const [isDarkTheme, setIsDarkTheme] = useState(rootNode?.classList.contains(DARK_THEME_CLASS));
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const getRoot = () => document.querySelector(`#${APP_ROOT_ID}`);
+
+  useEffect(() => {
+    setIsDarkTheme(getRoot()?.classList.contains(DARK_THEME_CLASS) || false);
+  }, []);
 
   const handleToggleTheme = () => {
     const isDark = !isDarkTheme;
+    const rootNode = getRoot();
+
     setIsDarkTheme(isDark);
 
     if (rootNode) {

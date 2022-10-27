@@ -28,15 +28,14 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   req.user = user;
 
   if (user) {
-    next();
-  } else {
-    if (!pathArray.includes(req.url)) {
-      return res.status(401).send();
-    }
-    if (pathArray.includes(req.url) && req.url !== '/') {
-      return res.redirect('/');
-    }
+    return next();
   }
 
-  next();
+  if (!pathArray.includes(req.url)) {
+    return res.status(401).send();
+  }
+  
+  if (pathArray.includes(req.url) && req.url !== '/') {
+    return res.redirect('/');
+  }
 };
