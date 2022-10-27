@@ -27,7 +27,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   const user = await getUser(req);
   req.user = user;
 
-  if (user) {
+  if (user || req.url === '/') {
     return next();
   }
 
@@ -35,7 +35,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     return res.status(401).send();
   }
   
-  if (pathArray.includes(req.url) && req.url !== '/') {
+  if (pathArray.includes(req.url)) {
     return res.redirect('/');
   }
 };
