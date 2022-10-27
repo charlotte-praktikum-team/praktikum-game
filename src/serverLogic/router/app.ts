@@ -4,5 +4,5 @@ import serverRenderMiddleware from '../server-render-middleware';
 import authMiddleware from '../authMiddleware';
 
 export function appRoutes(router: Router) {
-  router.get('/*', [authMiddleware, serverRenderMiddleware]);
+  router.get('/*', [authMiddleware], serverRenderMiddleware);
 }
